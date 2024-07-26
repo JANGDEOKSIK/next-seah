@@ -1,12 +1,11 @@
 'use client'
-
+import classNames from "classnames";
 import { useState } from "react";
 
-export default function Input({id, isVertical, label, isEssential = false, placeholder, onClick, value}) {
-
+export default function Input({id, isVertical = false, label, isEssential = false, placeholder, value}) {
   return (
     <>
-      <div className={"input-wrap " + (isVertical ? '' : 'horizontal')}>
+      <div className={classNames("input-wrap", {horizontal:isVertical})}>
         <div className="input-tit">
           <label htmlFor={id}>{label}</label>
           {isEssential && <span>*</span>}
