@@ -7,7 +7,8 @@ export const getList = (url, key = []) => {
   return useQuery({
     queryKey: key,
     queryFn: async () => {
-      const promise = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`);
+      // const promise = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`);
+      const promise = await fetch(`${process.env.NEXT_PUBLIC_DUMMY_URL}${url}`);
       const response = promise.json();
 
       return response;
