@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Page({ params, searchParams }) {
   console.log(params, searchParams);
-  const { data, isLoading, refetch } = getList("/posts", ["about", "todoList"]);
+  const { data, isLoading, refetch } = getList("/dummy/menu.json", ["about", "todoList"]);
 
   const { mutate, isError, error } = setMutation("/posts", {
     onSuccess: (data) => {
@@ -34,7 +34,7 @@ export default function Page({ params, searchParams }) {
       </button>
       <div>
         {data?.map((item) => (
-          <div key={item.id}>{item.title}</div>
+          <div key={item.id}>{item.keywords}</div>
         ))}
       </div>
     </PageTransition>
