@@ -1,0 +1,15 @@
+header {
+}
+
+#skipNavi a {
+  position: fixed;
+  top: -9999px;
+  z-index: 9999;
+  background: #e31d1a;
+  color: #fff;
+  text-align: center;
+
+  &:focus {
+    top: 0;
+  }
+}
