@@ -2,12 +2,15 @@
 
 import PageTransition from "@/app/_components/PageTransition";
 import { getList, setMutation } from "@/app/_lib/fetch";
+import Link from "next/link";
 
-export default function Page() {
-  const { data, isLoading } = getList("https://jsonplaceholder.typicode.com/todos", "todoList");
+export default function Page({ params, searchParams }) {
+  console.log(params, searchParams);
+  const { data, isLoading, refetch } = getList("http://localhost:4000/posts", ["about", "todoList"]);
 
   const { mutate, isError, error } = setMutation("http://localhost:4000/posts", {
     onSuccess: (data) => {
+      refetch();
       console.log("Success:", data);
     },
     onError: (error) => {
@@ -16,7 +19,7 @@ export default function Page() {
   });
 
   const onClick = () => {
-    mutate({ title: "A", body: "B" });
+    mutate({ title: "C", body: "D" });
   };
 
   if (isLoading) {
@@ -25,6 +28,7 @@ export default function Page() {
   return (
     <PageTransition>
       <div>about/seah123</div>
+      <Link href={"/main"}>main</Link>
       <button type="button" onClick={onClick}>
         post
       </button>

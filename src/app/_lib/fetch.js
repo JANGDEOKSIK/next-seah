@@ -1,8 +1,11 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
 
-export const getList = (url, key) => {
+export const getList = (url, key = []) => {
+  if (key.length === 0) {
+    throw new Error("key값은 필수입니다.")
+  }
   return useQuery({
-    queryKey: [key],
+    queryKey: key,
     queryFn: async () => {
       const promise = await fetch(url);
       const response = promise.json();
