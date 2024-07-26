@@ -7,7 +7,7 @@ export const getList = (url, key = []) => {
   return useQuery({
     queryKey: key,
     queryFn: async () => {
-      const promise = await fetch(url);
+      const promise = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`);
       const response = promise.json();
 
       return response;
@@ -18,7 +18,7 @@ export const getList = (url, key = []) => {
 export const setMutation = (url, options = {}) => {
   const mutation = useMutation({
     mutationFn: async (data) => {
-      const response = await fetch(url, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

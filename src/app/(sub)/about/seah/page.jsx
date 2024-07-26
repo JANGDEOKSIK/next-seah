@@ -6,9 +6,9 @@ import Link from "next/link";
 
 export default function Page({ params, searchParams }) {
   console.log(params, searchParams);
-  const { data, isLoading, refetch } = getList("http://localhost:4000/posts", ["about", "todoList"]);
+  const { data, isLoading, refetch } = getList("/posts", ["about", "todoList"]);
 
-  const { mutate, isError, error } = setMutation("http://localhost:4000/posts", {
+  const { mutate, isError, error } = setMutation("/posts", {
     onSuccess: (data) => {
       refetch();
       console.log("Success:", data);
