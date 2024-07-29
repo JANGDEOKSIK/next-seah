@@ -38,13 +38,13 @@ export default function Textarea({
             placeholder={placeholder}
             onChange={onChange}
           ></textarea>
-          <div class="check-byte">
-            <p class="r-byte">
+          <div className="check-byte">
+            <p className="r-byte">
               {textareaValue.length}
               <span></span>자
             </p>
             /
-            <p class="l-byte">
+            <p className="l-byte">
               <span>{max_length}</span>자
             </p>
           </div>
