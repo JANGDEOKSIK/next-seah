@@ -5,12 +5,17 @@ export default function notFound() {
   const router = useRouter();
 
   const onClick = () => {
-    router.replace("/")
-  }
+    router.replace("/");
+  };
   return (
     <>
       <h2>찾을 수 없는 페이지</h2>
-      <button onClick={onClick}>메인으로</button>
+      <button
+        onClick={onClick}
+        onChange={true}
+      >
+        메인으로
+      </button>
     </>
-  )
+  );
 }
