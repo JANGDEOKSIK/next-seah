@@ -32,8 +32,6 @@ export default function MainPage() {
     setTextareaValue(e.target.value.length);
   };
 
-  const test = (e) => {};
-
   return (
     <PageTransition>
       <div>
