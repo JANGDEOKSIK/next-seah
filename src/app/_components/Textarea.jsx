@@ -1,12 +1,18 @@
 import classNames from "classnames";
 
 export default function Textarea({isNoTitle, id, label, isEssential, placeholder, value, textareaValue}){
+  
+  const max_length = 4000
 
   const onChange = (e) => {
-    value(e.target.value)
-  }
+    textareaValue = e.target.value;
 
-  const max_length = 4000;
+    if (textareaValue.length <= max_length) {
+      value(textareaValue);
+    } else {
+      value(textareaValue.slice(0, max_length));
+    }
+  }
 
   return(
     <>
