@@ -1,7 +1,7 @@
 "use client";
 
 import { useSelector } from "react-redux";
-import PageTransition from "../_components/PageTransition"
+import PageTransition from "../_components/layout/PageTransition";
 import { Children, useState } from "react";
 import DataForm from "@/app/_components/DataForm";
 import Row from "@/app/_components/Row";
@@ -9,6 +9,7 @@ import { Input2, Select2, TextArea2 } from "@/app/_components/Input2";
 import Input from "../_components/Input";
 import Textarea from "../_components/Textarea";
 import SelectBox from "../_components/SelectBox";
+import {useForm} from "react-hook-form"
 
 export default function MainPage() {
   const [inputTitValue, setInputTitValue] = useState("");
@@ -54,6 +55,11 @@ export default function MainPage() {
       option: ["티모시", "딸기", "영양제"]
     },
   ]
+
+  const {register, handleSubmit, formState: {errors}} = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  }
   // 😇은지 작업중😇
   const test = (e) => {};
 
@@ -113,6 +119,10 @@ export default function MainPage() {
             <TextArea2 placeholder={"내용을 입력 해주세요."} maxByte={4000} />
           </Row>
         </DataForm>
+        <form onSubmit={onSubmit}>
+          <input type="text" id="eee" {...register("eee", {required: "값을 넣어라 닝겐!"})} />
+          <button type="submit">submit</button>
+        </form>
         <button className="btn2" type="button">제출하기</button>
         {/* 😇은지 작업중😇 */}
       </div>
