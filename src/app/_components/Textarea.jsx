@@ -1,11 +1,25 @@
 import classNames from "classnames";
 
-export default function Textarea({ isNoTitle, id, label, isEssential, placeholder, value, textareaValue }) {
-  const onChange = (e) => {
-    value(e.target.value);
-  };
+export default function Textarea({
+  isNoTitle,
+  id,
+  label,
+  isEssential,
+  placeholder,
+  value,
+  textareaValue,
+}) {
+  const max_length = 4000;
 
-  const max_length = 1000;
+  const onChange = (e) => {
+    textareaValue = e.target.value;
+
+    if (textareaValue.length <= max_length) {
+      value(textareaValue);
+    } else {
+      value(textareaValue.slice(0, max_length));
+    }
+  };
 
   return (
     <>
@@ -18,7 +32,12 @@ export default function Textarea({ isNoTitle, id, label, isEssential, placeholde
           <div className="info-txt">작성가이드 안내 참고하여 작성해주세요.</div>
         </div>
         <div className="textarea-wrap">
-          <textarea maxLength={max_length} id={id} placeholder={placeholder} onChange={onChange}></textarea>
+          <textarea
+            maxLength={max_length}
+            id={id}
+            placeholder={placeholder}
+            onChange={onChange}
+          ></textarea>
           <div class="check-byte">
             <p class="r-byte">
               {textareaValue.length}
