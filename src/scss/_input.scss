@@ -99,6 +99,11 @@
         background: #d0d3d4;
         border-radius: 2px;
       }
+
+      &::placeholder {
+        font-weight: bold;
+        color: #abb0b3;
+      }
     }
 
     .check-byte {
@@ -111,6 +116,10 @@
       text-align: right;
       color: #b0b7bb;
 
+      p{
+        margin:0;
+      }
+      
       .r-byte {
         color: #3b4951;
       }
