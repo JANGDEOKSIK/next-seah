@@ -1,8 +1,9 @@
 "use client";
 
-import PageTransition from "@/app/_components/PageTransition";
+import PageTransition from "@/app/_components/layout/PageTransition";
 import { getList, setMutation } from "@/app/_lib/fetch";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Page({ params, searchParams }) {
   console.log(params, searchParams);
@@ -33,8 +34,8 @@ export default function Page({ params, searchParams }) {
         post
       </button>
       <div>
-        {data?.map((item) => (
-          <div key={item.id}>{item.keywords}</div>
+        {data?.map((item, index) => (
+          <div key={index}>{item.keywords}</div>
         ))}
       </div>
     </PageTransition>
