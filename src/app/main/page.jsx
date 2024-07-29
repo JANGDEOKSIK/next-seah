@@ -11,11 +11,6 @@ import Textarea from "../_components/Textarea";
 import SelectBox from "../_components/SelectBox";
 
 export default function MainPage() {
-  // const promise = await fetch(`${process.env.REACT_APP_BASE_URL}/dummy/menu.json`);
-  // const response = await promise.json();
-
-  // console.log(response);
-
   const [inputTitValue, setInputTitValue] = useState("");
   const [inputNumValue, setInputNumValue] = useState("");
   const [textareaValue, setTextareaValue] = useState("");
@@ -60,6 +55,7 @@ export default function MainPage() {
     },
   ]
   // 😇은지 작업중😇
+  const test = (e) => {};
 
   return (
     <PageTransition>
