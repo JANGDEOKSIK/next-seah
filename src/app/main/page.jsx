@@ -3,10 +3,12 @@
 import { useSelector } from "react-redux";
 import PageTransition from "../_components/PageTransition"
 import { Children, useState } from "react";
-import Input from "../_components/Input";
 import DataForm from "@/app/_components/DataForm";
 import Row from "@/app/_components/Row";
 import { Input2, Select2, TextArea2 } from "@/app/_components/Input2";
+import Input from "../_components/Input";
+import Textarea from "../_components/Textarea";
+import SelectBox from "../_components/SelectBox";
 
 export default function MainPage() {
   // const promise = await fetch(`${process.env.REACT_APP_BASE_URL}/dummy/menu.json`);
@@ -30,9 +32,34 @@ export default function MainPage() {
   ];
 
   const onClick = () => {
-    console.log(inputTitValue)
-    console.log(inputNumValue)
-  }
+    console.log(inputTitValue);
+    console.log(inputNumValue);
+  };
+
+  const onTextAreaHandler = (e) => {
+    setTextareaValue(e.target.value.length);
+  };
+
+  // 😇은지 작업중😇
+  // Dummy
+  const selectDummy = [
+    {
+      optionIdx : 1,
+      tit: "구은지",
+      option: ["삼겹살", "김치", "초코렛"]
+    },
+    {
+      optionIdx : 2,
+      tit: "나르",
+      option: ["츄르", "사료", "마띠마띠"]
+    },
+    {
+      optionIdx : 3,
+      tit: "토똥이",
+      option: ["티모시", "딸기", "영양제"]
+    },
+  ]
+  // 😇은지 작업중😇
 
   return (
     <PageTransition>
