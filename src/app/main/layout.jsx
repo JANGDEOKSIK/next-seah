@@ -1,11 +1,12 @@
-import Header from "@/app/_components/Header";
+import Header from "@/app/_components/layout/Header";
+import Footer from "../_components/layout/Footer";
 
 export default function Layout({ children }) {
   return (
     <div id="main">
-      <Header></Header>
+      <Header title="my header ! ! !" />
       {children}
-      footer
+      <Footer />
     </div>
   );
 }

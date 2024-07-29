@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
 import { useSelector } from "react-redux";
-import PageTransition from "../_components/PageTransition"
+import PageTransition from "../_components/layout/PageTransition";
 import { useState } from "react";
 import Input from "../_components/Input";
 
@@ -11,14 +11,13 @@ export default function MainPage() {
 
   // console.log(response);
 
-  
   const [inputTitValue, setInputTitValue] = useState("");
   const [inputNumValue, setInputNumValue] = useState("");
 
   const onClick = () => {
-    console.log(inputTitValue)
-    console.log(inputNumValue)
-  }
+    console.log(inputTitValue);
+    console.log(inputNumValue);
+  };
 
   return (
     <PageTransition>
