@@ -1,0 +1,18 @@
+.inner {width: 1362px; margin: 0 auto; border: 1px solid browns;}
+
+.column-layout {
+  display: flex;
+  justify-content: space-between;
+
+  .left {
+    border: 1px solid red;
+  }
+  .right {
+    width: 640px;
+    border: 1px solid blue;
+  }
+  
+  .form-textarea {width: 100%;}
+  .form-input {width: 100%;}
+  .form-select {width: 100%;}
+}
