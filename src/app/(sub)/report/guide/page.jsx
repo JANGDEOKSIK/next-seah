@@ -35,7 +35,18 @@ export default function Guide() {
   return (
     <PageTransition>
       <div id="wrap">
-        <div className="sub-visual" style={{ background: `url(${process.env.PUBLIC_URL}/images/img-sub-visual-report-01.jpg) no-repeat center center/cover` }}></div>
+        <div className="sub-visual" style={{ background: `url(/images/img-sub-visual-report-01.jpg) no-repeat center center/cover` }}>
+          <h2 className="f-s-title1">제보 가이드</h2>
+        </div>
+
+        <div className="report-wrap">
+          <div className="inner">
+            <div className="tit-wrap">
+              <p className="f-title1-eb">윤리경영 제안센터는 세아 임직원 외에도 고객, 주주 및 협력사 등 이해관계자 모두 이용가능한 제보 채널입니다.</p>
+            </div>
+            <div className="cont-inner"></div>
+          </div>
+        </div>
       </div>
     </PageTransition>
   );

@@ -3,11 +3,5 @@ import Footer from "@/app/_components/layout/Footer";
 import SubVisual from "@/app/_components/SubVisual";
 
 export default function Layout({ children }) {
-  return (
-    <div id="wrap">
-      <Header />
-      { children }
-      <Footer />
-    </div>
-  );
+  return <div id="wrap">{children}</div>;
 }

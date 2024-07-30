@@ -1,18 +1,12 @@
-
-$light:'NanumSquareL';
-$regular:'NanumSquareR';
-$bold:'NanumSquareB';
-$ebold:'NanumSquareEB';
-
 /* input */
 *:focus {
   outline: none;
 }
 
-.form-flexbox{
-  display:flex;
+.form-flexbox {
+  display: flex;
   align-items: flex-end;
-  gap:8px;
+  gap: 8px;
 }
 
 .input-wrap {
@@ -45,7 +39,7 @@ $ebold:'NanumSquareEB';
     label {
       font-size: 18px;
       font-family: $ebold;
-      color: #3b4951;
+      color: $brdGray;
     }
 
     span {
@@ -57,7 +51,7 @@ $ebold:'NanumSquareEB';
 
     .info-txt {
       font-size: 14px;
-      color: #abb0b3;
+      color: $gray40;
     }
   }
 
@@ -67,18 +61,18 @@ $ebold:'NanumSquareEB';
     width: 680px;
     height: 64px;
     font-size: 16px;
-    color: #3b4951;
+    color: $brdGray;
     box-sizing: border-box;
-    border: 1px solid #d0d3d4;
+    border: 1px solid $gray20;
     border-radius: 4px;
 
     &::placeholder {
       font-weight: bold;
-      color: #abb0b3;
+      color: $gray40;
     }
 
     &:focus {
-      border: 1px solid #3b4951;
+      border: 1px solid $brdGray;
     }
   }
 
@@ -90,12 +84,12 @@ $ebold:'NanumSquareEB';
     padding: 20px 20px 23px 20px;
     width: 680px;
     height: 400px;
-    border: 1px solid #d0d3d4;
+    border: 1px solid $gray20;
     border-radius: 4px;
     box-sizing: border-box;
 
-    &.focus{
-      border:1px solid #3B4951;
+    &.focus {
+      border: 1px solid $brdGray;
     }
 
     textarea {
@@ -105,7 +99,7 @@ $ebold:'NanumSquareEB';
       height: 100%;
       font-size: 16px;
       line-height: 150%;
-      color: #3b4951;
+      color: $brdGray;
       border: 0;
       resize: none;
 
@@ -115,13 +109,13 @@ $ebold:'NanumSquareEB';
       }
 
       &::-webkit-scrollbar-thumb {
-        background: #d0d3d4;
+        background: $gray20;
         border-radius: 2px;
       }
 
       &::placeholder {
         font-weight: bold;
-        color: #abb0b3;
+        color: $gray40;
       }
     }
 
@@ -135,44 +129,44 @@ $ebold:'NanumSquareEB';
       text-align: right;
       color: #b0b7bb;
 
-      p{
-        margin:0;
+      p {
+        margin: 0;
       }
 
       .r-byte {
-        color: #3b4951;
+        color: $brdGray;
       }
     }
   }
 
   /* select */
-  .form-select{
-    width:100%;
-    max-width:680px;
+  .form-select {
+    width: 100%;
+    max-width: 680px;
 
-    select{
-      position:relative;
-      padding:20px;
-      width:100%;
-      height:64px;
-      font-size:16px;
-      border:1px solid #D0D3D4;
-      border-radius:4px;
+    select {
+      position: relative;
+      padding: 20px;
+      width: 100%;
+      height: 64px;
+      font-size: 16px;
+      border: 1px solid $gray20;
+      border-radius: 4px;
       // -webkit-appearance: none;
       // -moz-appearance: none;
       // appearance: none;
 
-      &:after{
-        display:block;
-        content:"";
-        position:absolute;
-        right:20px;
-        top:50%;
-        transform:translateY(-50%) rotate(90deg);
-        font-size:16px;
-        color:#000;
-        width:14px;
-        height:7px;
+      &:after {
+        display: block;
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+        font-size: 16px;
+        color: #000;
+        width: 14px;
+        height: 7px;
         z-index: 100;
       }
     }
