@@ -1,4 +1,19 @@
 header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 120px;
+
+  .inner {
+    width: 1640px;
+    height: 100%;
+  }
+  .logo {
+    display: block;
+    width: 120px;
+    height: 38px;
+    background: url("/public/images/logo-white.png") no-repeat center center;
+  }
 }
 
 #skipNavi a {
