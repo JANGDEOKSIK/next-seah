@@ -2,7 +2,7 @@
 
 import {useState} from "react";
 
-const Textarea = ({ thTit, isRequired = false, inputId, placeholder, maxByte }) => {
+const Textarea = ({ thTit, info, isRequired = false, inputId, placeholder, maxByte }) => {
   const [byte, setByte] = useState(0);
   const textAreaChangeFunc = (e) => {
     setByte(e.target.value.length);
@@ -11,15 +11,18 @@ const Textarea = ({ thTit, isRequired = false, inputId, placeholder, maxByte }) 
   return (
     <div className="input-wrap">
       <div className="th">
-        <p className="tit"><label htmlFor={inputId}>{thTit}</label></p>
-        {isRequired && <span className="required">*</span>}
+        <div className="tits">
+          <p className="tit"><label htmlFor={inputId}>{thTit}</label></p>
+          {isRequired && <span className="required">*</span>}
+        </div>
+        <p className="info">{info}</p>
       </div>
       <div className="td">
         <div className="form-textarea">
           <textarea
             id={inputId}
             placeholder={placeholder}
-            maxlength={maxByte}
+            maxLength={maxByte}
             onChange={textAreaChangeFunc}
           ></textarea>
           <div className="bytes">

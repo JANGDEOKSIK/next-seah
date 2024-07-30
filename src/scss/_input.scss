@@ -4,15 +4,18 @@
   margin: 0;
   padding: 0;
 }
-input, select, textarea {
+input, select, textarea, button {
   border: none;
   border-radius: 0;
 }
-
+button {
+  cursor: pointer;
+}
 
 // --- input ---
 .form-group {
   display: flex;
+  align-items: flex-end;
   gap: 8px;
 }
 
@@ -136,69 +139,63 @@ input, select, textarea {
   }
 }
 
-.btn2 {
-  background-color: #000;
-  color: #fff;
-  width: 100%;
-  height: 64px;
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+  
+  .common-btn {
+    padding: 21px 96px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 4px;
+    background-color: #E54E2B;
+  }
 }
-
 
 // --- data-form ---
-.th {
-  margin-bottom: 16px;
+.input-wrap {
+  .th {
+    margin-bottom: 16px;
+  
+    .tits {
+      display: flex;
+    }
+    
+    .tit {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 160%;
+      color: #3B4951;
+    }
 
-  .tit {
-    font-size: 18px;
-    font-weight: 800;
-    line-height: 160%;
-    color: #3B4951;
-  }
-
-  .required {
-    flex-shrink: 0;
-    margin-left: 2px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 150%;
-    color: #E54E2B;
-  }
-
-  &:has(.required) {
-    display: flex;
-    align-items: flex-start;
+    .info {
+      font-size: 14px;
+      line-height: 160%;
+      color: #ABB0B3;
+    }
+  
+    .required {
+      flex-shrink: 0;
+      margin-left: 2px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 150%;
+      color: #E54E2B;
+    }
+  
+    &:has(.required) {
+      display: flex;
+      align-items: flex-start;
+    }
+    &:has(.tits, .info) {
+      justify-content: space-between;
+    }
   }
 }
-.data-form {
+
+.form-wrap {
   display: flex;
   flex-direction: column;
   gap: 46px;
-
-  .row {
-
-    .th {
-      margin-bottom: 16px;
-
-      .tit {
-        font-size: 18px;
-        font-weight: 800;
-        line-height: 160%;
-        color: #3B4951;
-      }
-
-      .required {
-        flex-shrink: 0;
-        margin-left: 2px;
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 150%;
-        color: #E54E2B;
-      }
-
-      &:has(.required) {
-        display: flex;
-        align-items: flex-start;
-      }
-    }
-  }
 }

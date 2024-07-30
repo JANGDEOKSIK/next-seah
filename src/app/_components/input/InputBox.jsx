@@ -1,20 +1,18 @@
 
-const InputBox = ({ thTit, isRequired = false, type = "text", inputId, placeholder }) => {
+const InputBox = ({ thTit = false, isRequired = false, type = "text", inputId, placeholder }) => {
   return (
     <div className="input-wrap">
-      <div className="th">
+      {thTit && <div className="th">
         <p className="tit"><label htmlFor={inputId}>{thTit}</label></p>
         {isRequired && <span className="required">*</span>}
-      </div>
+      </div>}
       <div className="td">
-        <div className="form-group">
-          <div className="form-input">
-            <input
-              type={type}
-              id={inputId}
-              placeholder={placeholder}
-            />
-          </div>
+        <div className="form-input">
+          <input
+            type={type}
+            id={inputId}
+            placeholder={placeholder}
+          />
         </div>
       </div>
     </div>
