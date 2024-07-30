@@ -20,6 +20,7 @@ const SelectBox = ({ thTit = false, isRequired = false, inputId, selectData, isO
         <div className="form-group">
           <div className="form-select">
             <select id={inputId} onChange={selectChangeFunc}>
+              <option selected disabled>종족 계열</option>
               {
                 selectData.map((item, idx) => (
                   <option key={idx} value={item.value}>{item.tit}</option>
@@ -31,6 +32,7 @@ const SelectBox = ({ thTit = false, isRequired = false, inputId, selectData, isO
             isOption &&
             <div className="form-select">
               <select id={inputId}>
+                <option selected disabled>음식 계열</option>
                 {
                   selectedOption.map((item, idx) => (
                     <option key={idx} value={item.value}>{item.tit}</option>
