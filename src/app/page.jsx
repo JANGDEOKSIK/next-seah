@@ -7,7 +7,7 @@ export default function Home() {
   redirect("/main");
   return (
     <div>
-      <Link href="/main"></Link>
+      <Link href="/main">ddd</Link>
     </div>
   );
 }
