@@ -1,49 +1,185 @@
 {
-  "posts": [
+  "menus": [
     {
-      "id": "37c7",
-      "title": "A",
-      "body": "B"
+      "menuSeq": 1,
+      "parentSeq": 0,
+      "dpth": 1,
+      "menuId": "ethicalManagementPage",
+      "menuNm": "윤리경영제안센터 소개",
+      "url": "/ethical-management",
+      "keywords": "세아 제보, 세아 윤리경영, 세아 사이버감사실, 세아그룹 제보, 세아그룹 윤리경영",
+      "content": "윤리경영제안센터 소개 | 세아윤리경영제안센터",
+      "desc": "세아는 윤리경영으로 사회적 책임을 다하며, 고객, 임직원, 협력회사, 주주와 함께 발전합니다. 윤리경영 제안센터는 세아 임직원 외에도 고객, 주주 및 협력사 등 이해관계자 모두 이용가능한 제보 채널입니다.",
+      "childcnt": 0,
+      "menuShow": true,
+      "menuEtc": false,
+      "id": "86f8"
     },
     {
-      "id": "0994",
-      "title": "C",
-      "body": "D"
+      "menuSeq": 2,
+      "parentSeq": 0,
+      "dpth": 1,
+      "menuId": "ReportPage",
+      "menuNm": "제보하기",
+      "childeCnt": 4,
+      "menuShow": true,
+      "menuEtc": false,
+      "subMenu": [
+        {
+          "menuSeq": 3,
+          "parentSeq": 2,
+          "dpth": 2,
+          "menuId": "ReportGuidePage",
+          "menuNm": "제보 가이드",
+          "url": "/guide",
+          "keywords": "세아, 윤리경영, 제안센터, 세아홀딩스",
+          "content": "제보 가이드 | 세아윤리경영제안센터",
+          "desc": "세아홀딩스 윤리경영 제안센터에서만 열람이 가능하므로 제안자의 비밀이 절대적으로 보호됩니다.",
+          "childcnt": 0,
+          "menuShow": true,
+          "menuEtc": false
+        },
+        {
+          "menuSeq": 4,
+          "parentSeq": 2,
+          "dpth": 2,
+          "menuId": "ReportOnlinePage",
+          "menuNm": "온라인 제보",
+          "url": "/online",
+          "keywords": "세아, 윤리경영, 제안센터, 세아홀딩스",
+          "content": "온라인 제보 | 세아윤리경영제안센터",
+          "desc": "세아홀딩스 윤리경영 제안센터에서만 열람이 가능하므로 제안자의 비밀이 절대적으로 보호됩니다.",
+          "childcnt": 0,
+          "menuShow": true,
+          "menuEtc": false
+        },
+        {
+          "menuSeq": 5,
+          "parentSeq": 2,
+          "dpth": 2,
+          "menuId": "ReportResultPage",
+          "menuNm": "제보결과 확인",
+          "url": "/result",
+          "keywords": "세아, 윤리경영, 제안센터, 세아홀딩스",
+          "content": "제보결과 확인 | 세아윤리경영제안센터",
+          "desc": "세아홀딩스 윤리경영 제안센터에서만 열람이 가능하므로 제안자의 비밀이 절대적으로 보호됩니다.",
+          "childcnt": 0,
+          "menuShow": true,
+          "menuEtc": false
+        },
+        {
+          "menuSeq": 6,
+          "parentSeq": 2,
+          "dpth": 2,
+          "menuId": "letterPhoneFaxPage",
+          "menuNm": "서신·전화·Fax 이용안내",
+          "url": "/letter-phone-fax",
+          "keywords": "세아, 윤리경영, 제안센터, 세아홀딩스",
+          "content": "서신·전화·Fax 이용안내 | 세아윤리경영제안센터",
+          "desc": "세아홀딩스 윤리경영 제안센터에서만 열람이 가능하므로 제안자의 비밀이 절대적으로 보호됩니다.",
+          "childcnt": 0,
+          "menuShow": true,
+          "menuEtc": false
+        }
+      ],
+      "id": "42e0"
     },
     {
-      "id": "3a9a",
-      "title": "C",
-      "body": "D"
+      "menuSeq": 7,
+      "parentSeq": 0,
+      "dpth": 1,
+      "menuId": "PolicyPage",
+      "menuNm": "개인정보처리방침",
+      "url": "/policy",
+      "keywords": "세아, 윤리경영, 제안센터, 세아홀딩스",
+      "content": "개인정보처리방침 | 세아윤리경영제안센터",
+      "desc": "세아홀딩스 윤리경영 제안센터에서만 열람이 가능하므로 제안자의 비밀이 절대적으로 보호됩니다.",
+      "childcnt": 0,
+      "menuShow": true,
+      "menuEtc": true,
+      "id": "bcfd"
     },
     {
-      "id": "1a69",
-      "title": "C",
-      "body": "D"
+      "menuSeq": 8,
+      "parentSeq": 0,
+      "dpth": 1,
+      "menuId": "manageRulePage",
+      "menuNm": "내부제보 운영규정",
+      "url": "/manage-rule",
+      "keywords": "세아, 윤리경영, 제안센터, 세아홀딩스",
+      "content": "내부제보 운영규정 | 세아윤리경영제안센터",
+      "desc": "세아홀딩스 윤리경영 제안센터에서만 열람이 가능하므로 제안자의 비밀이 절대적으로 보호됩니다.",
+      "childcnt": 0,
+      "menuShow": true,
+      "menuEtc": true,
+      "id": "b857"
     },
     {
-      "id": "b330",
-      "title": "C",
-      "body": "D"
+      "menuSeq": 9,
+      "parentSeq": 0,
+      "dpth": 1,
+      "menuId": "customerInquiryPage",
+      "menuNm": "고객문의",
+      "url": "/customer-inquiry",
+      "keywords": "세아, 윤리경영, 제안센터, 세아홀딩스",
+      "content": "고객문의 | 세아윤리경영제안센터",
+      "desc": "세아홀딩스 윤리경영 제안센터에서만 열람이 가능하므로 제안자의 비밀이 절대적으로 보호됩니다.",
+      "childcnt": 0,
+      "menuShow": true,
+      "menuEtc": true,
+      "id": "7088"
+    }
+  ],
+  "lists": [
+    {
+      "id": "1",
+      "title": "my title 1",
+      "contents": "my contents 1"
     },
     {
-      "id": "5632",
-      "title": "C",
-      "body": "D"
+      "id": "2",
+      "title": "my title 2",
+      "contents": "my contents 2"
     },
     {
-      "id": "3259",
-      "title": "C",
-      "body": "D"
+      "id": "3",
+      "title": "my title 3",
+      "contents": "my contents 3"
     },
     {
-      "id": "7a3c",
-      "title": "C",
-      "body": "D"
+      "id": "4",
+      "title": "my title 4",
+      "contents": "my contents 4"
     },
     {
-      "id": "0601",
-      "title": "C",
-      "body": "D"
+      "id": "5",
+      "title": "my title 5",
+      "contents": "my contents 5"
+    },
+    {
+      "id": "6",
+      "title": "my title 6",
+      "contents": "my contents 6"
+    },
+    {
+      "id": "7",
+      "title": "my title 7",
+      "contents": "my contents 7"
+    },
+    {
+      "id": "8",
+      "title": "my title 8",
+      "contents": "my contents 8"
+    },
+    {
+      "id": "9",
+      "title": "my title 9",
+      "contents": "my contents 9"
+    },
+    {
+      "id": "10",
+      "title": "my title 10",
+      "contents": "my contents 10"
     }
   ]
 }
