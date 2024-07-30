@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'NanumSquareL';
+  src:url('../app/fonts/NanumSquareL.ttf');
+}
+@font-face {
+  font-family: 'NanumSquareR';
+  src:url('../app/fonts/NanumSquareR.ttf');
+}
+@font-face {
+  font-family: 'NanumSquareB';
+  src:url('../app/fonts/NanumSquareB.ttf');
+}
+@font-face {
+  font-family: 'NanumSquareEB';
+  src:url('../app/fonts/NanumSquareEB.ttf');
+}
+
+*{
+  font-family: 'NanumSquareB';
+  color:#3b4951;
+}
+
+.f-title1-eb{font-size:40px; line-height:150%; font-family: 'NanumSquareEB';}
+.f-title2-eb{font-size:36px; line-height:150%; font-family: 'NanumSquareEB';}
+.f-title3-eb{font-size:28px; line-height:150%; font-family: 'NanumSquareEB';}
+.f-title3-b{font-size:28px; line-height:150%; font-family: 'NanumSquareB';}
+.f-title4-eb{font-size:24px; line-height:150%; font-family: 'NanumSquareEB';}
+.f-s-title1{font-size:56px; line-height:150%; font-family: 'NanumSquareEB';}
+.f-s-title2{font-size:22px; line-height:110%; font-family: 'NanumSquareEB';}
+.f-body1-eb{font-size:18px; line-height:160%; font-family: 'NanumSquareEB';}
+.f-body1-b{font-size:18px; line-height:160%; font-family: 'NanumSquareB';}
+.f-body1-r{font-size:18px; line-height:160%; font-family: 'NanumSquareR';}
+.f-body2-eb{font-size:16px; line-height:160%; font-family: 'NanumSquareEB';}
+.f-body2-b{font-size:16px; line-height:160%; font-family: 'NanumSquareB';}
+.f-desc-eb{font-size:14px; line-height:160%; font-family: 'NanumSquareEB'; color:#858e93;}
+.f-desc-b{font-size:14px; line-height:160%; font-family: 'NanumSquareB'; color:#858e93;}

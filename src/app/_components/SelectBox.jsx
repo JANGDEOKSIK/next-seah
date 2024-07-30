@@ -1,36 +1,27 @@
-export default function SelectBox({id, label, isEssential, option0, option1}){
+export default function SelectBox({id, label, isEssential, option, isNoTitle}){
   return(
     <>
       <div className="input-wrap">
-        <div className="input-tit">
-          <div className="label">
-            <label htmlFor={id}>{label}</label>
-            {isEssential && <span>*</span>}
+        {
+          isNoTitle ? "" : 
+          <div className="input-tit f-body1-eb">
+            <div className="label">
+              <label htmlFor={id}>{label}</label>
+              {isEssential && <span>*</span>}
+            </div>
           </div>
-        </div>
-        <div className="form-select-arr">
-          <div className="form-select">
-            <select>
-              {
-                option0.map((item) => {
-                  return(
-                    <option value={item.value} key={item.value}>{item.name}</option>
-                  )
-                })
-              }
-            </select>
-          </div>
-          <div className="form-select">
-            <select>
-              {
-                option1.map((item) => {
-                  return(
-                    <option value={item.value} key={item.value}>{item.name}</option>
-                  )
-                })
-              }
-            </select>
-          </div>
+        }
+        
+        <div className="form-select">
+          <select id={id}>
+            {
+              option.map((item) => {
+                return(
+                  <option value={item.value} key={item.value}>{item.name}</option>
+                )
+              })
+            }
+          </select>
         </div>
       </div>
       

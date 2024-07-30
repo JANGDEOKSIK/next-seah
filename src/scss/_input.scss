@@ -1,6 +1,18 @@
+
+$light:'NanumSquareL';
+$regular:'NanumSquareR';
+$bold:'NanumSquareB';
+$ebold:'NanumSquareEB';
+
 /* input */
 *:focus {
   outline: none;
+}
+
+.form-flexbox{
+  display:flex;
+  align-items: flex-end;
+  gap:8px;
 }
 
 .input-wrap {
@@ -32,7 +44,7 @@
 
     label {
       font-size: 18px;
-      font-weight: bold;
+      font-family: $ebold;
       color: #3b4951;
     }
 
@@ -82,6 +94,10 @@
     border-radius: 4px;
     box-sizing: border-box;
 
+    &.focus{
+      border:1px solid #3B4951;
+    }
+
     textarea {
       overflow-y: auto;
       padding: 0 10px 0 0;
@@ -130,39 +146,34 @@
   }
 
   /* select */
-  .form-select-arr{
-    display:flex;
-    column-gap: 8px;
+  .form-select{
+    width:100%;
+    max-width:680px;
 
-    .form-select{
+    select{
+      position:relative;
+      padding:20px;
       width:100%;
-      max-width:680px;
+      height:64px;
+      font-size:16px;
+      border:1px solid #D0D3D4;
+      border-radius:4px;
+      // -webkit-appearance: none;
+      // -moz-appearance: none;
+      // appearance: none;
 
-      select{
-        position:relative;
-        padding:20px;
-        width:100%;
-        height:64px;
+      &:after{
+        display:block;
+        content:"";
+        position:absolute;
+        right:20px;
+        top:50%;
+        transform:translateY(-50%) rotate(90deg);
         font-size:16px;
-        border:1px solid #D0D3D4;
-        border-radius:4px;
-        // -webkit-appearance: none;
-        // -moz-appearance: none;
-        // appearance: none;
-
-        &:after{
-          display:block;
-          content:"";
-          position:absolute;
-          right:20px;
-          top:50%;
-          transform:translateY(-50%) rotate(90deg);
-          font-size:16px;
-          color:#000;
-          width:14px;
-          height:7px;
-          z-index: 100;
-        }
+        color:#000;
+        width:14px;
+        height:7px;
+        z-index: 100;
       }
     }
   }
