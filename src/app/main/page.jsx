@@ -6,7 +6,7 @@ import { Children, useState } from "react";
 import Input from "../_components/Input";
 import Textarea from "../_components/Textarea";
 import SelectBox from "../_components/SelectBox";
-import {useForm} from "react-hook-form"
+import { useForm } from "react-hook-form";
 
 export default function MainPage() {
   const [inputTitValue, setInputTitValue] = useState("");
