@@ -1,27 +1,30 @@
 "use client";
 
+import Modal from "@/app/_components/modal/Modal";
 import { getList, setMutation } from "@/app/_lib/fetch";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function List() {
-  const { data, refetch } = getList("/lists", ["intro", "lists"]);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const { data, refetch } = getList("/lists", ["intro", "lists"]);
+
   const { mutate } = setMutation("/lists", {
     onSuccess: (data) => {
-      console.log(data);
       refetch();
     },
   });
 
   const onSubmit = (data) => {
-    console.log(data);
     mutate(data);
   };
+
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <div>
@@ -40,6 +43,9 @@ export default function List() {
           <button type="submit">타이틀 추가하기</button>
         </div>
       </form>
+
+      <button onClick={() => setIsOpen(true)}>팝업</button>
+      {isOpen && <Modal onClose={() => setIsOpen(false)} />}
     </>
   );
 }
