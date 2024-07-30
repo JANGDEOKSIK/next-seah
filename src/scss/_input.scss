@@ -8,6 +8,9 @@ input, select, textarea, button {
   border: none;
   border-radius: 0;
 }
+input:focus, select:focus, textarea:focus {
+  outline: none
+}
 button {
   cursor: pointer;
 }

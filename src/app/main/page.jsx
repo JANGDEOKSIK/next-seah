@@ -12,19 +12,58 @@ export default function MainPage() {
   // Dummy
   const selectDummy = [
     {
-      optionIdx : 1,
+      value : "1",
       tit: "구은지",
-      option: ["삼겹살", "김치", "초코렛"]
+      options: [
+        {
+          value: "1-1",
+          tit: "삼겹살"
+        },
+        {
+          value: "1-2",
+          tit: "김치"
+        },
+        {
+          value: "1-3",
+          tit: "초코렛"
+        },
+      ]
     },
     {
-      optionIdx : 2,
+      value : "2",
       tit: "나르",
-      option: ["츄르", "사료", "마띠마띠"]
+      options: [
+        {
+          value: "2-1",
+          tit: "츄르"
+        },
+        {
+          value: "2-2",
+          tit: "사료"
+        },
+        {
+          value: "2-3",
+          tit: "마띠마띠"
+        },
+      ]
     },
     {
-      optionIdx : 3,
+      value : "3",
       tit: "토똥이",
-      option: ["티모시", "딸기", "영양제"]
+      options: [
+        {
+          value: "3-1",
+          tit: "티모시"
+        },
+        {
+          value: "3-2",
+          tit: "딸기"
+        },
+        {
+          value: "3-3",
+          tit: "영양제"
+        },
+      ]
     },
   ]
 
@@ -45,7 +84,7 @@ export default function MainPage() {
             제보는 최대한 빠른 시일내에 처리되며, 결과는 원하는 방법으로 회신하여 드립니다.
           </div>
         </div>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="column-layout-wrap">
             <div className="column-layout">
               <div className="left">
@@ -56,12 +95,15 @@ export default function MainPage() {
               </div>
               <div className="right">
                 <div className="form-wrap">
-                  <SelectBox
-                    thTit={"대상회사"}
-                    isRequired={true}
-                    inputId={"inputId1-1"}
-                    selectData={selectDummy}
-                  />
+                  <div className="form-group">
+                    <SelectBox
+                      thTit={"대상회사"}
+                      isRequired={true}
+                      inputId={"inputId1-1"}
+                      selectData={selectDummy}
+                      isOption={true}
+                    />
+                  </div>
                   <InputBox
                       thTit={"제목"}
                       isRequired={true}
@@ -73,8 +115,7 @@ export default function MainPage() {
               {/* <form onSubmit={onSubmit}>
                 <input type="text" id="eee" {...register("eee", {required: "값을 넣어라 닝겐!"})} />
                 <button type="submit">submit</button>
-              </form>
-              <button className="btn2" type="button">제출하기</button> */}
+              </form> */}
             </div>
             <div className="column-layout">
               <div className="left">
@@ -91,18 +132,12 @@ export default function MainPage() {
                     inputId={"inputId2-1"}
                     selectData={selectDummy}
                   />
-                  <div className="form-group">
-                    <InputBox
-                      thTit={"제목"}
-                      isRequired={true}
-                      inputId={"inputId2-2-1"}
-                      placeholder={"제목을 입력 해주세요."}
-                    />
-                    <InputBox
-                      inputId={"inputId2-2-2"}
-                      placeholder={"제목을 입력 해주세요."}
-                    />
-                  </div>
+                  <InputBox
+                    thTit={"제목"}
+                    isRequired={true}
+                    inputId={"inputId2-2-1"}
+                    placeholder={"제목을 입력 해주세요."}
+                  />
                   <Textarea
                     thTit={"내용"}
                     info={"작성가이드 안내 참고하여 작성해주세요."}
