@@ -7,7 +7,10 @@ import { useState } from "react";
 
 export default function Page({ params, searchParams }) {
   console.log(params, searchParams);
-  const { data, isLoading, refetch } = getList("/dummy/menu.json", ["about", "todoList"]);
+  const { data, isLoading, refetch } = getList("/dummy/menu.json", [
+    "about",
+    "todoList",
+  ]);
 
   const { mutate, isError, error } = setMutation("/posts", {
     onSuccess: (data) => {
@@ -30,7 +33,10 @@ export default function Page({ params, searchParams }) {
     <PageTransition>
       <div>about/seah123</div>
       <Link href={"/main"}>main</Link>
-      <button type="button" onClick={onClick}>
+      <button
+        type="button"
+        onClick={onClick}
+      >
         post
       </button>
       <div>

@@ -2,17 +2,13 @@
 
 import { useSelector } from "react-redux";
 import PageTransition from "../_components/layout/PageTransition";
-import { useState } from "react";
+import { Children, useState } from "react";
 import Input from "../_components/Input";
 import Textarea from "../_components/Textarea";
 import SelectBox from "../_components/SelectBox";
+import { useForm } from "react-hook-form";
 
 export default function MainPage() {
-  // const promise = await fetch(`${process.env.REACT_APP_BASE_URL}/dummy/menu.json`);
-  // const response = await promise.json();
-
-  // console.log(response);
-
   const [inputTitValue, setInputTitValue] = useState("");
   const [inputNumValue, setInputNumValue] = useState("");
   const [textareaValue, setTextareaValue] = useState("");
@@ -36,6 +32,8 @@ export default function MainPage() {
   const onTextAreaHandler = (e) => {
     setTextareaValue(e.target.value.length);
   };
+
+  const test = (e) => {};
 
   return (
     <PageTransition>
