@@ -21,7 +21,7 @@
       "dpth": 1,
       "menuId": "ReportPage",
       "menuNm": "제보하기",
-      "childeCnt": 4,
+      "childCnt": 4,
       "menuShow": true,
       "menuEtc": false,
       "subMenu": [
@@ -192,6 +192,53 @@
     {
       "id": "d997",
       "title": "4444"
+    }
+  ],
+  "posts": [
+    {
+      "id": "37c7",
+      "title": "A",
+      "body": "B"
+    },
+    {
+      "id": "0994",
+      "title": "C",
+      "body": "D"
+    },
+    {
+      "id": "3a9a",
+      "title": "C",
+      "body": "D"
+    },
+    {
+      "id": "1a69",
+      "title": "C",
+      "body": "D"
+    },
+    {
+      "id": "b330",
+      "title": "C",
+      "body": "D"
+    },
+    {
+      "id": "5632",
+      "title": "C",
+      "body": "D"
+    },
+    {
+      "id": "3259",
+      "title": "C",
+      "body": "D"
+    },
+    {
+      "id": "7a3c",
+      "title": "C",
+      "body": "D"
+    },
+    {
+      "id": "0601",
+      "title": "C",
+      "body": "D"
     }
   ]
 }
