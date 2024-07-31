@@ -1,4 +1,4 @@
-export default function Header({ title }) {
+export default function Header({ title, dummy }) {
   return (
     <>
       <div id="skipNavi">
@@ -9,11 +9,29 @@ export default function Header({ title }) {
           <a href="javascript:" className="logo"></a>
           <nav>
             <ul>
-              <li className="one-depth-w">
-                <a href="javascript:" className="one-d">
-                  <span>윤리경영제안센터 소개</span>
-                </a>
-              </li>
+              {dummy.menus
+                .filter((item) => item.dpth < 2 && item.menuEtc === false)
+                .map((item) => {
+                  return (
+                    <li className="one-depth-w" key={item.menuSeq}>
+                      <a href="javascript:" className="one-d">
+                        <span>{item.menuNm}</span>
+                      </a>
+                      {dummy.menus.map((item) => {
+                        item.subMenu.map((subItem) => {
+                          <div className="two-depth-w">
+                            <a href="javascript:" className="two-d" key={item.menuSeq}>
+                              <span className="f-body2-b">{subItem.menuNm}</span>
+                            </a>
+                          </div>;
+                        });
+                      })}
+                    </li>
+                  );
+                })}
+            </ul>
+
+            {/* <ul>
               <li className="one-depth-w">
                 <a href="javascript:" className="one-d">
                   <span>제보하기</span>
@@ -33,7 +51,7 @@ export default function Header({ title }) {
                   </a>
                 </div>
               </li>
-            </ul>
+            </ul> */}
           </nav>
           <div className="util-wrap">
             <div className="lang-wrap">
