@@ -21,7 +21,7 @@
       "dpth": 1,
       "menuId": "ReportPage",
       "menuNm": "제보하기",
-      "childeCnt": 4,
+      "childCnt": 4,
       "menuShow": true,
       "menuEtc": false,
       "subMenu": [
@@ -180,6 +180,22 @@
       "id": "10",
       "title": "my title 10",
       "contents": "my contents 10"
+    },
+    {
+      "id": "a495",
+      "title": "12121"
+    },
+    {
+      "id": "9211",
+      "title": "32333"
+    },
+    {
+      "id": "f55d",
+      "title": "45444"
+    },
+    {
+      "id": "fad5",
+      "title": "56555"
     }
   ]
 }
