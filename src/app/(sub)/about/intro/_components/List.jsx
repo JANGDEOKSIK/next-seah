@@ -2,6 +2,7 @@
 
 import Modal from "@/app/_components/modal/Modal";
 import { getList, setMutation } from "@/app/_lib/fetch";
+import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -18,6 +19,7 @@ export default function List() {
     onSuccess: (data) => {
       refetch();
     },
+    onError: (data) => {},
   });
 
   const onSubmit = (data) => {
@@ -45,7 +47,9 @@ export default function List() {
       </form>
 
       <button onClick={() => setIsOpen(true)}>팝업</button>
-      {isOpen && <Modal onClose={() => setIsOpen(false)} />}
+      <AnimatePresence>
+        {isOpen && <Modal onClose={() => setIsOpen(false)} />}
+      </AnimatePresence>
     </>
   );
 }
