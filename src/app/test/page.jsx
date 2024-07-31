@@ -30,7 +30,9 @@ export default function Login() {
           type="text"
           {...register("name", { required: true, minLength: 1 })}
         />
-        {errors.name && errors.name.type === "required" && <p>작성하세용</p>}
+        {errors.name && errors.name.type === "required" && (
+          <p>입력 안 되었어용 입력하세용</p>
+        )}
         <br />
         <label htmlFor="email">이메일</label>
         <input
@@ -40,9 +42,11 @@ export default function Login() {
             pattern: /^[\w.]+@[\w.]+\.[A-Za-z]{2,3}$/i,
           })}
         />
-        {errors.email && errors.email.type === "required" && <p>작성하세용</p>}
+        {errors.email && errors.email.type === "required" && (
+          <p>입력 안 되었어용 입력하세용</p>
+        )}
         {errors.email && errors.email.type === "pattern" && (
-          <p>이메일 형식에 맞게 작성하세용 </p>
+          <p>이메일 형식에 맞게 작성하세용</p>
         )}
         <br />
         <label htmlFor="password">비밀번호</label>
@@ -51,7 +55,7 @@ export default function Login() {
           {...register("password", { required: true, maxLength: 5 })}
         />
         {errors.password && errors.password.type === "required" && (
-          <p>작성하세용</p>
+          <p>입력 안 되었어용 입력하세용</p>
         )}
         {errors.password && errors.password.type === "maxLength" && (
           <p>5자 미만으로 작성하세용</p>
