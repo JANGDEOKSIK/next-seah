@@ -1,4 +1,7 @@
-.inner {width: 1362px; margin: 0 auto;}
+.inner {
+  width: 1362px;
+  margin: 0 auto;
+}
 
 .column-layout-wrap {
   display: flex;
@@ -8,9 +11,8 @@
   .column-layout {
     display: flex;
     // justify-content: space-between;
-  
+
     .left {
-  
       .cont-tit {
         .num {
           display: inline-block;
@@ -18,25 +20,33 @@
           margin-bottom: 16px;
           font-size: 16px;
           line-height: 1;
-          color: #E54E2B;
-          border: 2px solid #E54E2B;
+          color: #e54e2b;
+          border: 2px solid #e54e2b;
           border-radius: 30px;
         }
         .tit {
           font-size: 36px;
           font-weight: 800;
           line-height: 150%;
-          color: #3B4951;
+          color: #3b4951;
         }
       }
     }
     .right {
       width: 640px;
     }
-    
-    .input-wrap {width: 100%;}
-    .form-textarea {width: 100%;}
-    .form-input {width: 100%;}
-    .form-select {width: 100%;}
+
+    .input-wrap {
+      width: 100%;
+    }
+    .form-textarea {
+      width: 100%;
+    }
+    .form-input {
+      width: 100%;
+    }
+    .form-select {
+      width: 100%;
+    }
   }
 }
