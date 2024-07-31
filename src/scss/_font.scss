@@ -1,0 +1,15 @@
+@mixin font-face($name, $weight) {
+  @font-face {
+    font-family: $name;
+    src: url("/fonts/#{$name}.woff2") format("woff2"),
+      url("/fonts/#{$name}.ttf") format("truetype");
+    font-weight: $weight;
+    font-style: normal;
+  }
+}
+
+@include font-face("NanumSquareEB", 800);
+@include font-face("NanumSquareB", 700);
+@include font-face("NanumSquareR", 400);
+@include font-face("NotoSerifKR-Bold", 700);
+@include font-face("NotoSerifKR-Regular", 400);

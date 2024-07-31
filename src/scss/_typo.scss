@@ -83,19 +83,26 @@
 
 .f-bdy {
   &1 {
-    font-size: 18rem;
-    font-weight: 800;
-    line-height: 160%;
-    color: $brdGray;
-
     &-eb {
       font-family: "NanumSquareEB";
+      font-size: 18rem;
+      font-weight: 800;
+      line-height: 160%;
+      color: $brdGray;
     }
     &-b {
       font-family: "NanumSquareB";
     }
+    font-size: 18rem;
+    font-weight: 800;
+    line-height: 160%;
+    color: $brdGray;
     &-r {
       font-family: "NanumSquareR";
+      font-size: 18rem;
+      font-weight: 800;
+      line-height: 160%;
+      color: $brdGray;
     }
 
     @include tablet() {
@@ -104,20 +111,25 @@
   }
 
   &2 {
-    font-family: "NanumSquareEB";
-    font-size: 16rem;
-    font-weight: 800;
-    line-height: 160%;
-    color: $brdGray;
-
     &-eb {
       font-family: "NanumSquareEB";
+      font-size: 16rem;
+      font-weight: 800;
+      line-height: 160%;
+      color: $brdGray;
     }
     &-b {
       font-family: "NanumSquareB";
+      font-size: 16rem;
+      font-weight: 800;
+      line-height: 160%;
+      color: $brdGray;
     }
     &-r {
       font-family: "NanumSquareR";
+      font-size: 16rem;
+      font-weight: 800;
+      line-height: 160%;
       color: $gray40;
     }
 

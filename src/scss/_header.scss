@@ -1,4 +1,22 @@
 header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  height: 120rem;
+  background-color: $white;
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1640rem;
+    height: 100%;
+  }
+
+  .nav {
+  }
 }
 
 #skipNavi a {
