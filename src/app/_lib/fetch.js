@@ -1,18 +1,19 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
 
-export const getList = (url, key = []) => {
-  if (key.length === 0) {
+export const getList = (url, keyValue = []) => {
+  if (keyValue.length === 0) {
     throw new Error("key값은 필수입니다.")
   }
   return useQuery({
-    queryKey: key,
+    queryKey: keyValue.map((item) => item),
     queryFn: async () => {
-      // const promise = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`);
-      const promise = await fetch(`${process.env.NEXT_PUBLIC_DUMMY_URL}${url}`);
+      const promise = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`);
       const response = promise.json();
 
       return response;
-    }
+    },
+    staleTime: 0,
+    cacheTime: 0
   })
 }
 

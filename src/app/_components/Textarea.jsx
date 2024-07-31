@@ -3,7 +3,15 @@
 import classNames from "classnames";
 import { useState } from "react";
 
-export default function Textarea({ isNoTitle, id, label, isEssential, placeholder, value, textareaValue }) {
+export default function Textarea({
+  isNoTitle,
+  id,
+  label,
+  isEssential,
+  placeholder,
+  value,
+  textareaValue,
+}) {
   const max_length = 4000;
 
   const onChange = (e) => {
@@ -30,7 +38,9 @@ export default function Textarea({ isNoTitle, id, label, isEssential, placeholde
               <label htmlFor={id}>{label}</label>
               {isEssential && <span>*</span>}
             </div>
-            <div className="info-txt">작성가이드 안내 참고하여 작성해주세요.</div>
+            <div className="info-txt">
+              작성가이드 안내 참고하여 작성해주세요.
+            </div>
           </div>
         )}
 
