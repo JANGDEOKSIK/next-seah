@@ -1,0 +1,56 @@
+.join-form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.join-form > div + div {
+  margin-top: 20px;
+}
+
+.join-form > div > label {
+  margin-bottom: 7px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.join-form > div > label .essential {
+  color: #ff0000;
+}
+
+.join-form > div > input {
+  width: 300px;
+  margin: 0;
+  padding:  10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 0;
+}
+
+.join-form > div > input::placeholder {
+  font-size: 16px;
+  color: #ddd;
+}
+
+.join-form > div > p {
+  margin: 7px 0 0;
+  font-size: 14px;
+  color: #ff0000;
+}
+
+.join-form button {
+  width: 300px;
+  margin-top: 40px;
+  padding: 10px 0;
+  background-color: #fff;
+  border: 1px solid #000;
+  transition: .3s;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.join-form button:hover {
+  background-color: #000;
+  color: #fff;
+}
