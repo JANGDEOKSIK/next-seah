@@ -1,91 +1,77 @@
-// --- reset ---
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-input,
-select,
-textarea,
-button {
-  border: none;
-  border-radius: 0;
-}
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-}
-button {
-  cursor: pointer;
-}
-
-// --- input ---
+// ---- input ----- //
 .error {
   display: inline-block;
-  margin-top: 10px;
-  font-size: 14px;
+  margin-top: 10rem;
+  font-family: "NanumSquareB";
+  font-size: 16rem;
+  font-weight: 700;
+  line-height: 160%;
   color: red;
 }
 
 .form-group {
   display: flex;
   align-items: flex-end;
-  gap: 8px;
+  gap: 8rem;
 }
 
 .form-input {
-  width: 680px;
-  height: 64px;
-  border: 1px solid #d0d3d4;
-  border-radius: 4px;
+  width: 680rem;
+  height: 64rem;
+  border: 1px solid $gray20;
+  border-radius: 4rem;
   overflow: hidden;
 
   input {
     width: 100%;
     height: 100%;
-    padding: 0 20px;
-    font-size: 16px;
-    font-weight: 700;
+    padding: 0 20rem;
+    font-family: "NanumSquareB";
+    font-size: 16rem;
+    font-weight: 800;
     line-height: 160%;
-    color: #3b4951;
+    color: $brdGray;
 
     &::placeholder {
-      color: #abb0b3;
+      color: $gray40;
     }
   }
 
   &:has(input:focus) {
-    border: 1px solid #3b4951;
+    border: 1px solid $brdGray;
   }
   &:has(input:disabled) {
+  }
+  &:not(:has(input:placeholder-shown)) {
+    border: 1px solid $brdGray;
   }
 }
 
 .form-select {
-  width: 444px;
-  height: 64px;
-  border: 1px solid #d0d3d4;
-  border-radius: 4px;
+  width: 444rem;
+  height: 64rem;
+  border: 1px solid $gray20;
+  border-radius: 4rem;
   overflow: hidden;
 
   select {
     width: 100%;
     height: 100%;
-    padding: 0 20px;
-    font-size: 16px;
-    font-weight: 700;
+    padding: 0 20rem;
+    font-family: "NanumSquareB";
+    font-size: 16rem;
+    font-weight: 800;
     line-height: 160%;
-    color: #3b4951;
+    color: $brdGray;
     cursor: pointer;
 
     &::placeholder {
-      color: #abb0b3;
+      color: $gray40;
     }
   }
 
   &:has(select:focus) {
-    border: 1px solid #3b4951;
+    border: 1px solid $brdGray;
   }
   &:has(select:disabled) {
   }
@@ -95,33 +81,29 @@ button {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 680px;
-  height: 400px;
-  padding: 20px 10px;
-  border: 1px solid #d0d3d4;
-  border-radius: 4px;
-  background-color: #fff;
+  width: 680rem;
+  height: 400rem;
+  padding: 20rem 10rem;
+  border: 1px solid $gray20;
+  border-radius: 4rem;
+  background-color: $white;
   overflow: hidden;
-
-  textarea {
-    padding-left: 10px;
-  }
 
   .bytes {
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-top: 20px;
+    margin-top: 20rem;
 
     .byte {
-      font-size: 12px;
+      font-size: 12rem;
       font-weight: 700;
       line-height: 160%;
-      color: #b0b7bb;
+      color: $brdLhtGray;
 
       &:has(.current) {
-        color: #3b4951;
+        color: $brdGray;
       }
     }
   }
@@ -129,75 +111,135 @@ button {
   textarea {
     width: 100%;
     height: 100%;
-    padding-right: 6px;
-    font-size: 16px;
-    font-weight: 700;
+    padding-right: 6rem;
+    padding-left: 10rem;
+    font-family: "NanumSquareB";
+    font-size: 16rem;
+    font-weight: 800;
     line-height: 160%;
-    color: #3b4951;
+    color: $brdGray;
 
     &::placeholder {
-      color: #abb0b3;
+      color: $gray40;
     }
 
     &::-webkit-scrollbar {
-      width: 4px;
+      width: 4rem;
       background: transparent;
     }
     &::-webkit-scrollbar-thumb {
-      width: 4px;
-      background: #d0d3d4;
-      border-radius: 100px;
+      width: 4rem;
+      background: $gray20;
+      border-radius: 100rem;
     }
   }
 
   &:has(textarea:focus) {
-    border: 1px solid #3b4951;
+    border: 1px solid $brdGray;
+  }
+
+  &:not(:has(textarea:placeholder-shown)) {
+    border: 1px solid $brdGray;
   }
 }
 
+.form-radio {
+  display: flex;
+
+  input {
+    flex-shrink: 0;
+    width: 20rem;
+    height: 20rem;
+    // vertical-align: middle;
+    appearance: none;
+    background: url("/images/icon-radio-off.svg") no-repeat top left / 20rem
+      auto;
+    cursor: pointer;
+
+    &:checked {
+      background-image: url("/images/icon-radio-on.svg");
+    }
+
+    & + label {
+      padding-left: 8rem;
+      cursor: pointer;
+    }
+  }
+}
+
+// ---- button ----- //
 .btn-wrap {
   display: flex;
   justify-content: center;
 
-  .common-btn {
-    padding: 21px 96px;
-    font-size: 18px;
+  &:has(.secondary-btn) {
+    margin-top: 144rem;
+  }
+
+  .secondary-btn {
+    height: 72rem;
+    padding: 20rem 96rem;
+    font-family: "NanumSquareB";
+    font-size: 18rem;
     font-weight: 700;
-    color: #fff;
-    border-radius: 4px;
-    background-color: #e54e2b;
+    line-height: 160%;
+    color: $white;
+    border-radius: 4rem;
+    background-color: $brdOrange;
   }
 }
 
-// --- data-form ---
+.info-btn {
+  position: relative;
+  color: $brdOrange;
+  padding-left: 24rem;
+  background: url(/images/icon-mark-orange.svg) no-repeat top 3rem left / 18rem
+    auto;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: calc(100% + 4rem);
+    left: 0;
+    height: 1px;
+    background-color: $brdOrange;
+  }
+}
+
+// ---- data-form ----- //
 .input-wrap {
   .th {
-    margin-bottom: 16px;
+    margin-bottom: 16rem;
 
     .tits {
       display: flex;
     }
 
     .tit {
-      font-size: 18px;
+      font-family: "NanumSquareEB";
+      font-size: 18rem;
       font-weight: 800;
       line-height: 160%;
-      color: #3b4951;
+      color: $brdGray;
     }
 
     .info {
-      font-size: 14px;
+      font-family: "NanumSquareB";
+      font-size: 16rem;
+      font-weight: 700;
       line-height: 160%;
-      color: #abb0b3;
+      color: $gray40;
     }
 
     .required {
       flex-shrink: 0;
-      margin-left: 2px;
-      font-size: 16px;
+      margin-left: 2rem;
+      font-family: "NanumSquareB";
+      font-size: 16rem;
       font-weight: 700;
       line-height: 150%;
-      color: #e54e2b;
+      color: $brdOrange;
     }
 
     &:has(.required) {
@@ -213,5 +255,5 @@ button {
 .form-wrap {
   display: flex;
   flex-direction: column;
-  gap: 46px;
+  gap: 46rem;
 }

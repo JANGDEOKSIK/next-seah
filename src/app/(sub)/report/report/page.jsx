@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import InputBox from "@/app/_components/input/InputBox";
 import SelectBox from "@/app/_components/input/SelectBox";
 import Textarea from "@/app/_components/input/Textarea";
+import RadioBox from "@/app/_components/input/RadioBox";
 
 export default function GuidePage() {
   const {
@@ -118,8 +119,8 @@ export default function GuidePage() {
                 <div className="column-layout">
                   <div className="left">
                     <div className="cont-tit">
-                      <p className="num">01</p>
-                      <p className="tit">
+                      <p className="num f-bdy2-b">01</p>
+                      <p className="tit f-tit2">
                         제보대상을
                         <br />
                         입력해주세요.
@@ -154,12 +155,19 @@ export default function GuidePage() {
                 <div className="column-layout">
                   <div className="left">
                     <div className="cont-tit">
-                      <p className="num">02</p>
-                      <p className="tit">
+                      <p className="num f-bdy2-b">02</p>
+                      <p className="tit f-tit2">
                         제보 내용을
                         <br />
                         작성해 주세요.
                       </p>
+                      <button
+                        type="button"
+                        className="info-btn f-bdy2-b"
+                        title="팝업 열기"
+                      >
+                        작성가이드 안내
+                      </button>
                     </div>
                   </div>
                   <div className="right">
@@ -197,6 +205,14 @@ export default function GuidePage() {
                           required: "* 내용을 입력해 주세요.",
                         })}
                       />
+                      <RadioBox
+                        thTit="문제를 알게된 경로"
+                        isRequired={false}
+                        inputId="inputIdB4"
+                        inputName="inputIdB4"
+                        errors={errors.inputIdB4}
+                        {...register("inputIdB4", {})}
+                      />
                     </div>
                   </div>
                 </div>
@@ -204,7 +220,7 @@ export default function GuidePage() {
               <div className="btn-wrap">
                 <button
                   type="submit"
-                  className="common-btn"
+                  className="secondary-btn"
                 >
                   제출하기
                 </button>

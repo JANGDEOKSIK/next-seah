@@ -4,6 +4,7 @@
     font-size: 40rem;
     font-weight: 800;
     line-height: 150%;
+    color: $brdGray;
 
     @include tablet() {
       font-size: 20rem;
@@ -15,6 +16,7 @@
     font-size: 36rem;
     font-weight: 800;
     line-height: 150%;
+    color: $brdGray;
 
     @include tablet() {
       font-size: 24rem;
@@ -26,6 +28,7 @@
     font-size: 28rem;
     font-weight: 800;
     line-height: 150%;
+    color: $brdGray;
 
     @include tablet() {
       font-size: 22rem;
@@ -37,6 +40,7 @@
     font-size: 28rem;
     font-weight: 700;
     line-height: 150%;
+    color: $brdGray;
 
     @include tablet() {
       font-size: 22rem;
@@ -48,6 +52,7 @@
     font-size: 24rem;
     font-weight: 800;
     line-height: 150%;
+    color: $brdGray;
 
     @include tablet() {
       font-size: 16rem;
@@ -92,11 +97,11 @@
     }
     &-b {
       font-family: "NanumSquareB";
+      font-size: 18rem;
+      font-weight: 800;
+      line-height: 160%;
+      color: $brdGray;
     }
-    font-size: 18rem;
-    font-weight: 800;
-    line-height: 160%;
-    color: $brdGray;
     &-r {
       font-family: "NanumSquareR";
       font-size: 18rem;
