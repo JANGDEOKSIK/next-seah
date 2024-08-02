@@ -1,11 +1,15 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
+import Logo from "/public/images/icon-logo.svg";
 
-export default function Header({ title }) {
+export default function Header() {
+  const [hoverMenu, setHoverMenu] = useState(null);
   const { isLoading, error, data } = useQuery({
-    queryKey: ["header"],
+    queryKey: ["headerFooter"],
     queryFn: async () => {
       const promise = await fetch(`${process.env.NEXT_PUBLIC_DUMMY_URL}/menus`);
       const response = await promise.json();
@@ -13,7 +17,7 @@ export default function Header({ title }) {
       return response;
     },
   });
-  console.log(data);
+  // console.log(data);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -30,29 +34,180 @@ export default function Header({ title }) {
       </div>
       <header>
         <div className="inner">
-          {/* <div>{title}</div> */}
           <h1 className="logo">
-            <Link href="/main">로고</Link>
+            <Link
+              href="/main"
+              title="메인페이지 이동"
+            >
+              <Image
+                src={Logo}
+                alt="SeAH"
+                layout="fill"
+                objectFit="contain"
+              />
+            </Link>
           </h1>
           <nav className="nav">
-            {data.map((item, idx) =>
-              item.url ? (
-                <p key={idx}>
-                  <Link href={item.url}>{item.menuNm}</Link>
-                </p>
-              ) : (
-                <p key={idx}>
-                  <span>{item.menuNm}</span>
-                </p>
-              )
-            )}
+            <ul className="nav-menu">
+              {data.map(
+                (item, idx) =>
+                  !item.menuEtc &&
+                  item.menuShow &&
+                  (item.childCnt ? (
+                    <li
+                      className={`one-dpth ${hoverMenu === idx ? "on" : ""}`}
+                      key={item.id}
+                      onMouseEnter={() => setHoverMenu(idx)}
+                      onMouseLeave={() => setHoverMenu(null)}
+                    >
+                      <Link
+                        href="javascript:"
+                        title="투뎁스 메뉴"
+                      >
+                        {item.menuNm}
+                      </Link>
+                      <ul className="two-menu">
+                        {item.subMenu.map((subItem, idx) => (
+                          <li
+                            key={subItem.menuSeq}
+                            className="two-dpth"
+                          >
+                            <Link href={subItem.url}>{subItem.menuNm}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ) : (
+                    <li
+                      key={item.id}
+                      className="one-dpth"
+                    >
+                      <Link href={item.url}>{item.menuNm}</Link>
+                    </li>
+                  ))
+              )}
+            </ul>
           </nav>
-          <div>
-            <div>
-              <div>KOR</div>
-              <div>ENG</div>
+          <div className="util-menu">
+            <div className="utils">
+              <Link
+                href="javascript:"
+                className="on f-bdy1-eb"
+              >
+                KOR
+              </Link>
+              <Link
+                href="javascript:"
+                className="f-bdy1-eb"
+              >
+                ENG
+              </Link>
             </div>
-            <button type="button">버튼</button>
+            <div className="allmenu">
+              <button
+                type="button"
+                className="allmenu-btn"
+                title="전체메뉴 팝업"
+              ></button>
+              <div className="allmenu-popup layer-poup">
+                <div className="pop-wrap">
+                  <div className="pop-cont">
+                    <div className="utils">
+                      <Link
+                        href="javascript:"
+                        className="on f-bdy1-eb"
+                      >
+                        KOR
+                      </Link>
+                      <Link
+                        href="javascript:"
+                        className="f-bdy1-eb"
+                      >
+                        ENG
+                      </Link>
+                    </div>
+                    <ul className="accordion-wrap">
+                      {data.map(
+                        (item, idx) =>
+                          !item.menuEtc &&
+                          item.menuShow &&
+                          (item.childCnt ? (
+                            <li
+                              className="accordion-item"
+                              key={item.id}
+                            >
+                              <div className="accor-head">
+                                <a
+                                  title="아코디언 열기"
+                                  href="javascript:"
+                                >
+                                  <p className="f-tit2">{item.menuNm}</p>
+                                </a>
+                              </div>
+                              <div className="accor-body">
+                                <div className="accor-cont">
+                                  {item.subMenu.map((subItem, idx) => (
+                                    <Link
+                                      href={subItem.url}
+                                      key={subItem.menuSeq}
+                                      className="f-sub2"
+                                    >
+                                      {subItem.menuNm}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            </li>
+                          ) : (
+                            <li
+                              className="accordion-item"
+                              key={item.id}
+                            >
+                              <div className="accor-head">
+                                <a
+                                  title="아코디언 열기"
+                                  href="javascript:"
+                                >
+                                  <p className="f-tit2">{item.menuNm}</p>
+                                </a>
+                              </div>
+                              <div className="accor-body">
+                                <div className="accor-cont">
+                                  <Link
+                                    href={item.url}
+                                    className="f-sub2"
+                                  >
+                                    {item.menuNm}
+                                  </Link>
+                                </div>
+                              </div>
+                            </li>
+                          ))
+                      )}
+                    </ul>
+                    <div className="etcs">
+                      {data.map(
+                        (item, idx) =>
+                          item.menuEtc && (
+                            <Link
+                              href={item.url}
+                              key={item.id}
+                              className="f-desc1"
+                            >
+                              {item.menuNm}
+                            </Link>
+                          )
+                      )}
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    title="팝업 닫기"
+                    className="pop-btn"
+                  ></button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </header>

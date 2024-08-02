@@ -1,0 +1,29 @@
+footer {
+  padding: 144rem 0;
+  border-top: 1px solid $gray10;
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    width: 1640rem;
+  }
+
+  .left {
+    .logo {
+      position: relative;
+      width: 118rem;
+      height: 37rem;
+      margin-bottom: 48rem;
+    }
+    address {
+      p ~ p {
+        margin-top: 6rem;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    gap: 40rem;
+  }
+}

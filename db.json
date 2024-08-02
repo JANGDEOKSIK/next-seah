@@ -243,32 +243,32 @@
   ],
   "reportType": [
     {
-      "id": 1,
+      "id": "reportType1",
       "txt": "이해관계자로부터 금품을 받는 행위",
       "imgUrl": "/images/img-report-type01.jpg"
     },
     {
-      "id": 2,
+      "id": "reportType2",
       "txt": "거래업체에 대한 부당 지분 참여",
       "imgUrl": "/images/img-report-type02.jpg"
     },
     {
-      "id": 3,
+      "id": "reportType3",
       "txt": "협력회사 선정의 투명성 결여",
       "imgUrl": "/images/img-report-type03.jpg"
     },
     {
-      "id": 4,
+      "id": "reportType4",
       "txt": "회사자산의 불법·부당 사용",
       "imgUrl": "/images/img-report-type04.jpg"
     },
     {
-      "id": 5,
+      "id": "reportType5",
       "txt": "문서·계수의 조작 및 허위 보고",
       "imgUrl": "/images/img-report-type05.jpg"
     },
     {
-      "id": 6,
+      "id": "reportType6",
       "txt": "기타 윤리규범 위반<br/>(직무태만, 관리감독소홀, 월권행위, 품위손상 등)",
       "imgUrl": "/images/img-report-type06.jpg"
     }

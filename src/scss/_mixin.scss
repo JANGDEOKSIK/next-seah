@@ -22,3 +22,18 @@
     @content;
   }
 }
+
+// transtion
+@mixin dynamic-transition($properties...) {
+  $transitions: ();
+
+  @each $property in $properties {
+    @if $transitions == () {
+      $transitions: #{$property} 0.2s ease;
+    } @else {
+      $transitions: #{$transitions}, #{$property} 0.2s ease;
+    }
+  }
+
+  transition: #{$transitions};
+}

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function PageMenu() {
   const pathname = usePathname();
-  console.log(pathname);
+  // console.log(pathname);
 
   return (
     <div className="page-menu">

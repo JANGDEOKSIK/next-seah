@@ -1,8 +1,54 @@
+// ----- common ----- //
+body.stop-scroll {
+  overflow: hidden;
+  height: 100%;
+  min-height: 100%;
+  // touch-action: none;
+}
+
+#wrap {
+  padding-bottom: 144rem;
+}
+
 .inner {
   width: 1362rem;
   margin: 0 auto;
 }
 
+// ----- common design ----- //
+.grid-col {
+  &2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// ----- 섹션 ----- //
+section {
+  & ~ section {
+    margin-top: 216rem;
+  }
+}
+
+.sec-tit {
+  .txt {
+    margin-top: 24rem;
+  }
+}
+
+// ----- 아코디언 ----- //
+.accordion-wrap {
+  .accordion-item {
+    .accor-head {
+    }
+    .accor-body {
+      .accor-cont {
+      }
+    }
+  }
+}
+
+// ----- 서브페이지 ----- //
 .column-layout-wrap {
   display: flex;
   flex-direction: column;
@@ -10,7 +56,7 @@
 
   .column-layout {
     display: flex;
-    // justify-content: space-between;
+    justify-content: space-between;
 
     .left {
       .cont-tit {
@@ -47,6 +93,174 @@
     }
     .form-select {
       width: 100%;
+    }
+  }
+}
+
+.page-tit-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 550rem;
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .page-tit {
+    color: $white;
+  }
+
+  .page-menu {
+    position: absolute;
+    top: 50%;
+    right: 140rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 16rem;
+
+    .menu {
+      color: $white;
+
+      &.on {
+        color: $brdOrange;
+      }
+    }
+  }
+}
+
+.page-info-wrap {
+  margin: 144px 0;
+
+  .info {
+    text-align: center;
+  }
+}
+
+// ----- 디자인 레이아웃 ----- //
+// 타입 리스트
+.type-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 72rem 24rem;
+  margin-top: 48rem;
+
+  .item {
+    .img {
+      position: relative;
+      border-radius: 8rem;
+      overflow: hidden;
+      height: 500rem;
+      margin-bottom: 24rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// 프로그레스 리스트
+.process-wrap {
+  margin-top: 72rem;
+
+  .process-circle {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 146rem;
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      width: 290rem;
+      height: 290rem;
+      border-radius: 290rem;
+      border: 1px dashed $brdOrange;
+
+      &:not(:first-child) {
+        margin-left: -22rem;
+      }
+
+      &:nth-child(odd) {
+        background: rgba(229, 78, 43, 0.04);
+      }
+      &:last-child {
+        background-color: $brdOrange;
+        .num,
+        .tit {
+          color: $white;
+        }
+      }
+
+      .num {
+        color: $brdOrange;
+        margin-bottom: 4rem;
+      }
+      .tit {
+        color: $brdOrange;
+      }
+    }
+  }
+
+  .process-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 96rem 24rem;
+
+    .item {
+      padding-top: 24rem;
+      border-top: 1px solid $gray10;
+
+      .tit {
+        color: $brdOrange;
+        margin-bottom: 16rem;
+      }
+    }
+  }
+}
+
+// 회색 박스
+.gray-box {
+  // ❗❗❗❗❗
+  margin-top: 48rem;
+  // ❗❗❗❗❗
+  padding: 48rem;
+  border-radius: 8rem;
+  background-color: $lhtGray;
+}
+
+// 닷
+.dots {
+  gap: 8rem;
+
+  .dot {
+    position: relative;
+    padding-left: 11rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 11rem;
+      left: 0;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 100%;
+      background-color: $gray80;
     }
   }
 }
