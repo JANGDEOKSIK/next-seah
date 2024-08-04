@@ -1,0 +1,139 @@
+.f-tit {
+  &1 {
+    font-size: 40rem;
+    font-weight: 800;
+    line-height: 150%;
+
+    @include tablet() {
+      font-size: 20rem;
+    }
+  }
+
+  &2 {
+    font-size: 36rem;
+    font-weight: 800;
+    line-height: 150%;
+
+    @include tablet() {
+      font-size: 24rem;
+    }
+  }
+
+  &3 {
+    font-size: 28rem;
+    font-weight: 800;
+    line-height: 150%;
+
+    @include tablet() {
+      font-size: 22rem;
+    }
+  }
+
+  &4 {
+    font-size: 28rem;
+    font-weight: 700;
+    line-height: 150%;
+
+    @include tablet() {
+      font-size: 22rem;
+    }
+  }
+
+  &5 {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 150%;
+
+    @include tablet() {
+      font-size: 16rem;
+    }
+  }
+}
+
+.f-sub {
+  &1 {
+    font-size: 56rem;
+    font-weight: 800;
+    line-height: 150%;
+
+    @include tablet() {
+      font-size: 28rem;
+    }
+  }
+
+  &2 {
+    font-size: 22rem;
+    font-weight: 800;
+    line-height: 110%;
+
+    @include tablet() {
+      font-size: 18rem;
+    }
+  }
+}
+
+.f-bdy {
+  &1 {
+    font-size: 18rem;
+    font-weight: 800;
+    line-height: 160%;
+
+    @include tablet() {
+      font-size: 14rem;
+    }
+  }
+
+  &2 {
+    font-size: 16rem;
+    font-weight: 800;
+    line-height: 160%;
+
+    @include tablet() {
+      font-size: 14rem;
+    }
+  }
+}
+
+.f-desc {
+  &1 {
+    font-size: 14rem;
+    font-weight: 800;
+    line-height: 160%;
+
+    @include tablet() {
+      font-size: 12rem;
+    }
+  }
+
+  &2 {
+    font-size: 16rem;
+    font-weight: 700;
+    line-height: 160%;
+
+    @include tablet() {
+      font-size: 12rem;
+    }
+  }
+}
+
+.f-anony {
+  font-size: 100rem;
+  font-weight: 700;
+  line-height: 120%;
+
+  @include tablet() {
+    font-size: 40rem;
+  }
+}
+
+.f-exBold {
+  font-weight: 800 !important;
+}
+
+.f-bold {
+  font-weight: 700 !important;
+}
+
+.f-reg {
+  font-weight: 400 !important;
+}
