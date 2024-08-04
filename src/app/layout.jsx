@@ -1,5 +1,5 @@
 import ReduxProvider from "@/store/provider";
-import QueryProvider from "./_lib/queryProvider";
+import QueryProvider from "@/app/_lib/queryProvider";
 import "@/scss/index.scss";
 
 export const metadata = {

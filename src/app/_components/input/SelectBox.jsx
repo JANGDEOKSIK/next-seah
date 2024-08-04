@@ -28,10 +28,12 @@ const SelectBox = ({
     <div className="input-wrap">
       {thTit && (
         <div className="th">
-          <p className="tit">
-            <label htmlFor={inputId}>{thTit}</label>
-          </p>
-          {isRequired && <span className="required">*</span>}
+          <div className="tits">
+            <p className="tit">
+              <label htmlFor={inputId}>{thTit}</label>
+            </p>
+            {isRequired && <span className="required">*</span>}
+          </div>
         </div>
       )}
       <div className="td">

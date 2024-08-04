@@ -4,14 +4,17 @@ import { useState } from "react";
 
 const Textarea = ({
   thTit,
-  info,
+  thInfo,
   isRequired = false,
   inputId,
+  inputName,
   placeholder,
   maxByte,
-  errors,
-  ...rest
+  register,
+  rules = false,
+  errors = false,
 }) => {
+  const errorMessages = errors[inputName] && errors[inputName].message;
   const [byte, setByte] = useState(0);
   const textAreaChangeFunc = (e) => {
     setByte(e.target.value.length);
@@ -26,16 +29,17 @@ const Textarea = ({
           </p>
           {isRequired && <span className="required">*</span>}
         </div>
-        <p className="info">{info}</p>
+        {thInfo && <p className="info f-desc2">{thInfo}</p>}
       </div>
       <div className="td">
         <div className="form-textarea">
           <textarea
             id={inputId}
+            name={inputName}
             placeholder={placeholder}
             maxLength={maxByte}
             onChange={textAreaChangeFunc}
-            {...rest}
+            {...register(inputName, rules && rules)}
           ></textarea>
           <div className="bytes">
             <p className="byte">
@@ -51,7 +55,7 @@ const Textarea = ({
             className="error"
             role="alert"
           >
-            {errors.message}
+            {errorMessages}
           </small>
         )}
       </div>

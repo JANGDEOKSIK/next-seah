@@ -1,49 +1,27 @@
-"use client";
-
-import PageMenu from "@/app/(sub)/report/_components/PageMenu";
-import { useQuery } from "@tanstack/react-query";
+import PageTransition from "@/app/_components/layout/PageTransition";
 import Image from "next/image";
 import ImgReportTitBg from "/public/images/img-report-tit-bg.jpg";
+import PageMenu from "../_components/PageMenu";
+import TypeList from "./_components/TypeList";
 
 export default function GuidePage() {
-  const { isLoading, error, data } = useQuery({
-    queryKey: ["report", "guide"],
-    queryFn: async () => {
-      const promise = await fetch(
-        `${process.env.NEXT_PUBLIC_DUMMY_URL}/reportType`
-      );
-      const response = await promise.json();
-
-      return response;
-    },
-  });
-  // console.log(data);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>An error occurred: {error.message}</div>;
-  }
-
   return (
-    <>
-      <div id="wrap">
-        <div className="page-tit-wrap">
-          <div className="bg">
-            <Image
-              src={ImgReportTitBg}
-              layout="fill"
-              objectFit="cover"
-              alt=""
-            />
-          </div>
-          <div className="inenr">
-            <p className="page-tit f-tit1">제보 가이드</p>
-            <PageMenu />
-          </div>
+    <div id="wrap">
+      <div className="page-tit-wrap">
+        <div className="bg">
+          <Image
+            src={ImgReportTitBg}
+            layout="fill"
+            objectFit="cover"
+            alt=""
+          />
         </div>
+        <div className="inenr">
+          <p className="page-tit f-tit1">제보 가이드</p>
+          <PageMenu />
+        </div>
+      </div>
+      <PageTransition>
         <div className="cont-wrap">
           <div className="inner">
             <section className="page-info-wrap">
@@ -57,24 +35,7 @@ export default function GuidePage() {
               <div className="sec-tit">
                 <p className="tit f-tit1">제보유형</p>
               </div>
-              <ul className="type-list">
-                {data.map((item, idx) => (
-                  <li
-                    className="item"
-                    key={item.idx}
-                  >
-                    <div className="img">
-                      <Image
-                        src={item.imgUrl}
-                        layout="fill"
-                        objectFit="cover"
-                        alt=""
-                      />
-                    </div>
-                    <p className="txt f-bdy1-eb">{item.txt}</p>
-                  </li>
-                ))}
-              </ul>
+              <TypeList />
             </section>
             <section>
               <div className="sec-tit">
@@ -178,7 +139,7 @@ export default function GuidePage() {
             </section>
           </div>
         </div>
-      </div>
-    </>
+      </PageTransition>
+    </div>
   );
 }

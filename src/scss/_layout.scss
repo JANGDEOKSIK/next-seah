@@ -18,7 +18,7 @@ body.stop-scroll {
 // ----- common design ----- //
 .grid-col {
   &2 {
-    display: grid;
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -248,6 +248,8 @@ section {
 
 // 닷
 .dots {
+  display: flex;
+  flex-direction: column;
   gap: 8rem;
 
   .dot {
