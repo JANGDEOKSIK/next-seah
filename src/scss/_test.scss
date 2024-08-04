@@ -1,0 +1,27 @@
+.accordion-wrap {
+  width: 500px;
+
+  .list {
+    margin-bottom: 20px;
+    list-style: none;
+
+    .title {
+      margin: 0;
+      padding: 10px;
+      width: 100%;
+      text-align: left;
+      background-color: #ccc;
+    }
+
+    .toggle-area {
+      margin: 0;
+      max-height: 200px;
+      overflow-y: auto;
+      background-color: bisque;
+
+      .content {
+        margin: 0;
+      }
+    }
+  }
+}
