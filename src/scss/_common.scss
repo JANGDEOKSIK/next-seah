@@ -20,38 +20,3 @@ a {
 p {
   margin: 0;
 }
-
-.tit-wrap + .cont-inner {
-  margin-top: 144px;
-}
-
-.gray-bg-box {
-  padding: 48px;
-  border-radius: 8px;
-  background: $lhtGray;
-
-  .dot-flex-box {
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 8px;
-
-    .dot-txt {
-      position: relative;
-      padding-left: 11px;
-      width: 50%;
-      color: $gray80;
-
-      &:before {
-        display: block;
-        content: "";
-        position: absolute;
-        top: 9px;
-        left: 0;
-        width: 3px;
-        height: 3px;
-        border-radius: 50%;
-        background: $gray80;
-      }
-    }
-  }
-}
