@@ -34,6 +34,7 @@ const AgreeBox = ({
               type="radio"
               id={`${inputName}a`}
               name={inputName}
+              value="disagree"
               {...register(inputName, rules && rules)}
             />
             <label htmlFor={`${inputName}a`}>동의하지 않음</label>
@@ -43,6 +44,7 @@ const AgreeBox = ({
               type="radio"
               id={`${inputName}b`}
               name={inputName}
+              value="agree"
               {...register(inputName, rules && rules)}
             />
             <label htmlFor={`${inputName}b`}>동의</label>

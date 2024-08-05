@@ -19,7 +19,12 @@ export default function GuidePage() {
     control,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      inputIdE1: "disagree", // 초기 선택값을 'yes'로 설정합니다.
+      inputIdE2: "disagree", // 초기 선택값을 'yes'로 설정합니다.
+    },
+  });
 
   // Dummy
   const selectDummy = [
@@ -345,6 +350,33 @@ export default function GuidePage() {
                   </div>
                   <div className="right">
                     <div className="form-wrap">
+                      <div className="input-wrap">
+                        <div className="form-group">
+                          <div className="form-radio-btn">
+                            <input
+                              type="radio"
+                              name="aaaa"
+                              id="ab"
+                              defaultChecked
+                              // id={`${inputName}a`}
+                              // name={inputName}
+                              // {...register(inputName, rules && rules)}
+                            />
+                            <label htmlFor="ab">실명</label>
+                          </div>
+                          <div className="form-radio-btn">
+                            <input
+                              type="radio"
+                              name="aaaa"
+                              id="de"
+                              // id={`${inputName}a`}
+                              // name={inputName}
+                              // {...register(inputName, rules && rules)}
+                            />
+                            <label htmlFor="de">익명</label>
+                          </div>
+                        </div>
+                      </div>
                       <InputBox
                         thTit="이름"
                         isRequired={true}
@@ -429,18 +461,45 @@ export default function GuidePage() {
                       <AgreeBox
                         thTit="개인정보 수집 및 이용 동의"
                         isRequired={true}
-                        agreeTxt={`수집하는 개인정보 항목\n
-                          수집항목: 성명, 전화번호, 이메일 주소\n
-                          수집방법: 개인정보 항목 수집에 대한 고객 동의 후 고객 직접 작성을 통한 수집\n
-                          수집 및 이용 목적\n
-                          본인 확인 절차에 활용, 상담·문의 및 민원사항 확인, 사실조사를 위한 연락·통지, 고객에 대한 답변, 처리결과 통보\n
-                          개인정보 처리 및 보유 기간\n
-                          보유기간: 3년\n
-                          회사는 개인정보의 수집·이용 목적이 달성되거나 고객으로부터 동의받은 개인정보 보유·이용기간이 만료된 경우 고객이 회사의 개인정보 수집에 대한 동의를 철회하는 경우, 고객의 개인정보를 파기합니다.\n
-                          법령에 따른 개인정보 보유 기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유·이용기간 내에서 개인정보를 처리· 보유합니다.\n
-                          단, 제1항 및 제2항에도 불구하고, 회사는 관련법령의 규정에 의하여 고객의 개인정보를 일정기간 보존할 필요성이 있는 경우에는 법령에 근거한 기간 동안 수집한 개인정보의 전부 또는 일부를 보유할 수 있습니다.`}
+                        agreeTxt={`수집하는 개인정보 항목
+                          - 수집항목: 성명, 전화번호, 이메일 주소
+                          - 수집방법: 개인정보 항목 수집에 대한 고객 동의 후 고객 직접 작성을 통한 수집
+
+                          수집 및 이용 목적
+                          - 본인 확인 절차에 활용, 상담·문의 및 민원사항 확인, 사실조사를 위한 연락·통지, 고객에 대한 답변, 처리결과 통보
+                          - 개인정보 처리 및 보유 기간
+
+                          보유기간: 3년
+                          회사는 개인정보의 수집·이용 목적이 달성되거나 고객으로부터 동의받은 개인정보 보유·이용기간이 만료된 경우 고객이 회사의 개인정보 수집에 대한 동의를 철회하는 경우, 고객의 개인정보를 파기합니다.
+                          법령에 따른 개인정보 보유 기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유·이용기간 내에서 개인정보를 처리· 보유합니다.
+                          단, 제1항 및 제2항에도 불구하고, 회사는 관련법령의 규정에 의하여 고객의 개인정보를 일정기간 보존할 필요성이 있는 경우에는 법령에 근거한 기간 동안 수집한 개인정보의 전부 또는 일부를 보유할 수 있습니다.
+                        `}
                         agreeTit="개인정보처리 방침에 따라 개인정보 수집ㆍ활용에 동의합니다."
                         inputName="inputIdE1"
+                        register={register}
+                        rules={{
+                          required: "* 동의 여부를 선택해 주세요.",
+                        }}
+                        errors={errors}
+                      />
+                      <AgreeBox
+                        thTit="개인정보 제3자 제공동의"
+                        isRequired={true}
+                        agreeTxt={`수집하는 개인정보 항목
+                          - 수집항목: 성명, 전화번호, 이메일 주소
+                          - 수집방법: 개인정보 항목 수집에 대한 고객 동의 후 고객 직접 작성을 통한 수집
+
+                          수집 및 이용 목적
+                          - 본인 확인 절차에 활용, 상담·문의 및 민원사항 확인, 사실조사를 위한 연락·통지, 고객에 대한 답변, 처리결과 통보
+                          - 개인정보 처리 및 보유 기간
+
+                          보유기간: 3년
+                          회사는 개인정보의 수집·이용 목적이 달성되거나 고객으로부터 동의받은 개인정보 보유·이용기간이 만료된 경우 고객이 회사의 개인정보 수집에 대한 동의를 철회하는 경우, 고객의 개인정보를 파기합니다.
+                          법령에 따른 개인정보 보유 기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유·이용기간 내에서 개인정보를 처리· 보유합니다.
+                          단, 제1항 및 제2항에도 불구하고, 회사는 관련법령의 규정에 의하여 고객의 개인정보를 일정기간 보존할 필요성이 있는 경우에는 법령에 근거한 기간 동안 수집한 개인정보의 전부 또는 일부를 보유할 수 있습니다.
+                        `}
+                        agreeTit="개인정보 제3자 제공에 동의합니다."
+                        inputName="inputIdE2"
                         register={register}
                         rules={{
                           required: "* 동의 여부를 선택해 주세요.",

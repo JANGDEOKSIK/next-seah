@@ -157,6 +157,7 @@
   display: flex;
 
   input {
+    position: relative;
     margin-top: 2rem;
     flex-shrink: 0;
     width: 20rem;
@@ -171,8 +172,16 @@
       background-image: url("/images/icon-radio-on.svg");
     }
 
-    &:focus-visible {
-      outline: 1px solid $brdOrange;
+    &:focus-visible::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 18rem;
+      height: 18rem;
+      border: 1px solid $brdOrange;
+      border-radius: 100%;
     }
 
     & + label {
@@ -183,6 +192,49 @@
       line-height: 160%;
       color: $brdGray;
       cursor: pointer;
+    }
+  }
+}
+
+.form-radio-btn {
+  position: relative;
+  width: 300rem;
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 76rem;
+    width: 100%;
+    appearance: none;
+    cursor: pointer;
+
+    & + label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      // max-width: 300rem;
+      height: 76rem;
+      font-family: "NanumSquareB";
+      font-size: 16rem;
+      font-weight: 700;
+      line-height: 160%;
+      color: $brdGray;
+      border-radius: 4rem;
+      border: 1px solid $gray40;
+      background-color: $white;
+      cursor: pointer;
+    }
+
+    &:checked + label {
+      color: $white;
+      border: 1px solid $brdGray;
+      background-color: $brdGray;
+    }
+
+    &:focus + label {
+      border: 1px solid $brdOrange;
     }
   }
 }
