@@ -15,6 +15,7 @@ const Textarea = ({
   errors = false,
 }) => {
   const errorMessages = errors[inputName] && errors[inputName].message;
+  const hasError = !!(errors && errorMessages);
   const [byte, setByte] = useState(0);
   const textAreaChangeFunc = (e) => {
     setByte(e.target.value.length);
@@ -50,7 +51,7 @@ const Textarea = ({
             </p>
           </div>
         </div>
-        {errors && (
+        {hasError && (
           <small
             className="error"
             role="alert"

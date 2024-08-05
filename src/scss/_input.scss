@@ -1,7 +1,7 @@
 // ---- input ----- //
 .error {
   display: inline-block;
-  margin-top: 10rem;
+  margin-top: -6rem;
   font-family: "NanumSquareB";
   font-size: 16rem;
   font-weight: 700;
@@ -19,6 +19,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20rem;
+
+  &.agree {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .form-input {
@@ -193,8 +197,11 @@
   }
 
   .secondary-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 72rem;
-    padding: 20rem 96rem;
+    padding: 0 96rem;
     font-family: "NanumSquareB";
     font-size: 18rem;
     font-weight: 700;
@@ -202,6 +209,34 @@
     color: $white;
     border-radius: 4rem;
     background-color: $brdOrange;
+  }
+}
+
+.file-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64rem;
+  padding: 0 56rem;
+  font-family: "NanumSquareB";
+  font-size: 16rem;
+  font-weight: 700;
+  line-height: 160%;
+  color: $white;
+  border-radius: 4rem;
+  background-color: $brdGray;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    width: 16rem;
+    height: 16rem;
+    margin-right: 12rem;
+    background: url("/images/icon-download.svg") no-repeat center center / 100%
+      auto;
   }
 }
 
@@ -264,6 +299,12 @@
       color: $gray40;
     }
   }
+
+  .td {
+    display: flex;
+    flex-direction: column;
+    gap: 16rem;
+  }
 }
 
 .form-wrap {
@@ -272,20 +313,21 @@
   gap: 46rem;
 }
 
-.fileuploder label {
-  display: inline-block;
-  padding: 0.5em 0.75em;
-  font-size: inherit;
-  line-height: normal;
-  vertical-align: middle;
-  background-color: #cae1f2;
-  cursor: pointer;
-  border: 1px solid #ebebeb;
-  border-bottom-color: #e2e2e2;
-  border-radius: 0.25em;
-}
+// .fileuploder label {
+//   display: inline-block;
+//   padding: 0.5em 0.75em;
+//   font-size: inherit;
+//   line-height: normal;
+//   vertical-align: middle;
+//   background-color: #cae1f2;
+//   cursor: pointer;
+//   border: 1px solid #ebebeb;
+//   border-bottom-color: #e2e2e2;
+//   border-radius: 0.25em;
+// }
 
-.fileuploder input[type="file"] {
+input[type="file"] {
+  // display: none;
   position: absolute;
   width: 1px;
   height: 1px;
@@ -294,4 +336,56 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.file-list {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 16rem;
+
+  .file {
+    position: relative;
+    padding-right: 35rem;
+
+    span {
+      font-family: "NanumSquareB";
+      font-size: 16rem;
+      font-weight: 700;
+      line-height: 160%;
+      color: $brdGray;
+      text-decoration: underline;
+      text-underline-offset: 5rem;
+    }
+
+    .x-btn {
+      position: absolute;
+      top: 1rem;
+      right: 0;
+      width: 26rem;
+      height: 26rem;
+      background: url("/images/icon-file-remove.svg") no-repeat center center /
+        18rem auto;
+    }
+  }
+}
+
+input[type="file"]:focus + .form-input {
+  border: 1px solid $brdOrange;
+}
+
+.scroll-box {
+  height: 180rem;
+  padding: 20rem;
+  border: 1px solid $gray10;
+  border-radius: 4rem;
+  background-color: rgba(227, 228, 229, 0.2);
+
+  .scroll-area {
+    height: 100%;
+    overflow-y: auto;
+    color: $gray60;
+    white-space: pre-line;
+  }
 }

@@ -8,6 +8,7 @@ const InputBox = ({
   errors = false,
 }) => {
   const errorMessages = errors[inputName] && errors[inputName].message;
+  const hasError = !!(errors && errorMessages);
 
   return (
     <div className="input-wrap">
@@ -38,7 +39,7 @@ const InputBox = ({
             </div>
           ))}
         </div>
-        {errors && (
+        {hasError && (
           <small
             className="error"
             role="alert"

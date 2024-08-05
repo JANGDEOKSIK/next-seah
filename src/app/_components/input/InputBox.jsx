@@ -11,8 +11,10 @@ const InputBox = ({
   register,
   rules = false,
   errors = false,
+  children,
 }) => {
   const errorMessages = errors[inputName] && errors[inputName].message;
+  const hasError = !!(errors && errorMessages);
 
   return (
     <div className="input-wrap">
@@ -20,7 +22,14 @@ const InputBox = ({
         <div className="th">
           <div className="tits">
             <p className="tit">
-              <label htmlFor={inputId}>{thTit}</label>
+              <label htmlFor={inputId}>
+                {thTit.split("<br/>").map((item) => (
+                  <>
+                    {item}
+                    <br />
+                  </>
+                ))}
+              </label>
             </p>
             {isRequired && <span className="required">*</span>}
           </div>
@@ -38,7 +47,7 @@ const InputBox = ({
             {...register(inputName, rules && rules)}
           />
         </div>
-        {errors && (
+        {hasError && (
           <small
             className="error"
             role="alert"
@@ -46,6 +55,7 @@ const InputBox = ({
             {errorMessages}
           </small>
         )}
+        {children}
       </div>
     </div>
   );

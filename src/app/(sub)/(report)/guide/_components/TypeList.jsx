@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import Loading from "@/app/loading";
 
 export default function TypeList() {
   const { isLoading, error, data } = useQuery({
@@ -18,7 +19,7 @@ export default function TypeList() {
   // console.log(data);
 
   if (isLoading) {
-    return <div className="loader"></div>;
+    return <Loading />;
   }
 
   return (

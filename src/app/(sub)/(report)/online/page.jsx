@@ -9,6 +9,7 @@ import Aattachment from "@/app/_components/input/Aattachment";
 import SelectBox from "@/app/_components/input/SelectBox";
 import Textarea from "@/app/_components/input/Textarea";
 import RadioBox from "@/app/_components/input/RadioBox";
+import AgreeBox from "@/app/_components/input/AgreeBox";
 import PageTransition from "@/app/_components/layout/PageTransition";
 
 export default function GuidePage() {
@@ -208,7 +209,7 @@ export default function GuidePage() {
                       />
                       <RadioBox
                         thTit="문제를 알게된 경로"
-                        isRequired={false}
+                        isRequired={true}
                         inputName="inputIdB4"
                         radioData={[
                           {
@@ -243,6 +244,8 @@ export default function GuidePage() {
                           },
                         ]}
                         register={register}
+                        rules={{ required: "* 선택해 주세요." }}
+                        errors={errors}
                       />
                       <RadioBox
                         thTit="문제의 지속 기간"
@@ -319,9 +322,13 @@ export default function GuidePage() {
                         register={register}
                       />
                       <Aattachment
+                        isRequired={true}
                         inputId="inputIdB9"
-                        errors={errors.inputIdB9}
-                        {...register("inputIdB9")}
+                        inputName="inputIdB9"
+                        register={register}
+                        watch={watch}
+                        rules={{ required: "* 파일을 첨부해 주세요." }}
+                        errors={errors}
                       />
                     </div>
                   </div>
@@ -381,19 +388,18 @@ export default function GuidePage() {
                         rules={{ required: "* 비밀번호를 입력해 주세요." }}
                         errors={errors}
                       />
-                      <div>
-                        <InputBox
-                          thTit="비밀번호 확인"
-                          isRequired={true}
-                          inputId="inputIdD2"
-                          inputName="inputIdD2"
-                          placeholder="비밀번호를 다시 입력해 주세요."
-                          register={register}
-                          rules={{
-                            required: "* 비밀번호를 다시 입력해 주세요.",
-                          }}
-                          errors={errors}
-                        />
+                      <InputBox
+                        thTit="비밀번호 확인"
+                        isRequired={true}
+                        inputId="inputIdD2"
+                        inputName="inputIdD2"
+                        placeholder="비밀번호를 다시 입력해 주세요."
+                        register={register}
+                        rules={{
+                          required: "* 비밀번호를 다시 입력해 주세요.",
+                        }}
+                        errors={errors}
+                      >
                         <div className="dots">
                           <p className="dot f-desc2">
                             제보결과확인을 위한 비밀번호이며 영문, 숫자를 포함한
@@ -404,7 +410,7 @@ export default function GuidePage() {
                             결과확인을 위해 꼭 기억하시기 바랍니다.
                           </p>
                         </div>
-                      </div>
+                      </InputBox>
                     </div>
                   </div>
                 </div>
@@ -419,7 +425,29 @@ export default function GuidePage() {
                     </div>
                   </div>
                   <div className="right">
-                    <div className="form-wrap"></div>
+                    <div className="form-wrap">
+                      <AgreeBox
+                        thTit="개인정보 수집 및 이용 동의"
+                        isRequired={true}
+                        agreeTxt={`수집하는 개인정보 항목\n
+                          수집항목: 성명, 전화번호, 이메일 주소\n
+                          수집방법: 개인정보 항목 수집에 대한 고객 동의 후 고객 직접 작성을 통한 수집\n
+                          수집 및 이용 목적\n
+                          본인 확인 절차에 활용, 상담·문의 및 민원사항 확인, 사실조사를 위한 연락·통지, 고객에 대한 답변, 처리결과 통보\n
+                          개인정보 처리 및 보유 기간\n
+                          보유기간: 3년\n
+                          회사는 개인정보의 수집·이용 목적이 달성되거나 고객으로부터 동의받은 개인정보 보유·이용기간이 만료된 경우 고객이 회사의 개인정보 수집에 대한 동의를 철회하는 경우, 고객의 개인정보를 파기합니다.\n
+                          법령에 따른 개인정보 보유 기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유·이용기간 내에서 개인정보를 처리· 보유합니다.\n
+                          단, 제1항 및 제2항에도 불구하고, 회사는 관련법령의 규정에 의하여 고객의 개인정보를 일정기간 보존할 필요성이 있는 경우에는 법령에 근거한 기간 동안 수집한 개인정보의 전부 또는 일부를 보유할 수 있습니다.`}
+                        agreeTit="개인정보처리 방침에 따라 개인정보 수집ㆍ활용에 동의합니다."
+                        inputName="inputIdE1"
+                        register={register}
+                        rules={{
+                          required: "* 동의 여부를 선택해 주세요.",
+                        }}
+                        errors={errors}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

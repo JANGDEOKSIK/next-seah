@@ -89,15 +89,15 @@ const SelectBox = ({
             </div>
           )}
         </div>
+        {errors && (
+          <small
+            className="error"
+            role="alert"
+          >
+            {errors.message}
+          </small>
+        )}
       </div>
-      {errors && (
-        <small
-          className="error"
-          role="alert"
-        >
-          {errors.message}
-        </small>
-      )}
     </div>
   );
 };
