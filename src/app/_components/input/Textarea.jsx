@@ -14,12 +14,16 @@ const Textarea = ({
   rules = false,
   errors = false,
 }) => {
-  const errorMessages = errors[inputName] && errors[inputName].message;
-  const hasError = !!(errors && errorMessages);
+  const { onChange, ...rest } = register(inputName, rules && rules);
+  const errorMessages =
+    errors && errors[inputName] && errors[inputName].message;
+  const hasError = errors && errorMessages;
+
   const [byte, setByte] = useState(0);
-  const textAreaChangeFunc = (e) => {
-    setByte(e.target.value.length);
-  };
+
+  // const textAreaChangeFunc = (e) => {
+  //   setByte(e.target.value.length);
+  // };
 
   return (
     <div className="input-wrap">
@@ -39,8 +43,13 @@ const Textarea = ({
             name={inputName}
             placeholder={placeholder}
             maxLength={maxByte}
-            onChange={textAreaChangeFunc}
-            {...register(inputName, rules && rules)}
+            // onChange={textAreaChangeFunc}
+            onChange={(e) => {
+              setByte(e.target.value.length);
+              register(inputName).onChange(e);
+            }}
+            {...rest}
+            // {...register(inputName, rules && rules)}
           ></textarea>
           <div className="bytes">
             <p className="byte">

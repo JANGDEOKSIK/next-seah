@@ -11,8 +11,8 @@ export default function GuidePage() {
         <div className="bg">
           <Image
             src={ImgReportTitBg}
-            layout="fill"
-            objectFit="cover"
+            // layout="fill"
+            fill
             alt=""
           />
         </div>

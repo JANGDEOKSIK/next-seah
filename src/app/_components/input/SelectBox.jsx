@@ -7,21 +7,53 @@ const SelectBox = ({
   thTit = false,
   isRequired = false,
   inputId,
+  inputName,
   selectData,
   isOption = false,
-  errors,
+  rules = false,
+  errors = false,
   control,
   // ...rest
 }) => {
+  const errorMessages =
+    errors && errors[inputName] && errors[inputName].message;
+  const hasError = errors && errorMessages;
+
   const [selectedOption, setSelectedOption] = useState([]);
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [isSelectOn, setIsSelectOn] = useState(false);
+  const [isSelectOn2, setIsSelectOn2] = useState(false);
 
   // const selectChangeFunc = (e) => {
   //   const selected = selectData.find((item) => item.value === e.target.value);
   //   setSelectedOption(selected.options);
   // };
-  const handleSelectChange = (value) => {
-    const selectedItem = selectData.find((item) => item.value === value);
-    setSelectedOption(selectedItem ? selectedItem.options : []);
+
+  const selectChangeFunc = (value) => {
+    const selectedItem = selectData.selectItem.find(
+      (item) => item.value === value
+    );
+
+    if (selectedItem) {
+      isOption && setSelectedOption(selectedItem.options);
+      isOption && setIsDisabled(false);
+      setIsSelectOn(true);
+    } else {
+      isOption && setSelectedOption([]);
+      isOption && setIsDisabled(true);
+      setIsSelectOn(false);
+      isOption && setIsSelectOn2(false);
+    }
+  };
+
+  const selectAddClass = (value) => {
+    const selectedItem = selectedOption.find((item) => item.value === value);
+
+    if (selectedItem) {
+      setIsSelectOn2(true);
+    } else {
+      setIsSelectOn2(false);
+    }
   };
 
   return (
@@ -38,21 +70,23 @@ const SelectBox = ({
       )}
       <div className="td">
         <div className="form-group">
-          <div className="form-select">
+          <div className={`form-select ${isSelectOn ? "on" : ""}`}>
             <Controller
-              name={inputId}
+              name={inputName}
               control={control}
+              rules={rules}
               render={({ field }) => (
                 <select
                   id={inputId}
+                  name={inputName}
                   {...field}
                   onChange={(e) => {
-                    field.onChange(e); // existing onChange handler
-                    handleSelectChange(e.target.value);
+                    field.onChange(e); // ⭐ existing onChange handler
+                    selectChangeFunc(e.target.value);
                   }}
                 >
-                  <option value="">종족 계열</option>
-                  {selectData.map((item, idx) => (
+                  <option value="">{selectData.selectType}</option>
+                  {selectData.selectItem.map((item, idx) => (
                     <option
                       key={idx}
                       value={item.value}
@@ -65,14 +99,19 @@ const SelectBox = ({
             />
           </div>
           {isOption && (
-            <div className="form-select">
+            <div className={`form-select ${isSelectOn2 ? "on" : ""}`}>
               <Controller
                 name={`${inputId}-option`}
                 control={control}
                 render={({ field }) => (
                   <select
+                    disabled={isDisabled}
                     id={`${inputId}-option`}
                     {...field}
+                    onChange={(e) => {
+                      field.onChange(e); // ⭐ existing onChange handler
+                      selectAddClass(e.target.value);
+                    }}
                   >
                     <option value="">음식 계열</option>
                     {selectedOption.map((item, idx) => (
@@ -89,12 +128,12 @@ const SelectBox = ({
             </div>
           )}
         </div>
-        {errors && (
+        {hasError && (
           <small
             className="error"
             role="alert"
           >
-            {errors.message}
+            {errorMessages}
           </small>
         )}
       </div>

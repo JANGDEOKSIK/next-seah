@@ -12,8 +12,9 @@ const Aattachment = ({
   rules = false,
   errors = false,
 }) => {
-  const errorMessages = errors[inputName] && errors[inputName].message;
-  const hasError = !!(errors && errorMessages);
+  const errorMessages =
+    errors && errors[inputName] && errors[inputName].message;
+  const hasError = errors && errorMessages;
   const [files, setFiles] = useState([]);
   const watchedFiles = watch(inputName);
   const { ref, ...rest } = register(inputName, rules && rules);
@@ -27,7 +28,6 @@ const Aattachment = ({
         return;
       }
 
-      console.log(watchedFiles);
       const newFiles = Array.from(watchedFiles);
       setFiles((prev) => [...prev, ...newFiles]);
     }
@@ -45,6 +45,12 @@ const Aattachment = ({
     fileInputRef.current.files = dataTranster.files;
     console.log(fileInputRef.current.files.length);
     console.log(fileInputRef.current.files);
+  };
+
+  const handleDivClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
   };
 
   return (
@@ -76,6 +82,7 @@ const Aattachment = ({
           />
           <div className="form-input">
             <input
+              onClick={handleDivClick}
               readOnly
               placeholder="파일형식: JPG, PNG, PDF, PPT, PPTX, HWP, HWPX"
             />

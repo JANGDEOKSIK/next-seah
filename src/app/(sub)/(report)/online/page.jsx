@@ -10,9 +10,10 @@ import SelectBox from "@/app/_components/input/SelectBox";
 import Textarea from "@/app/_components/input/Textarea";
 import RadioBox from "@/app/_components/input/RadioBox";
 import AgreeBox from "@/app/_components/input/AgreeBox";
+import ContactBox from "@/app/_components/input/ContactBox";
 import PageTransition from "@/app/_components/layout/PageTransition";
 
-export default function GuidePage() {
+export default function OnlinePage() {
   const {
     register,
     handleSubmit,
@@ -21,68 +22,78 @@ export default function GuidePage() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      inputIdE1: "disagree", // 초기 선택값을 'yes'로 설정합니다.
-      inputIdE2: "disagree", // 초기 선택값을 'yes'로 설정합니다.
+      inputIdE1: "disagree",
+      inputIdE2: "disagree",
     },
   });
 
   // Dummy
-  const selectDummy = [
-    {
-      value: "1",
-      tit: "구은지",
-      options: [
-        {
-          value: "1-1",
-          tit: "삼겹살",
-        },
-        {
-          value: "1-2",
-          tit: "김치",
-        },
-        {
-          value: "1-3",
-          tit: "초코렛",
-        },
-      ],
-    },
-    {
-      value: "2",
-      tit: "나르",
-      options: [
-        {
-          value: "2-1",
-          tit: "츄르",
-        },
-        {
-          value: "2-2",
-          tit: "사료",
-        },
-        {
-          value: "2-3",
-          tit: "마띠마띠",
-        },
-      ],
-    },
-    {
-      value: "3",
-      tit: "토똥이",
-      options: [
-        {
-          value: "3-1",
-          tit: "티모시",
-        },
-        {
-          value: "3-2",
-          tit: "딸기",
-        },
-        {
-          value: "3-3",
-          tit: "영양제",
-        },
-      ],
-    },
-  ];
+  const selectDummy = {
+    selectType: "종족 계열",
+    selectItem: [
+      {
+        value: "종족1",
+        tit: "구은지",
+        options: [
+          {
+            value: "1-1",
+            tit: "삼겹살",
+          },
+          {
+            value: "1-2",
+            tit: "김치",
+          },
+          {
+            value: "1-3",
+            tit: "초코렛",
+          },
+        ],
+      },
+      {
+        value: "종족2",
+        tit: "나르",
+        options: [
+          {
+            value: "2-1",
+            tit: "츄르",
+          },
+          {
+            value: "2-2",
+            tit: "사료",
+          },
+          {
+            value: "2-3",
+            tit: "마띠마띠",
+          },
+        ],
+      },
+      {
+        value: "종족3",
+        tit: "토똥이",
+        options: [
+          {
+            value: "3-1",
+            tit: "티모시",
+          },
+          {
+            value: "3-2",
+            tit: "딸기",
+          },
+          {
+            value: "3-3",
+            tit: "영양제",
+          },
+        ],
+      },
+    ],
+  };
+
+  const onError = () => {
+    const errorMessages = Object.values(errors)
+      .map((err) => err.message)
+      .join("\n");
+    alert(`폼 제출 중 오류가 발생했습니다:\n${errorMessages}`);
+  };
 
   const onSubmit = (data) => {
     console.log(data);
@@ -94,8 +105,8 @@ export default function GuidePage() {
         <div className="bg">
           <Image
             src={ImgReportTitBg}
-            layout="fill"
-            objectFit="cover"
+            // layout="fill"
+            fill
             alt=""
           />
         </div>
@@ -122,7 +133,7 @@ export default function GuidePage() {
                 </p>
               </div>
             </section>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit, onError)}>
               <div className="column-layout-wrap">
                 <div className="column-layout">
                   <div className="left">
@@ -141,13 +152,12 @@ export default function GuidePage() {
                         thTit="대상회사"
                         isRequired={true}
                         inputId="inputIdA1"
+                        inputName="inputIdA1"
                         selectData={selectDummy}
                         isOption={true}
+                        rules={{ required: "* 구분을 선택해 주세요." }}
                         control={control}
-                        errors={errors.inputIdA1}
-                        {...register("inputIdA1", {
-                          required: "* 구분을 선택해 주세요.",
-                        })}
+                        errors={errors}
                       />
                       <InputBox
                         thTit="제보대상"
@@ -183,12 +193,12 @@ export default function GuidePage() {
                         thTit="제보구분"
                         isRequired={true}
                         inputId="inputIdB1"
+                        inputName="inputIdB1"
                         selectData={selectDummy}
+                        // isOption={true}
+                        rules={{ required: "* 구분을 선택해 주세요." }}
                         control={control}
-                        errors={errors.inputIdB1}
-                        {...register("inputIdB1", {
-                          required: "* 구분을 선택해 주세요.",
-                        })}
+                        errors={errors}
                       />
                       <InputBox
                         thTit="제목"
@@ -207,7 +217,7 @@ export default function GuidePage() {
                         inputId="inputIdB3"
                         inputName="inputIdB3"
                         placeholder="내용을 입력해 주세요."
-                        maxByte={4000}
+                        maxByte={100}
                         register={register}
                         rules={{ required: "* 내용을 입력해 주세요." }}
                         errors={errors}
@@ -313,14 +323,14 @@ export default function GuidePage() {
                         register={register}
                       />
                       <InputBox
-                        thTit="제보와 관련된 문제를 잘 아는 사람과 알 것으로 <br/>예상되는 사람을 적어주세요."
+                        thTit={`제보와 관련된 문제를 잘 아는 사람과 알 것으로\n예상되는 사람을 적어주세요.`}
                         inputId="inputIdB7"
                         inputName="inputIdB7"
                         placeholder="내용을 입력해 주세요."
                         register={register}
                       />
                       <InputBox
-                        thTit="문제를 확인/조사하기 위해 가장 좋은 방법으로 <br/>생각되는 것을 적어주세요."
+                        thTit={`문제를 확인/조사하기 위해 가장 좋은 방법으로\n생각되는 것을 적어주세요.`}
                         inputId="inputIdB8"
                         inputName="inputIdB8"
                         placeholder="내용을 입력해 주세요."
@@ -393,6 +403,16 @@ export default function GuidePage() {
                         inputName="inputIdC2"
                         placeholder="이메일을 입력해 주세요."
                         register={register}
+                      />
+                      <ContactBox
+                        thTit="연락처"
+                        isRequired={true}
+                        inputId="inputIdC3"
+                        inputName="inputIdC3"
+                        placeholder="연락처를 입력해 주세요."
+                        register={register}
+                        rules={{ required: "* 연락처를 입력해 주세요." }}
+                        errors={errors}
                       />
                     </div>
                   </div>
@@ -478,7 +498,9 @@ export default function GuidePage() {
                         inputName="inputIdE1"
                         register={register}
                         rules={{
-                          required: "* 동의 여부를 선택해 주세요.",
+                          // required: "* 동의 여부를 선택해 주세요.",
+                          validate: (value) =>
+                            value === "agree" || "* 필수 동의해야합니다.",
                         }}
                         errors={errors}
                       />
@@ -502,7 +524,9 @@ export default function GuidePage() {
                         inputName="inputIdE2"
                         register={register}
                         rules={{
-                          required: "* 동의 여부를 선택해 주세요.",
+                          // required: "* 동의 여부를 선택해 주세요.",
+                          validate: (value) =>
+                            value === "agree" || "* 필수 동의해야합니다.",
                         }}
                         errors={errors}
                       />

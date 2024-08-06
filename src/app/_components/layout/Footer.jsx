@@ -30,8 +30,8 @@ export default function Footer() {
             <Image
               src={Logo}
               alt="SeAH"
-              layout="fill"
-              objectFit="contain"
+              // layout="fill"
+              fill
             />
           </div>
           <address className="f-bdy2-b">

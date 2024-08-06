@@ -14,6 +14,12 @@ footer {
       width: 118rem;
       height: 37rem;
       margin-bottom: 48rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
     }
     address {
       p ~ p {

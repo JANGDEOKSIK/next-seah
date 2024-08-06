@@ -24,22 +24,24 @@ export default function TypeList() {
 
   return (
     <ul className="type-list">
-      {data.map((item, idx) => (
-        <li
-          className="item"
-          key={item.idx}
-        >
-          <div className="img">
-            <Image
-              src={item.imgUrl}
-              layout="fill"
-              objectFit="cover"
-              alt=""
-            />
-          </div>
-          <p className="txt f-bdy1-eb">{item.txt}</p>
-        </li>
-      ))}
+      {data.map((item, idx) => {
+        return (
+          <li
+            className="item"
+            key={item.idx}
+          >
+            <div className="img">
+              <Image
+                src={item.imgUrl}
+                // layout="fill"
+                fill
+                alt=""
+              />
+            </div>
+            <p className="txt f-bdy1-eb">{item.txt}</p>
+          </li>
+        );
+      })}
     </ul>
   );
 }

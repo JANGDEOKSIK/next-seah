@@ -7,8 +7,9 @@ const InputBox = ({
   rules = false,
   errors = false,
 }) => {
-  const errorMessages = errors[inputName] && errors[inputName].message;
-  const hasError = !!(errors && errorMessages);
+  const errorMessages =
+    errors && errors[inputName] && errors[inputName].message;
+  const hasError = errors && errorMessages;
 
   return (
     <div className="input-wrap">
@@ -33,6 +34,7 @@ const InputBox = ({
                 type="radio"
                 id={item.id}
                 name={inputName}
+                value={item.value}
                 {...register(inputName, rules && rules)}
               />
               <label htmlFor={item.id}>{item.tit}</label>

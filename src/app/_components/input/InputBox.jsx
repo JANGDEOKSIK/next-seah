@@ -13,8 +13,9 @@ const InputBox = ({
   errors = false,
   children,
 }) => {
-  const errorMessages = errors[inputName] && errors[inputName].message;
-  const hasError = !!(errors && errorMessages);
+  const errorMessages =
+    errors && errors[inputName] && errors[inputName].message;
+  const hasError = errors && errorMessages;
 
   return (
     <div className="input-wrap">
@@ -22,14 +23,15 @@ const InputBox = ({
         <div className="th">
           <div className="tits">
             <p className="tit">
-              <label htmlFor={inputId}>
+              <label htmlFor={inputId}>{thTit}</label>
+              {/* <label htmlFor={inputId}>
                 {thTit.split("<br/>").map((item) => (
                   <>
                     {item}
                     <br />
                   </>
                 ))}
-              </label>
+              </label> */}
             </p>
             {isRequired && <span className="required">*</span>}
           </div>

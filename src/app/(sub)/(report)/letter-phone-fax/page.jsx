@@ -3,15 +3,15 @@ import PageMenu from "../_components/PageMenu";
 import Image from "next/image";
 import ImgReportTitBg from "/public/images/img-report-tit-bg.jpg";
 
-export default function GuidePage() {
+export default function LetterPhoneFaxPage() {
   return (
     <div id="wrap">
       <div className="page-tit-wrap">
         <div className="bg">
           <Image
             src={ImgReportTitBg}
-            layout="fill"
-            objectFit="cover"
+            // layout="fill"
+            fill
             alt=""
           />
         </div>

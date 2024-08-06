@@ -39,8 +39,8 @@ export default function Header() {
               <Image
                 src={Logo}
                 alt="SeAH"
-                layout="fill"
-                objectFit="contain"
+                // layout="fill"
+                fill
               />
             </Link>
           </h1>

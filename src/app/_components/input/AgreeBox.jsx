@@ -1,3 +1,6 @@
+"use-client";
+import { useEffect } from "react";
+
 const AgreeBox = ({
   thTit,
   isRequired = false,
@@ -8,8 +11,9 @@ const AgreeBox = ({
   rules = false,
   errors = false,
 }) => {
-  const errorMessages = errors[inputName] && errors[inputName].message;
-  const hasError = !!(errors && errorMessages);
+  const errorMessages =
+    errors && errors[inputName] && errors[inputName].message;
+  const hasError = errors && errorMessages;
 
   return (
     <div className="input-wrap">
@@ -35,6 +39,7 @@ const AgreeBox = ({
               id={`${inputName}a`}
               name={inputName}
               value="disagree"
+              defaultChecked
               {...register(inputName, rules && rules)}
             />
             <label htmlFor={`${inputName}a`}>동의하지 않음</label>
