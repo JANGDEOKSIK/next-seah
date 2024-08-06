@@ -1,17 +1,32 @@
-
 "use client";
 
-export default function ReportGuidePage() {
+import { getList } from "@/app/_lib/fetch";
+import { usePathname } from "next/navigation";
+
+export default function GuidePage() {
+	const { data, isLoading, refetch } = getList(`/menus`, [
+    "header",
+    "menu",
+  ]);
+
+	const pathname = usePathname();
+	console.log(pathname)
+	
 	return (
 		<div id="wrap">
 
 			<div className="sub-vis" style={{background: "url(/images/sub-vis1.jpg) no-repeat", backgroundSize: "cover"}}>
 				<p className="sub-tit f-s-title1">제보 가이드</p>
 				<div className="lnb">
-					<a href="" className="on">제보 가이드</a>
-					<a href="">온라인 제보</a>
-					<a href="">제보결과 확인</a>
-					<a href="">서신·전화·Fax 이용안내</a>
+					{ data
+						?.filter(item => item.menuId === "ReportPage")
+						.flatMap(item => item.subMenu)
+						.map((subItem) => (
+							<a href={subItem.url} key={subItem.menuSeq} className={pathname.includes(subItem.url) ? "on" : ""}>
+								{subItem.menuNm}
+							</a>
+						))
+					}
 				</div>
 			</div>
 

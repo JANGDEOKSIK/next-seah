@@ -1,6 +1,14 @@
+"use client";
+
+import { getList } from "@/app/_lib/fetch";
+
 export default function Footer() {
+  const { data, isLoading, refetch } = getList(`/menus`, [
+    "header",
+    "menu",
+  ]);
+
   return (
-    
     <footer>
       <div className="left">
         <div className="logo">
@@ -10,9 +18,12 @@ export default function Footer() {
         <p>Copyright © SeAH All rights reserved.</p>
       </div>
       <div className="right">
-        <a href="">개인정보취급방침</a>
-        <a href="">내부제보 운영규정</a>
-        <a href="">고객 문의</a>
+        { data
+          ?.filter((item) => item.dpth === 1 && item.menuEtc === true)
+          .map((item, idx) => (
+            <a href={item.url} key={item.menuSeq}>{item.menuNm}</a>
+          ))
+        }
       </div>
     </footer>
   )
