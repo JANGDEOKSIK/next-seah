@@ -1,8 +1,15 @@
 "use client";
 
 import PageTransition from "../_components/layout/PageTransition";
-import { motion, useAnimationControls, useScroll } from "framer-motion";
+import {
+  motion,
+  useAnimationControls,
+  useScroll,
+  useMotionValueEvent,
+  useInView,
+} from "framer-motion";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
 
 export default function MainPage() {
   const [isOn, setIsOn] = useState(false);
@@ -15,18 +22,24 @@ export default function MainPage() {
     controls.start({ x: 140 });
   };
 
-  const { scrollYProgress } = useScroll();
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    console.log("Page scroll: ", latest);
+  });
+
+  const ref = useRef(null);
+  const isInView = useInView(ref);
   useEffect(() => {
-    console.log(scrollYProgress);
-  }, [scrollYProgress]);
+    if (isInView) {
+      console.log("보인다....");
+    }
+  }, [isInView]);
 
   return (
     <PageTransition>
       <>
         <div style={{ height: "120vh" }}>234i234782348237949</div>
-        <div style={{ position: "fixed", top: 0, left: 0, fontSize: 20 }}>
-          {JSON.stringify(scrollYProgress.current)}
-        </div>
         <motion.div
           className="box1"
           animate={{ opacity: 0 }}
@@ -54,6 +67,15 @@ export default function MainPage() {
           />
         </div>
         <button onClick={handleClick}>버튼 A</button>
+
+        <motion.div
+          className="inView"
+          ref={ref}
+        >
+          <div
+            style={{ width: "100px", height: "100px", backgroundColor: "red" }}
+          ></div>
+        </motion.div>
       </>
     </PageTransition>
   );
