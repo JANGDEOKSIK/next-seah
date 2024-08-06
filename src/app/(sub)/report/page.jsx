@@ -1,7 +1,7 @@
 
 "use client";
 
-export default function GuidePage() {
+export default function ReportGuidePage() {
 	return (
 		<div id="wrap">
 
