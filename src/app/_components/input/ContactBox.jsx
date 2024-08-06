@@ -10,11 +10,9 @@ const ContactBox = ({
   type = "text",
   inputId,
   inputName,
-  placeholder,
   register,
   rules = false,
   errors = false,
-  children,
 }) => {
   const errorMessages =
     errors && errors[inputName] && errors[inputName].message;
@@ -40,7 +38,7 @@ const ContactBox = ({
               type={type}
               id={inputId}
               name={inputName}
-              placeholder={placeholder}
+              placeholder="연락처를 입력해 주세요."
               // {...(register && register(inputName, rules))}
               {...register(inputName, rules && rules)}
             />
@@ -48,16 +46,20 @@ const ContactBox = ({
           <div className="form-check-btn">
             <input
               type="checkbox"
-              name="aaaa"
-              id="ab"
-              defaultChecked
-              // id={`${inputName}a`}
-              // name={inputName}
-              // {...register(inputName, rules && rules)}
+              id={`${inputId}Chk`}
+              name={`${inputName}Chk`}
             />
-            <label htmlFor="ab">안심번호 사용</label>
+            <label htmlFor={`${inputId}Chk`}>안심번호 사용</label>
           </div>
         </div>
+        {hasError && (
+          <small
+            className="error"
+            role="alert"
+          >
+            {errorMessages}
+          </small>
+        )}
         <div className="form-info">
           <div className="info-cont">
             <p className="mark f-bdy2-b">
@@ -119,15 +121,6 @@ const ContactBox = ({
             전화번호가 노출될 수 있으므로 주의 바랍니다.
           </p>
         </div>
-        {hasError && (
-          <small
-            className="error"
-            role="alert"
-          >
-            {errorMessages}
-          </small>
-        )}
-        {children}
       </div>
     </div>
   );

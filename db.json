@@ -272,5 +272,32 @@
       "txt": "기타 윤리규범 위반<br/>(직무태만, 관리감독소홀, 월권행위, 품위손상 등)",
       "imgUrl": "/images/img-report-type06.jpg"
     }
+  ],
+  "dataForm": [
+    {
+      "id": "1af5",
+      "tabIdC": "value1",
+      "inputIdE1": "agree",
+      "inputIdE2": "agree",
+      "inputIdA1": "종족1",
+      "inputIdA2": "dfs",
+      "inputIdB1": "종족1",
+      "inputIdB2": "sdfsf",
+      "inputIdB3": "sdfsdf",
+      "inputIdB4": "value1",
+      "inputIdB5": "value1",
+      "inputIdB6": "value1",
+      "inputIdB7": "sfsf",
+      "inputIdB8": "sdfsf",
+      "inputIdB9": {
+        "0": {}
+      },
+      "inputIdC1": "sdfsdf",
+      "inputIdC2": "sfsf",
+      "inputIdC3": "sfsf",
+      "inputIdD1": "sdfsf",
+      "inputIdD2": "sfsf",
+      "inputIdE3": "dfsfsf"
+    }
   ]
 }

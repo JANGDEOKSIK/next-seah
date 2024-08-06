@@ -222,45 +222,47 @@
 }
 
 // radio btn
-.form-radio-btn {
-  position: relative;
-  width: 300rem;
-  height: 76rem;
+.tab-wrap {
+  .form-radio-btn {
+    position: relative;
+    width: 300rem;
+    height: 76rem;
 
-  input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    appearance: none;
-    cursor: pointer;
-
-    & + label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      font-family: "NanumSquareB";
-      font-size: 16rem;
-      font-weight: 700;
-      line-height: 160%;
-      color: $brdGray;
-      border-radius: 4rem;
-      border: 1px solid $gray40;
-      background-color: $white;
+      appearance: none;
       cursor: pointer;
-    }
 
-    &:checked + label {
-      color: $white;
-      border: 1px solid $brdGray;
-      background-color: $brdGray;
-    }
+      & + label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-family: "NanumSquareB";
+        font-size: 16rem;
+        font-weight: 700;
+        line-height: 160%;
+        color: $brdGray;
+        border-radius: 4rem;
+        border: 1px solid $gray40;
+        background-color: $white;
+        cursor: pointer;
+      }
 
-    &:focus + label {
-      border: 1px solid $brdOrange;
+      &:checked + label {
+        color: $white;
+        border: 1px solid $brdGray;
+        background-color: $brdGray;
+      }
+
+      &:focus + label {
+        border: 1px solid $brdOrange;
+      }
     }
   }
 }
@@ -373,6 +375,38 @@ input[type="file"] {
 
 input[type="file"]:focus + .form-input {
   border: 1px solid $brdOrange;
+}
+
+// 보안문자
+.captch-wrap {
+  .captch-img {
+    flex-shrink: 0;
+    width: 265rem;
+    height: 64rem;
+    border: 1px solid $gray20;
+    border-radius: 4rem;
+    background-color: #fff;
+
+    .img {
+      position: relative;
+      width: 180rem;
+      height: 100%;
+      margin: 0 auto;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  .captch-btn {
+    flex-shrink: 0;
+    width: 76rem;
+    height: 64rem;
+    border-radius: 4rem;
+    border: 1px solid $gray20;
+    background-color: $lhtGray;
+  }
 }
 
 // ---- button ----- //

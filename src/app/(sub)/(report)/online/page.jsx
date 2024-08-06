@@ -1,17 +1,23 @@
 "use client";
 
+import { useEffect } from "react";
+// import { useMutation, useQuery } from "@tanstack/react-query";
 import PageMenu from "@/app/(sub)/(report)/_components/PageMenu";
 import Image from "next/image";
 import ImgReportTitBg from "/public/images/img-report-tit-bg.jpg";
 import { useForm } from "react-hook-form";
 import InputBox from "@/app/_components/input/InputBox";
 import Aattachment from "@/app/_components/input/Aattachment";
+import RadioTabBtn from "@/app/_components/input/RadioTabBtn";
 import SelectBox from "@/app/_components/input/SelectBox";
 import Textarea from "@/app/_components/input/Textarea";
 import RadioBox from "@/app/_components/input/RadioBox";
 import AgreeBox from "@/app/_components/input/AgreeBox";
 import ContactBox from "@/app/_components/input/ContactBox";
+import CaptchaBox from "@/app/_components/input/CaptchaBox";
 import PageTransition from "@/app/_components/layout/PageTransition";
+// import Loading from "@/app/loading";
+import { setMutation } from "@/app/_lib/fetch";
 
 export default function OnlinePage() {
   const {
@@ -22,10 +28,48 @@ export default function OnlinePage() {
     formState: { errors },
   } = useForm({
     defaultValues: {
+      tabIdC: "value1",
       inputIdE1: "disagree",
       inputIdE2: "disagree",
     },
   });
+
+  const selectedValue = watch("tabIdC");
+
+  const { mutate, isError, error } = setMutation("/dataForm", {
+    onSuccess: (data) => {
+      refetch();
+      console.log("Success:", data);
+    },
+    onError: (error) => {
+      console.log("Error:", error);
+    },
+  });
+
+  // const mutate = useMutation({
+  //   mutationFn: async(data) => {
+  //     const response = await fetch(
+  //       `${process.env.NEXT_PUBLIC_BASE_URL}${url}`,
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(data),
+  //       }
+  //     );
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not ok");
+  //     }
+  //     return response.json();
+  //   }
+  // })
+
+  useEffect(() => {
+    if (selectedValue === "value2") {
+      alert("익명 제보의 경우 제보 조사에 제한이 있을 수 있습니다.");
+    }
+  }, [selectedValue]);
 
   // Dummy
   const selectDummy = {
@@ -97,6 +141,7 @@ export default function OnlinePage() {
 
   const onSubmit = (data) => {
     console.log(data);
+    mutate(data);
   };
 
   return (
@@ -360,43 +405,34 @@ export default function OnlinePage() {
                   </div>
                   <div className="right">
                     <div className="form-wrap">
-                      <div className="input-wrap">
-                        <div className="form-group">
-                          <div className="form-radio-btn">
-                            <input
-                              type="radio"
-                              name="aaaa"
-                              id="ab"
-                              defaultChecked
-                              // id={`${inputName}a`}
-                              // name={inputName}
-                              // {...register(inputName, rules && rules)}
-                            />
-                            <label htmlFor="ab">실명</label>
-                          </div>
-                          <div className="form-radio-btn">
-                            <input
-                              type="radio"
-                              name="aaaa"
-                              id="de"
-                              // id={`${inputName}a`}
-                              // name={inputName}
-                              // {...register(inputName, rules && rules)}
-                            />
-                            <label htmlFor="de">익명</label>
-                          </div>
-                        </div>
-                      </div>
-                      <InputBox
-                        thTit="이름"
-                        isRequired={true}
-                        inputId="inputIdC1"
-                        inputName="inputIdC1"
-                        placeholder="이름을 입력해 주세요."
+                      <RadioTabBtn
+                        inputName="tabIdC"
+                        radioData={[
+                          {
+                            value: "value1",
+                            tit: "실명",
+                            id: "tabIdC1",
+                          },
+                          {
+                            value: "value2",
+                            tit: "익명",
+                            id: "tabIdC2",
+                          },
+                        ]}
                         register={register}
-                        rules={{ required: "* 이름을 입력해 주세요." }}
-                        errors={errors}
                       />
+                      {selectedValue === "value1" && (
+                        <InputBox
+                          thTit="이름"
+                          isRequired={true}
+                          inputId="inputIdC1"
+                          inputName="inputIdC1"
+                          placeholder="이름을 입력해 주세요."
+                          register={register}
+                          rules={{ required: "* 이름을 입력해 주세요." }}
+                          errors={errors}
+                        />
+                      )}
                       <InputBox
                         thTit="이메일"
                         inputId="inputIdC2"
@@ -409,7 +445,6 @@ export default function OnlinePage() {
                         isRequired={true}
                         inputId="inputIdC3"
                         inputName="inputIdC3"
-                        placeholder="연락처를 입력해 주세요."
                         register={register}
                         rules={{ required: "* 연락처를 입력해 주세요." }}
                         errors={errors}
@@ -527,6 +562,15 @@ export default function OnlinePage() {
                           // required: "* 동의 여부를 선택해 주세요.",
                           validate: (value) =>
                             value === "agree" || "* 필수 동의해야합니다.",
+                        }}
+                        errors={errors}
+                      />
+                      <CaptchaBox
+                        inputId="inputIdE3"
+                        inputName="inputIdE3"
+                        register={register}
+                        rules={{
+                          required: "* 보안문자를 입력해 주세요.",
                         }}
                         errors={errors}
                       />
