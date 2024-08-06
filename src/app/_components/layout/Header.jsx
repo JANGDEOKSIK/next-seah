@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { getList, setMutation } from "../../_lib/fetch";
 
 export default function Header() {
@@ -76,7 +77,11 @@ export default function Header() {
               <Link href="">ENG</Link>
             </div>
             <Link href="">
-              <img src="/images/btn-all-menu.png" />
+              <Image
+                src="/images/btn-all-menu.png"
+                width={52}
+                height={52}
+              />
             </Link>
           </div>
         </div>
