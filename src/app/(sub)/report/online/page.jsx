@@ -45,11 +45,6 @@ export default function Guide() {
     },
   ];
 
-  const onClick = () => {
-    console.log(inputTitValue);
-    console.log(inputNumValue);
-  };
-
   const onTextAreaHandler = (e) => {
     setTextareaValue(e.target.value.length);
   };
@@ -69,6 +64,16 @@ export default function Guide() {
       setIsDisabled(true);
     }
     console.log(isDisabled);
+  };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
   return (
@@ -100,445 +105,471 @@ export default function Guide() {
                 </p>
               </div>
             </div>
-            <div className="cont-inner">
-              <div className="half-div">
-                <div className="tit-div">
-                  <p className="red-circle f-body2-eb">01</p>
-                  <p className="f-title2-eb">
-                    제보대상을 <br />
-                    입력해주세요.
-                  </p>
-                </div>
-                <div className="input-table">
-                  <SelectBox
-                    id="company"
-                    isEssential={true}
-                    label="대상회사"
-                    option={OPTIONS0}
-                  />
-                  <Input
-                    id="reportSubject"
-                    isNoTitle={false}
-                    isEssential={false}
-                    label="제보대상"
-                    placeholder="제보대상을 입력해 주세요."
-                    value={setReportSubject}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="cont-inner">
-              <div className="half-div">
-                <div className="tit-div">
-                  <p className="red-circle f-body2-eb">02</p>
-                  <p className="f-title2-eb">
-                    제보내용을 <br />
-                    작성해주세요.
-                  </p>
-                </div>
-                <div className="input-table">
-                  <SelectBox
-                    id="sort"
-                    isNoTitle={false}
-                    isEssential={true}
-                    label="제보구분"
-                    option={OPTIONS0}
-                  />
-                  <Input
-                    id="title"
-                    isNoTitle={false}
-                    isEssential={false}
-                    label="제목"
-                    placeholder="제목을 입력해주세요."
-                    value={setInputTitValue}
-                  />
-                  <Textarea
-                    id="content"
-                    isNoTitle={false}
-                    isEssential={true}
-                    label="내용"
-                    placeholder="내용을 입력해 주세요."
-                    value={setTextareaValue}
-                    textareaValue={textareaValue}
-                  />
-                  <div className="form-radio-box">
-                    <Radio
-                      id="problemPath"
-                      label="문제를 알게된 경로"
-                      defaultChecked={true}
-                      name="problem-path"
-                      value="happen-to-me"
-                    >
-                      내게 일어난 일이라서
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      defaultChecked={false}
-                      name="problem-path"
-                      value="heard-outsider"
-                    >
-                      외부인에게 들었음
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      defaultChecked={false}
-                      name="problem-path"
-                      value="heard-myself"
-                    >
-                      내가 직접 보거나 들은 일이라서
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      defaultChecked={false}
-                      name="problem-path"
-                      value="rumor"
-                    >
-                      소문으로 들었음
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      defaultChecked={false}
-                      name="problem-path"
-                      value="heard-colleague"
-                    >
-                      직장 동료에게 들었음
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      defaultChecked={false}
-                      name="problem-path"
-                      value="saw-chance"
-                    >
-                      우연히 문서/파일을 보다가 알게 되었음
-                    </Radio>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="cont-inner">
+                <div className="half-div">
+                  <div className="tit-div">
+                    <p className="red-circle f-body2-eb">01</p>
+                    <p className="f-title2-eb">
+                      제보대상을 <br />
+                      입력해주세요.
+                    </p>
                   </div>
-                  <div className="form-radio-box">
-                    <Radio
-                      id="problemDuration"
-                      label="문제의 지속 기간"
-                      defaultChecked={true}
-                      name="problem-duration"
-                      value="once"
-                    >
-                      한번
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      name="problem-duration"
-                      value="one-week"
-                    >
-                      일주일
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      name="problem-duration"
-                      value="three-month"
-                    >
-                      1개월 이상 3개월 미만
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      name="problem-duration"
-                      value="one-year"
-                    >
-                      3개월 이상 1년 미만
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      name="problem-duration"
-                      value="three-year"
-                    >
-                      1년 이상 3년 미만
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      defaultChecked={false}
-                      name="problem-path"
-                      value="more than three-year"
-                    >
-                      3년 이상
-                    </Radio>
-                  </div>
-                  <div className="form-radio-box">
-                    <Radio
-                      id="relationshipCompany"
-                      label="대상회사와 관계"
-                      defaultChecked={true}
-                      name="relationship-company"
-                      value="company-executive"
-                    >
-                      회사 임직원
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      name="relationship-company"
-                      value="group-executive"
-                    >
-                      그룹 임직원
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      name="relationship-company"
-                      value="cooperative-company"
-                    >
-                      협력사
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      name="relationship-company"
-                      value="customer"
-                    >
-                      고객
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      name="relationship-company"
-                      value="outside-party"
-                    >
-                      외부 관계자
-                    </Radio>
-                    <Radio
-                      isNoTitle={true}
-                      defaultChecked={false}
-                      name="relationship-company"
-                      value="not reveal"
-                    >
-                      밝히고 싶지 않음
-                    </Radio>
-                  </div>
-                  <Input
-                    id="expectPerson"
-                    isNoTitle={false}
-                    isEssential={false}
-                    label="제보와 관련된 문제를 잘 아는 사람과 알 것으로 예상되는 사람을 적어주세요."
-                    ex="예시. xx팀 xxx 과장에게 확인 문의, 00년 0월 0일 xx팀 법인카드 내역 확인 등"
-                    placeholder="내용을 입력해 주세요."
-                    value={setExpectPerson}
-                  />
-                  <Input
-                    id="goodWay"
-                    isNoTitle={false}
-                    isEssential={false}
-                    label="문제를 확인/조사하기 위해 가장 좋은 방법으로 생각되는 것을 적어주세요."
-                    placeholder="내용을 입력해 주세요."
-                    value={setInputTitValue}
-                  />
-                  <File
-                    id="uploadFile"
-                    isNoTitle={false}
-                    isEssential={false}
-                    label="첨부파일"
-                    value={setInputTitValue}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="cont-inner">
-              <div className="half-div">
-                <div className="tit-div">
-                  <p className="red-circle f-body2-eb">03</p>
-                  <p className="f-title2-eb">
-                    제보자 정보를 <br />
-                    입력해 주세요.
-                  </p>
-                </div>
-                <div className="input-table">
-                  <div className="tab-btn">
-                    {tabs.map((tab) => (
-                      <button
-                        key={tab.id}
-                        type="button"
-                        className={activeTab === tab.id ? "on" : ""}
-                        onClick={() => handleTabClick(tab.id)}
-                      >
-                        <span className="f-body2-eb">{tab.label}</span>
-                      </button>
-                    ))}
-                  </div>
-                  <Input
-                    id="name"
-                    isNoTitle={false}
-                    isEssential={true}
-                    label="이름"
-                    placeholder="이름을 입력해 주세요."
-                    value={setName}
-                    isDisabled={isDisabled}
-                  />
-                  <Input
-                    id="email"
-                    isNoTitle={false}
-                    isEssential={false}
-                    label="이메일"
-                    placeholder="이메일을 입력해 주세요."
-                    value={setEmail}
-                  />
-                  <div className="form-flexbox">
+                  <div className="input-table">
+                    <SelectBox
+                      id="company"
+                      isEssential={true}
+                      label="대상회사"
+                      option={OPTIONS0}
+                    />
                     <Input
-                      id="phoneNumber"
+                      id="reportSubject"
+                      isNoTitle={false}
+                      isEssential={false}
+                      label="제보대상"
+                      placeholder="제보대상을 입력해 주세요."
+                      value={setReportSubject}
+                      register={register}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="cont-inner">
+                <div className="half-div">
+                  <div className="tit-div">
+                    <p className="red-circle f-body2-eb">02</p>
+                    <p className="f-title2-eb">
+                      제보내용을 <br />
+                      작성해주세요.
+                    </p>
+                  </div>
+                  <div className="input-table">
+                    <SelectBox
+                      id="sort"
                       isNoTitle={false}
                       isEssential={true}
-                      label="연락처"
-                      placeholder="연락처를 입력해 주세요."
-                      value={setInputNumValue}
-                      isSafe={true}
+                      label="제보구분"
+                      option={OPTIONS0}
                     />
-                    <div className="form-checkbox">
-                      <Checkbox
-                        id="safeNum"
-                        isNoTitle={true}
-                      >
-                        안심번호 사용
-                      </Checkbox>
-                    </div>
-                  </div>
-                  <div className="safe-num-info">
-                    <p className="tit f-body2-b">
-                      <span className="f-body2-eb">안심번호란?</span> 본인의
-                      실제 번호를 알리고 싶지 않을때, 생성하는 가상의 임시번호로
-                      이를 통해 제보자의 개인정보 보호를 보다 안전하게 지키실 수
-                      있습니다.
-                    </p>
-                    <div className="process-wrap">
-                      <div className="process">
-                        <p className="img">
-                          <img
-                            src="/images/img-safe-number-process-01.jpg"
-                            alt=""
-                          />
-                        </p>
-                        <p className="f-desc-b">
-                          안심번호 사용 선택
-                          <br />
-                          연락처 입력 <span>010</span>-0000-0000
-                        </p>
-                      </div>
-                      <div className="process">
-                        <p className="img">
-                          <img
-                            src="/images/img-safe-number-process-02.jpg"
-                            alt=""
-                          />
-                        </p>
-                        <p className="f-desc-b">안심번호 생성</p>
-                      </div>
-                      <div className="process">
-                        <p className="img">
-                          <img
-                            src="/images/img-safe-number-process-03.jpg"
-                            alt=""
-                          />
-                        </p>
-                        <p className="f-desc-b">
-                          <span>안심번호(050)</span>로 전달
-                          <br />
-                          연락이 필요한 경우 안심번호로 연결
-                        </p>
-                      </div>
-                    </div>
-                    <p className="f-body2-b txt">
-                      안심번호 사용시 제보자의 번호는 노출되지 않고
-                      050-XXXX-XXXX로 자동변환되어 감사실로 전달됩니다.
-                    </p>
-                  </div>
-                  <div className="form-info-txt">
-                    <p className="f-desc-b">
-                      안심번호 특성상 감사팀에서 연락 후 제보자가 재발신 시 실제
-                      전화번호가 노출될 수 있으므로 주의 바랍니다.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="cont-inner">
-              <div className="half-div">
-                <div className="tit-div">
-                  <p className="red-circle f-body2-eb">04</p>
-                  <p className="f-title2-eb">
-                    등록한 비밀번호는 <br />
-                    제보 진행 및 결과확인을 <br />
-                    하기위한 용도입니다.
-                  </p>
-                </div>
-                <div className="input-table">
-                  <Input
-                    id="password"
-                    isNoTitle={false}
-                    isEssential={true}
-                    label="비밀번호"
-                    placeholder="비밀번호를 입력해 주세요."
-                    value={setPassword}
-                  />
-                  <Input
-                    id="passwordConfirm"
-                    isNoTitle={false}
-                    isEssential={true}
-                    label="비밀번호 확인"
-                    placeholder="비밀번호를 다시 입력해 주세요."
-                    value={setPasswordConfirm}
-                  />
-                  <div className="form-info-txt">
-                    <p className="f-desc-b">
-                      제보결과확인을 위한 비밀번호이며 영문, 숫자를 포함한
-                      6~10자리 조합으로 사용해 주시기 바랍니다.
-                    </p>
-                    <p className="f-desc-b">
-                      비밀번호 찾기 기능이 제공되지 않으므로 진행 및 결과확인을
-                      위해 꼭 기억하시기 바랍니다.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="cont-inner">
-              <div className="half-div">
-                <div className="tit-div">
-                  <p className="red-circle f-body2-eb">05</p>
-                  <p className="f-title2-eb">
-                    개인정보취급방침을 <br />
-                    확인해 주세요.
-                  </p>
-                </div>
-                <div className="input-table">
-                  {agreeContent?.map((item, idx) => {
-                    return (
-                      <Agree
-                        isNotitle={false}
-                        isEssential={true}
-                        label={item.label}
-                        name={item.name}
-                        agreeTxt={item.txt}
-                        agreeCon={item.content}
-                      />
-                    );
-                  })}
-                  <div className="captcha-wrap">
-                    <div className="captcha-div">
-                      <img
-                        src="/images/@img-captcha.png"
-                        alt=""
-                      />
-                    </div>
-                    <button
-                      type="button"
-                      className="refresh"
-                    ></button>
                     <Input
-                      isNoTitle={true}
+                      id="title"
+                      isNoTitle={false}
                       isEssential={false}
-                      placeholder="대소문자를 구분하여 입력해주세요"
+                      label="제목"
+                      placeholder="제목을 입력해주세요."
+                      value={setInputTitValue}
+                      register={register}
+                      validation={{ required: "Title is required" }}
+                      error={errors.title}
+                    />
+                    <Textarea
+                      id="content"
+                      isNoTitle={false}
+                      isEssential={true}
+                      label="내용"
+                      placeholder="내용을 입력해 주세요."
+                      value={setTextareaValue}
+                      textareaValue={textareaValue}
+                    />
+                    <div className="form-radio-box">
+                      <Radio
+                        id="problemPath"
+                        label="문제를 알게된 경로"
+                        defaultChecked={true}
+                        name="problem-path"
+                        value="happen-to-me"
+                      >
+                        내게 일어난 일이라서
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        defaultChecked={false}
+                        name="problem-path"
+                        value="heard-outsider"
+                      >
+                        외부인에게 들었음
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        defaultChecked={false}
+                        name="problem-path"
+                        value="heard-myself"
+                      >
+                        내가 직접 보거나 들은 일이라서
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        defaultChecked={false}
+                        name="problem-path"
+                        value="rumor"
+                      >
+                        소문으로 들었음
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        defaultChecked={false}
+                        name="problem-path"
+                        value="heard-colleague"
+                      >
+                        직장 동료에게 들었음
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        defaultChecked={false}
+                        name="problem-path"
+                        value="saw-chance"
+                      >
+                        우연히 문서/파일을 보다가 알게 되었음
+                      </Radio>
+                    </div>
+                    <div className="form-radio-box">
+                      <Radio
+                        id="problemDuration"
+                        label="문제의 지속 기간"
+                        defaultChecked={true}
+                        name="problem-duration"
+                        value="once"
+                      >
+                        한번
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        name="problem-duration"
+                        value="one-week"
+                      >
+                        일주일
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        name="problem-duration"
+                        value="three-month"
+                      >
+                        1개월 이상 3개월 미만
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        name="problem-duration"
+                        value="one-year"
+                      >
+                        3개월 이상 1년 미만
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        name="problem-duration"
+                        value="three-year"
+                      >
+                        1년 이상 3년 미만
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        defaultChecked={false}
+                        name="problem-path"
+                        value="more than three-year"
+                      >
+                        3년 이상
+                      </Radio>
+                    </div>
+                    <div className="form-radio-box">
+                      <Radio
+                        id="relationshipCompany"
+                        label="대상회사와 관계"
+                        defaultChecked={true}
+                        name="relationship-company"
+                        value="company-executive"
+                      >
+                        회사 임직원
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        name="relationship-company"
+                        value="group-executive"
+                      >
+                        그룹 임직원
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        name="relationship-company"
+                        value="cooperative-company"
+                      >
+                        협력사
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        name="relationship-company"
+                        value="customer"
+                      >
+                        고객
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        name="relationship-company"
+                        value="outside-party"
+                      >
+                        외부 관계자
+                      </Radio>
+                      <Radio
+                        isNoTitle={true}
+                        defaultChecked={false}
+                        name="relationship-company"
+                        value="not reveal"
+                      >
+                        밝히고 싶지 않음
+                      </Radio>
+                    </div>
+                    <Input
+                      id="expectPerson"
+                      isNoTitle={false}
+                      isEssential={false}
+                      label="제보와 관련된 문제를 잘 아는 사람과 알 것으로 예상되는 사람을 적어주세요."
+                      ex="예시. xx팀 xxx 과장에게 확인 문의, 00년 0월 0일 xx팀 법인카드 내역 확인 등"
+                      placeholder="내용을 입력해 주세요."
+                      value={setExpectPerson}
+                      register={register}
+                    />
+                    <Input
+                      id="goodWay"
+                      isNoTitle={false}
+                      isEssential={false}
+                      label="문제를 확인/조사하기 위해 가장 좋은 방법으로 생각되는 것을 적어주세요."
+                      placeholder="내용을 입력해 주세요."
+                      value={setInputTitValue}
+                      register={register}
+                    />
+                    <File
+                      id="uploadFile"
+                      isNoTitle={false}
+                      isEssential={false}
+                      label="첨부파일"
+                      value={setInputTitValue}
                     />
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="btn-wrap center submit">
-              <button
-                className="color-btn orange"
-                onClick={onClick}
-              >
-                제출하기
-              </button>
-            </div>
+              <div className="cont-inner">
+                <div className="half-div">
+                  <div className="tit-div">
+                    <p className="red-circle f-body2-eb">03</p>
+                    <p className="f-title2-eb">
+                      제보자 정보를 <br />
+                      입력해 주세요.
+                    </p>
+                  </div>
+                  <div className="input-table">
+                    <div className="tab-btn">
+                      {tabs.map((tab) => (
+                        <button
+                          key={tab.id}
+                          type="button"
+                          className={activeTab === tab.id ? "on" : ""}
+                          onClick={() => handleTabClick(tab.id)}
+                        >
+                          <span className="f-body2-eb">{tab.label}</span>
+                        </button>
+                      ))}
+                    </div>
+                    <Input
+                      id="name"
+                      isNoTitle={false}
+                      isEssential={true}
+                      label="이름"
+                      placeholder="이름을 입력해 주세요."
+                      value={setName}
+                      isDisabled={isDisabled}
+                      register={register}
+                      validation={{ required: "Name is required" }}
+                      error={errors.name}
+                    />
+                    <Input
+                      id="email"
+                      isNoTitle={false}
+                      isEssential={false}
+                      label="이메일"
+                      placeholder="이메일을 입력해 주세요."
+                      value={setEmail}
+                      register={register}
+                    />
+                    <div className="form-flexbox">
+                      <Input
+                        id="phoneNumber"
+                        isNoTitle={false}
+                        isEssential={true}
+                        label="연락처"
+                        placeholder="연락처를 입력해 주세요."
+                        value={setInputNumValue}
+                        isSafe={true}
+                        register={register}
+                        validation={{ required: "Phone Number is required" }}
+                        error={errors.phoneNumber}
+                      />
+                      <div className="form-checkbox">
+                        <Checkbox
+                          id="safeNum"
+                          isNoTitle={true}
+                        >
+                          안심번호 사용
+                        </Checkbox>
+                      </div>
+                    </div>
+                    <div className="safe-num-info">
+                      <p className="tit f-body2-b">
+                        <span className="f-body2-eb">안심번호란?</span> 본인의
+                        실제 번호를 알리고 싶지 않을때, 생성하는 가상의
+                        임시번호로 이를 통해 제보자의 개인정보 보호를 보다
+                        안전하게 지키실 수 있습니다.
+                      </p>
+                      <div className="process-wrap">
+                        <div className="process">
+                          <p className="img">
+                            <img
+                              src="/images/img-safe-number-process-01.jpg"
+                              alt=""
+                            />
+                          </p>
+                          <p className="f-desc-b">
+                            안심번호 사용 선택
+                            <br />
+                            연락처 입력 <span>010</span>-0000-0000
+                          </p>
+                        </div>
+                        <div className="process">
+                          <p className="img">
+                            <img
+                              src="/images/img-safe-number-process-02.jpg"
+                              alt=""
+                            />
+                          </p>
+                          <p className="f-desc-b">안심번호 생성</p>
+                        </div>
+                        <div className="process">
+                          <p className="img">
+                            <img
+                              src="/images/img-safe-number-process-03.jpg"
+                              alt=""
+                            />
+                          </p>
+                          <p className="f-desc-b">
+                            <span>안심번호(050)</span>로 전달
+                            <br />
+                            연락이 필요한 경우 안심번호로 연결
+                          </p>
+                        </div>
+                      </div>
+                      <p className="f-body2-b txt">
+                        안심번호 사용시 제보자의 번호는 노출되지 않고
+                        050-XXXX-XXXX로 자동변환되어 감사실로 전달됩니다.
+                      </p>
+                    </div>
+                    <div className="form-info-txt">
+                      <p className="f-desc-b">
+                        안심번호 특성상 감사팀에서 연락 후 제보자가 재발신 시
+                        실제 전화번호가 노출될 수 있으므로 주의 바랍니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="cont-inner">
+                <div className="half-div">
+                  <div className="tit-div">
+                    <p className="red-circle f-body2-eb">04</p>
+                    <p className="f-title2-eb">
+                      등록한 비밀번호는 <br />
+                      제보 진행 및 결과확인을 <br />
+                      하기위한 용도입니다.
+                    </p>
+                  </div>
+                  <div className="input-table">
+                    <Input
+                      id="password"
+                      isNoTitle={false}
+                      isEssential={true}
+                      label="비밀번호"
+                      placeholder="비밀번호를 입력해 주세요."
+                      value={setPassword}
+                      register={register}
+                      validation={{ required: "Password is required" }}
+                      error={errors.password}
+                    />
+                    <Input
+                      id="passwordConfirm"
+                      isNoTitle={false}
+                      isEssential={true}
+                      label="비밀번호 확인"
+                      placeholder="비밀번호를 다시 입력해 주세요."
+                      value={setPasswordConfirm}
+                      register={register}
+                      validation={{ required: "Password Confirm is required" }}
+                      error={errors.passwordConfirm}
+                    />
+                    <div className="form-info-txt">
+                      <p className="f-desc-b">
+                        제보결과확인을 위한 비밀번호이며 영문, 숫자를 포함한
+                        6~10자리 조합으로 사용해 주시기 바랍니다.
+                      </p>
+                      <p className="f-desc-b">
+                        비밀번호 찾기 기능이 제공되지 않으므로 진행 및
+                        결과확인을 위해 꼭 기억하시기 바랍니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="cont-inner">
+                <div className="half-div">
+                  <div className="tit-div">
+                    <p className="red-circle f-body2-eb">05</p>
+                    <p className="f-title2-eb">
+                      개인정보취급방침을 <br />
+                      확인해 주세요.
+                    </p>
+                  </div>
+                  <div className="input-table">
+                    {agreeContent?.map((item, idx) => {
+                      return (
+                        <Agree
+                          isNotitle={false}
+                          isEssential={true}
+                          label={item.label}
+                          name={item.name}
+                          agreeTxt={item.txt}
+                          agreeCon={item.content}
+                        />
+                      );
+                    })}
+                    <div className="captcha-wrap">
+                      <div className="captcha-div">
+                        <img
+                          src="/images/@img-captcha.png"
+                          alt=""
+                        />
+                      </div>
+                      <button
+                        type="button"
+                        className="refresh"
+                      ></button>
+                      <Input
+                        id="captha"
+                        isNoTitle={true}
+                        isEssential={true}
+                        placeholder="대소문자를 구분하여 입력해주세요"
+                        register={register}
+                        validation={{ required: "captha is required" }}
+                        error={errors.captha}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="btn-wrap center submit">
+                <button
+                  className="color-btn orange"
+                  onClick={onSubmit}
+                  type="submit"
+                >
+                  제출하기
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

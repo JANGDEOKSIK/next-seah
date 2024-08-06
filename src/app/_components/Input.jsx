@@ -13,6 +13,9 @@ export default function Input({
   value,
   isNoTitle,
   isDisabled,
+  register,
+  validation,
+  error,
 }) {
   return (
     <>
@@ -34,7 +37,9 @@ export default function Input({
           placeholder={placeholder}
           onChange={(e) => value(e.target.value)}
           disabled={isDisabled}
+          {...register(id, validation)}
         />
+        {error && <p>{error.message}</p>}
       </div>
     </>
   );
