@@ -39,7 +39,6 @@ export default function Header({ title }) {
                   <div className="nav-twodepth">
                     <ul>
                       {item.subMenu?.map((twoDItem, index) => {
-                        console.log("twoDItem", twoDItem);
                         return (
                           <li key={index}>
                             <Link href={"/"}>
