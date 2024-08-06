@@ -79,22 +79,6 @@ section {
     .right {
       width: 680rem;
     }
-
-    .input-wrap {
-      width: 100%;
-    }
-    .form-textarea {
-      width: 100%;
-    }
-    .form-input {
-      width: 100%;
-    }
-    .form-select {
-      width: 100%;
-    }
-    .btn-check {
-      width: 100%;
-    }
   }
 }
 
@@ -237,15 +221,31 @@ section {
 
 // 회색 박스
 .gray-box {
-  // ❗❗❗❗❗
-  margin-top: 48rem;
-  // ❗❗❗❗❗
   padding: 48rem;
   border-radius: 8rem;
   background-color: $lhtGray;
 
   p {
     color: $gray80 !important;
+  }
+}
+
+// 스크롤 박스
+.scroll-box {
+  height: 180rem;
+  padding: 20rem 10rem 20rem 20rem;
+  border: 1px solid $gray10;
+  border-radius: 4rem;
+  background-color: rgba(227, 228, 229, 0.2);
+
+  .scroll-area {
+    height: 100%;
+    padding-right: 6rem;
+    overflow-y: auto;
+    color: $gray60;
+    white-space: pre-line;
+
+    @include custom-scrollbar();
   }
 }
 
@@ -270,4 +270,12 @@ section {
       background-color: $gray80;
     }
   }
+}
+
+// margin
+.mt-48 {
+  margin-top: 48rem;
+}
+.mt-70 {
+  margin-top: 70rem;
 }

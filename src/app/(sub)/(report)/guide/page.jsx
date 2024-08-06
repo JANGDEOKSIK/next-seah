@@ -119,7 +119,7 @@ export default function GuidePage() {
                   조사 대상에서 제외될 수 있음을 알려드립니다.
                 </p>
               </div>
-              <div className="gray-box">
+              <div className="gray-box mt-48">
                 <div className="dots grid-col2">
                   <p className="dot f-desc2">
                     고객불만, 하자보수 등 서비스/품질 관련 사항

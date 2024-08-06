@@ -1,4 +1,5 @@
 // ---- input ----- //
+// err msg
 .error {
   display: inline-block;
   margin-top: -6rem;
@@ -9,9 +10,10 @@
   color: red;
 }
 
+// form-group
 .form-group {
   display: flex;
-  align-items: flex-end;
+  // align-items: flex-end;
   gap: 8rem;
 }
 
@@ -25,6 +27,7 @@
   }
 }
 
+// input
 .form-input {
   width: 680rem;
   height: 64rem;
@@ -57,7 +60,9 @@
   }
 }
 
+// select
 .form-select {
+  position: relative;
   width: 444rem;
   height: 64rem;
   border: 1px solid $gray20;
@@ -68,16 +73,30 @@
     width: 100%;
     height: 100%;
     padding: 0 20rem;
+    padding-right: 50rem;
     font-family: "NanumSquareB";
     font-size: 16rem;
     font-weight: 700;
     line-height: 160%;
     color: $brdGray;
     cursor: pointer;
+    appearance: none;
 
     &::placeholder {
       color: $gray40;
     }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20rem;
+    width: 16rem;
+    height: 16rem;
+    background: url("/images/icon-select-arrow.svg") no-repeat center center /
+      100% auto;
   }
 
   &:has(select:focus) {
@@ -87,13 +106,14 @@
   }
 }
 
+// textarea
 .form-textarea {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 680rem;
   height: 400rem;
-  padding: 20rem 10rem;
+  padding: 20rem 10rem 20rem 20rem;
   border: 1px solid $gray20;
   border-radius: 4rem;
   background-color: $white;
@@ -123,7 +143,6 @@
     width: 100%;
     height: 100%;
     padding-right: 6rem;
-    padding-left: 10rem;
     font-family: "NanumSquareB";
     font-size: 16rem;
     font-weight: 700;
@@ -134,15 +153,7 @@
       color: $gray40;
     }
 
-    &::-webkit-scrollbar {
-      width: 4rem;
-      background: transparent;
-    }
-    &::-webkit-scrollbar-thumb {
-      width: 4rem;
-      background: $gray20;
-      border-radius: 100rem;
-    }
+    @include custom-scrollbar();
   }
 
   &:not(:has(textarea:placeholder-shown)) {
@@ -153,6 +164,7 @@
   }
 }
 
+// radio
 .form-radio {
   display: flex;
 
@@ -196,16 +208,18 @@
   }
 }
 
+// radio btn
 .form-radio-btn {
   position: relative;
   width: 300rem;
+  height: 76rem;
 
   input {
     position: absolute;
     top: 0;
     left: 0;
-    height: 76rem;
     width: 100%;
+    height: 100%;
     appearance: none;
     cursor: pointer;
 
@@ -214,8 +228,7 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      // max-width: 300rem;
-      height: 76rem;
+      height: 100%;
       font-family: "NanumSquareB";
       font-size: 16rem;
       font-weight: 700;
@@ -237,6 +250,56 @@
       border: 1px solid $brdOrange;
     }
   }
+}
+
+// 첨부파일
+input[type="file"] {
+  // display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.file-list {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 16rem;
+
+  .file {
+    position: relative;
+    padding-right: 35rem;
+
+    span {
+      font-family: "NanumSquareB";
+      font-size: 16rem;
+      font-weight: 700;
+      line-height: 160%;
+      color: $brdGray;
+      text-decoration: underline;
+      text-underline-offset: 5rem;
+    }
+
+    .x-btn {
+      position: absolute;
+      top: 1rem;
+      right: 0;
+      width: 26rem;
+      height: 26rem;
+      background: url("/images/icon-file-remove.svg") no-repeat center center /
+        18rem auto;
+    }
+  }
+}
+
+input[type="file"]:focus + .form-input {
+  border: 1px solid $brdOrange;
 }
 
 // ---- button ----- //
@@ -311,7 +374,18 @@
 }
 
 // ---- data-form ----- //
+// input-wrap
 .input-wrap {
+  &:has(.form-textarea) .th {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .info {
+      margin-top: 0;
+    }
+  }
+
   .th {
     margin-bottom: 16rem;
 
@@ -344,10 +418,6 @@
 
     .info {
       margin-top: 16rem;
-      // font-family: "NanumSquareB";
-      // font-size: 16rem;
-      // font-weight: 700;
-      // line-height: 160%;
       color: $gray40;
     }
   }
@@ -359,85 +429,29 @@
   }
 }
 
+// input-wrap을 감싸는 form-wrap
 .form-wrap {
   display: flex;
   flex-direction: column;
   gap: 46rem;
-}
 
-// .fileuploder label {
-//   display: inline-block;
-//   padding: 0.5em 0.75em;
-//   font-size: inherit;
-//   line-height: normal;
-//   vertical-align: middle;
-//   background-color: #cae1f2;
-//   cursor: pointer;
-//   border: 1px solid #ebebeb;
-//   border-bottom-color: #e2e2e2;
-//   border-radius: 0.25em;
-// }
+  .input-wrap {
+    width: 100%;
 
-input[type="file"] {
-  // display: none;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
-.file-list {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 4rem;
-  margin-top: 16rem;
-
-  .file {
-    position: relative;
-    padding-right: 35rem;
-
-    span {
-      font-family: "NanumSquareB";
-      font-size: 16rem;
-      font-weight: 700;
-      line-height: 160%;
-      color: $brdGray;
-      text-decoration: underline;
-      text-underline-offset: 5rem;
+    .form-textarea {
+      width: 100%;
     }
-
-    .x-btn {
-      position: absolute;
-      top: 1rem;
-      right: 0;
-      width: 26rem;
-      height: 26rem;
-      background: url("/images/icon-file-remove.svg") no-repeat center center /
-        18rem auto;
+    .form-input {
+      width: 100%;
     }
-  }
-}
-
-input[type="file"]:focus + .form-input {
-  border: 1px solid $brdOrange;
-}
-
-.scroll-box {
-  height: 180rem;
-  padding: 20rem;
-  border: 1px solid $gray10;
-  border-radius: 4rem;
-  background-color: rgba(227, 228, 229, 0.2);
-
-  .scroll-area {
-    height: 100%;
-    overflow-y: auto;
-    color: $gray60;
-    white-space: pre-line;
+    .form-select {
+      width: 100%;
+    }
+    .btn-check {
+      width: 100%;
+    }
+    .form-radio-btn {
+      width: 100%;
+    }
   }
 }

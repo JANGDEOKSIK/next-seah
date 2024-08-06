@@ -112,7 +112,7 @@ export default function GuidePage() {
                 제보하고 싶은 내용을 올려주시면 <br />
                 빠른 시일내에 답변해 드리겠습니다.
               </p>
-              <div className="gray-box">
+              <div className="gray-box mt-70">
                 <p className="mark f-desc2">
                   비공개로 접수/처리되며, 제보자의 신원 및 제보내용은 본인의
                   의사에 반하여 공개되지 않도록 철저하게 비밀을 유지합니다.{" "}

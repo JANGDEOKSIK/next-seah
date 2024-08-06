@@ -37,3 +37,16 @@
 
   transition: #{$transitions};
 }
+
+// scrollbar
+@mixin custom-scrollbar() {
+  &::-webkit-scrollbar {
+    width: 4rem;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 4rem;
+    background: $gray20;
+    border-radius: 100rem;
+  }
+}
