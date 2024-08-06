@@ -46,7 +46,7 @@ export default function File({ isNoTitle, isEssential, id, label }) {
           <input
             type="file"
             ref={fileInputRef}
-            mulitple
+            multiple
             onChange={handleFileChange}
           />
           <label

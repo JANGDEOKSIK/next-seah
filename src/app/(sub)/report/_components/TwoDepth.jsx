@@ -23,6 +23,7 @@ export default function TwoDepth() {
           return item.subMenu?.map((subItem) => {
             return (
               <Link
+                key={subItem.menuSeq}
                 href={`/report${subItem.url}`}
                 className={
                   pathname === `/report${subItem.url}`

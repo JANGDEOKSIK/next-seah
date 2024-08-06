@@ -1,4 +1,17 @@
-export default function Header({ title, dummy }) {
+"use client";
+
+import Link from "next/link";
+import { getList, setMutation } from "../../_lib/fetch";
+
+export default function Header() {
+  const { data, refetch } = getList("/menus", ["header", "menus"]);
+
+  const { mutate } = setMutation("/menus", {
+    onSuccess: (data) => {
+      refetch();
+    },
+  });
+
   return (
     <>
       <div id="skipNavi">
@@ -6,13 +19,13 @@ export default function Header({ title, dummy }) {
       </div>
       <header>
         <div className="inner">
-          <a
-            href="javascript:"
+          <Link
+            href=""
             className="logo"
-          ></a>
+          ></Link>
           <nav>
             <ul>
-              {dummy
+              {data
                 ?.filter((item) => item.dpth < 2 && item.menuEtc === false)
                 .map((item) => {
                   return (
@@ -20,27 +33,28 @@ export default function Header({ title, dummy }) {
                       className="one-depth-w"
                       key={item.menuSeq}
                     >
-                      <a
-                        href="javascript:"
+                      <Link
+                        href=""
                         className="one-d"
                       >
                         <span>{item.menuNm}</span>
-                      </a>
+                      </Link>
                       {item.childcnt == 0 ? (
                         ""
                       ) : (
                         <div className="two-depth-w">
-                          {dummy?.map((subItem) => {
+                          {data?.map((subItem) => {
                             return subItem.subMenu?.map((twoD) => {
                               return (
-                                <a
-                                  href="javascript:"
+                                <Link
+                                  href=""
                                   className="two-d"
+                                  key={twoD.menuSeq}
                                 >
                                   <span className="f-body2-b">
                                     {twoD.menuNm}
                                   </span>
-                                </a>
+                                </Link>
                               );
                             });
                           })}
@@ -53,17 +67,17 @@ export default function Header({ title, dummy }) {
           </nav>
           <div className="util-wrap">
             <div className="lang-wrap">
-              <a
-                href="javascript:"
+              <Link
+                href=""
                 className="on"
               >
                 KOR
-              </a>
-              <a href="javascript:">ENG</a>
+              </Link>
+              <Link href="">ENG</Link>
             </div>
-            <a href="javascript:">
+            <Link href="">
               <img src="/images/btn-all-menu.png" />
-            </a>
+            </Link>
           </div>
         </div>
       </header>

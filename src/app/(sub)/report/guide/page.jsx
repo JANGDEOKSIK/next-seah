@@ -7,18 +7,17 @@ import TwoDepth from "../_components/TwoDepth";
 
 export default function Guide() {
   return (
-    <PageTransition>
-      <div id="wrap">
-        <div
-          className="sub-visual"
-          style={{
-            background: `url(/images/img-sub-visual-report-01.jpg) no-repeat center center/cover`,
-          }}
-        >
-          <h2 className="f-s-title1">제보 가이드</h2>
-          <TwoDepth />
-        </div>
-
+    <div id="wrap">
+      <div
+        className="sub-visual"
+        style={{
+          background: `url(/images/img-sub-visual-report-01.jpg) no-repeat center center/cover`,
+        }}
+      >
+        <h2 className="f-s-title1">제보 가이드</h2>
+        <TwoDepth />
+      </div>
+      <PageTransition>
         <div className="report-wrap">
           <div className="inner">
             <div className="tit-wrap">
@@ -191,7 +190,7 @@ export default function Guide() {
             </div>
           </div>
         </div>
-      </div>
-    </PageTransition>
+      </PageTransition>
+    </div>
   );
 }

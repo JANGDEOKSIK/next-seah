@@ -77,17 +77,17 @@ export default function Guide() {
   };
 
   return (
-    <PageTransition>
-      <div id="wrap">
-        <div
-          className="sub-visual"
-          style={{
-            background: `url(/images/img-sub-visual-report-01.jpg) no-repeat center center/cover`,
-          }}
-        >
-          <h2 className="f-s-title1">온라인 제보</h2>
-          <TwoDepth />
-        </div>
+    <div id="wrap">
+      <div
+        className="sub-visual"
+        style={{
+          background: `url(/images/img-sub-visual-report-01.jpg) no-repeat center center/cover`,
+        }}
+      >
+        <h2 className="f-s-title1">온라인 제보</h2>
+        <TwoDepth />
+      </div>
+      <PageTransition>
         <div className="report-wrap">
           <div className="inner">
             <div className="tit-wrap">
@@ -527,6 +527,7 @@ export default function Guide() {
                     {agreeContent?.map((item, idx) => {
                       return (
                         <Agree
+                          key={idx}
                           isNotitle={false}
                           isEssential={true}
                           label={item.label}
@@ -572,7 +573,7 @@ export default function Guide() {
             </form>
           </div>
         </div>
-      </div>
-    </PageTransition>
+      </PageTransition>
+    </div>
   );
 }
