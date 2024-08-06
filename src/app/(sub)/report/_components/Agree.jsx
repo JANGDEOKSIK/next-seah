@@ -35,7 +35,7 @@ export default function Agree({
           동의하지 않음
         </Radio>
         <Radio
-          name="problem-path"
+          name={name}
           value="agree"
           isNoTitle={true}
         >
