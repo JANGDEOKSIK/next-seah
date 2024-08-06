@@ -1,12 +1,12 @@
 header {
- position: fixed;
+ position: absolute;
  width: 100%;
  height: 120px;
  padding: 0 140px;
  display: flex;
  align-items: center;
  justify-content: space-between;
- background: pink;
+ z-index: 10;
  
  .logo {
   width: 120px;
@@ -23,6 +23,11 @@ header {
   li {
     position: relative;
     height: 100%;
+    a {
+      span {
+        color: #fff;
+      }
+    }
 
     + li {
       margin-left: 96px;
@@ -42,7 +47,7 @@ header {
       width: 215px;
       a {
         display: block;
-        color: #858E93;
+        color: #fff;
         + a {margin-top: 12px;}
         span {
          &:hover {color: #E54E2B; border-bottom: 1px solid #E54E2B;} 
@@ -52,6 +57,26 @@ header {
   }
  }
 
+ .util {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+
+  .lang {
+    color: #fff;
+    display: flex;
+    gap: 24px;
+    .on {color: #E54E2B;}
+  }
+
+  .all-menu {
+    width: 52px;
+    height: 52px;
+    background: url("/images/all-menu.png") no-repeat;
+    background-size: cover;
+    display: block;
+  }
+ }
  
 
 }

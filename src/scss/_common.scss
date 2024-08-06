@@ -7,6 +7,9 @@ body {
 }
 
 ul,
+dl,
+dt,
+dd,
 li {
   list-style: none;
   margin: 0;
@@ -19,4 +22,17 @@ a {
 
 p {
   margin: 0;
+}
+
+
+#wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+.inner {
+  width: 1365px;
+  margin: 0 auto;
 }

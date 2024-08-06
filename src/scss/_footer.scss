@@ -1,0 +1,23 @@
+footer {
+	margin-top: 144px;
+	padding: 144px 140px;
+	display: flex;
+	justify-content: space-between;
+	border-top: 1px solid #E3E4E5;
+
+	.left {
+		.logo {
+			margin-bottom: 48px;
+		}
+		p {
+			+ p {
+				margin-top: 6px;
+			}
+		}
+	}
+
+	.right {
+		display: flex;
+		gap: 40px;
+	}
+}
