@@ -7,10 +7,23 @@
   display: flex;
   align-items: flex-end;
   gap: 8px;
+
+  .input-wrap input[type="text"] {
+    width: 100%;
+  }
+
+  .input-wrap label {
+    white-space: nowrap;
+  }
+}
+
+.input-wrap + .form-flexbox {
+  margin-top: 48px;
 }
 
 .input-wrap {
   margin-top: 48px;
+  width: 100%;
 
   &:first-child {
     margin-top: 0;
@@ -55,8 +68,13 @@
     }
   }
 
+  .ex-txt {
+    margin-bottom: 16px;
+    color: $gray40;
+  }
+
   /* input */
-  input {
+  input[type="text"] {
     padding: 0 20px;
     width: 680px;
     height: 64px;
@@ -136,6 +154,14 @@
       .r-byte {
         color: $brdGray;
       }
+
+      .l-byte {
+        color: $brdLhtGray;
+
+        span {
+          color: $brdLhtGray;
+        }
+      }
     }
   }
 
@@ -170,5 +196,204 @@
         z-index: 100;
       }
     }
+  }
+}
+
+/* radio */
+.input-table {
+  .form-radio-box {
+    margin-top: 48px;
+    width: 680px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+input[type="radio"] {
+  position: relative;
+  top: 5px;
+  appearance: none;
+  margin: 0 8px 0 0;
+  width: 20px;
+  height: 20px;
+  background: url("/images/icon-radio.svg") no-repeat left top/20px 20px;
+  border: 0;
+}
+input[type="radio"]:checked {
+  background: url("/images/icon-radio-on.svg") no-repeat left top/20px 20px;
+}
+
+.form-radio-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 20px;
+  align-items: flex-end;
+
+  .input-wrap {
+    margin-top: 0;
+    width: calc((100% - 20px) / 2);
+
+    .input-tit {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+/* file */
+.form-file {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  .file-input {
+    display: inline-block;
+    width: 474px;
+    height: 64px;
+    border: 1px solid $gray20;
+    border-radius: 4px;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 482px);
+    height: 64px;
+    background: $brdGray;
+    border-radius: 4px;
+
+    span {
+      padding-left: 27px;
+      color: $white;
+      background: url("/images/icon-file.png") no-repeat left center;
+    }
+  }
+}
+
+.file-list {
+  margin-top: 16px;
+  li {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    margin-top: 4px;
+    line-height: 160%;
+
+    span {
+      text-decoration: underline;
+    }
+
+    .delete-btn {
+      padding: 0;
+      width: 18px;
+      height: 18px;
+      border: 0;
+      background: url("/images/btn-file-delete.svg") no-repeat left center;
+    }
+  }
+}
+
+/* checkbox */
+.form-checkbox {
+  padding: 14px 28px;
+  border: 1px solid $gray20;
+  border-radius: 4px;
+
+  &:has(input[type="checkbox"]:checked) {
+    border: 1px solid $brdGray;
+  }
+
+  input[type="checkbox"] {
+    position: relative;
+    top: 8px;
+    appearance: none;
+    margin: 0 8px 0 0;
+    width: 24px;
+    height: 30px;
+    background: url("/images/icon-checkbox.svg") no-repeat left top 5px/24px
+      24px;
+    border: 0;
+  }
+  input[type="checkbox"]:checked {
+    background: url("/images/icon-checkbox-on.svg") no-repeat left top 5px/24px
+      24px;
+  }
+
+  label {
+    position: relative;
+    top: -8px;
+    color: $gray40;
+
+    &:has(input[type="checkbox"]:checked) {
+      color: $brdGray;
+    }
+  }
+}
+
+.form-info-txt {
+  margin-top: 16px;
+
+  .f-desc-b {
+    position: relative;
+    padding-left: 11px;
+    margin-top: 8px;
+
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 0;
+      width: 3px;
+      height: 3px;
+      background: $gray60;
+      border-radius: 50%;
+    }
+  }
+}
+
+/* 개인정보 동의 */
+.agree-wrap {
+  .input-wrap {
+    margin-top: 16px;
+  }
+
+  .agree-con {
+    padding: 10px;
+    height: 180px;
+    border: 1px solid $gray10;
+    border-radius: 4px;
+    background: rgba(227, 228, 229, 0.2);
+
+    .scroll-area {
+      overflow-y: auto;
+      padding-right: 10px;
+      height: 100%;
+      color: $gray60;
+      white-space: pre-line;
+      line-height: 28px;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+        background: transparent;
+        border-radius: 2px;
+      }
+      &::-webkit-scrollbar-thumb {
+        width: 4px;
+        background: $gray20;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .agree-txt {
+    margin-top: 16px;
+    color: $gray80;
   }
 }

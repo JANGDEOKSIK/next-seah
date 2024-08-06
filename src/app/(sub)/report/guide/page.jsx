@@ -3,60 +3,29 @@
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import PageTransition from "@/app/_components/layout/PageTransition";
-import Input from "@/app/_components/Input";
-import Textarea from "@/app/_components/Textarea";
-import SelectBox from "@/app/_components/SelectBox";
+import TwoDepth from "../_components/TwoDepth";
 
 export default function Guide() {
-  const [inputTitValue, setInputTitValue] = useState("");
-  const [inputNumValue, setInputNumValue] = useState("");
-  const [textareaValue, setTextareaValue] = useState("");
-  const OPTIONS0 = [
-    { value: "세아홀딩스 계열", name: "세아홀딩스 계열" },
-    { value: "세아홀딩스 계열1", name: "세아홀딩스 계열1" },
-    { value: "세아홀딩스 계열2", name: "세아홀딩스 계열2" },
-  ];
-
-  const OPTIONS1 = [
-    { value: "세아제강지주 계열", name: "세아제강지주 계열" },
-    { value: "세아제강지주 계열1", name: "세아제강지주 계열1" },
-    { value: "세아제강지주 계열2", name: "세아제강지주 계열2" },
-  ];
-
-  const onClick = () => {
-    console.log(inputTitValue);
-    console.log(inputNumValue);
-  };
-
-  const onTextAreaHandler = (e) => {
-    setTextareaValue(e.target.value.length);
-  };
-
   return (
     <PageTransition>
       <div id="wrap">
-        <div className="sub-visual" style={{ background: `url(/images/img-sub-visual-report-01.jpg) no-repeat center center/cover` }}>
+        <div
+          className="sub-visual"
+          style={{
+            background: `url(/images/img-sub-visual-report-01.jpg) no-repeat center center/cover`,
+          }}
+        >
           <h2 className="f-s-title1">제보 가이드</h2>
-          <div className="two-depth">
-            <a href="javascript:" className="f-s-title2">
-              제보 가이드
-            </a>
-            <a href="javascript:" className="f-s-title2">
-              온라인 제보
-            </a>
-            <a href="javascript:" className="f-s-title2">
-              제보결과 확인
-            </a>
-            <a href="javascript:" className="f-s-title2">
-              서신&middot;전화&middot;Fax 이용안내
-            </a>
-          </div>
+          <TwoDepth />
         </div>
 
         <div className="report-wrap">
           <div className="inner">
             <div className="tit-wrap">
-              <p className="f-title1-eb">윤리경영 제안센터는 세아 임직원 외에도 고객, 주주 및 협력사 등 이해관계자 모두 이용가능한 제보 채널입니다.</p>
+              <p className="f-title1-eb">
+                윤리경영 제안센터는 세아 임직원 외에도 고객, 주주 및 협력사 등
+                이해관계자 모두 이용가능한 제보 채널입니다.
+              </p>
             </div>
             <div className="cont-inner">
               <div className="tit-div">
@@ -65,37 +34,57 @@ export default function Guide() {
               <div className="report-type">
                 <div className="type">
                   <p className="img">
-                    <img src="/images/img-report-type-01.jpg" alt="" />
+                    <img
+                      src="/images/img-report-type-01.jpg"
+                      alt=""
+                    />
                   </p>
-                  <p className="f-body1-eb">이해관계자로부터 금품을 받는 행위</p>
+                  <p className="f-body1-eb">
+                    이해관계자로부터 금품을 받는 행위
+                  </p>
                 </div>
                 <div className="type">
                   <p className="img">
-                    <img src="/images/img-report-type-02.jpg" alt="" />
+                    <img
+                      src="/images/img-report-type-02.jpg"
+                      alt=""
+                    />
                   </p>
                   <p className="f-body1-eb">거래업체에 대한 부당 지분 참여</p>
                 </div>
                 <div className="type">
                   <p className="img">
-                    <img src="/images/img-report-type-03.jpg" alt="" />
+                    <img
+                      src="/images/img-report-type-03.jpg"
+                      alt=""
+                    />
                   </p>
                   <p className="f-body1-eb">협력회사 선정의 투명성 결여</p>
                 </div>
                 <div className="type">
                   <p className="img">
-                    <img src="/images/img-report-type-04.jpg" alt="" />
+                    <img
+                      src="/images/img-report-type-04.jpg"
+                      alt=""
+                    />
                   </p>
                   <p className="f-body1-eb">회사자산의 불법·부당 사용</p>
                 </div>
                 <div className="type">
                   <p className="img">
-                    <img src="/images/img-report-type-05.jpg" alt="" />
+                    <img
+                      src="/images/img-report-type-05.jpg"
+                      alt=""
+                    />
                   </p>
                   <p className="f-body1-eb">문서·계수의 조작 및 허위 보고</p>
                 </div>
                 <div className="type">
                   <p className="img">
-                    <img src="/images/img-report-type-06.jpg" alt="" />
+                    <img
+                      src="/images/img-report-type-06.jpg"
+                      alt=""
+                    />
                   </p>
                   <p className="f-body1-eb">
                     기타 윤리규범 위반
@@ -139,23 +128,38 @@ export default function Guide() {
                 <div className="txt-step">
                   <div className="txt-div">
                     <p className="f-body1-eb">1. 제보접수</p>
-                    <p className="f-body2-b">제보 내용을 작성하여 접수합니다.</p>
+                    <p className="f-body2-b">
+                      제보 내용을 작성하여 접수합니다.
+                    </p>
                   </div>
                   <div className="txt-div">
                     <p className="f-body1-eb">2.접수확인</p>
-                    <p className="f-body2-b">제보하신 내용 및 관련부서를 확인하고 정확성을 면밀히 검토합니다. 내용확인 후 조사에서 제외 또는 전담부서로 이관될 수 있습니다.</p>
+                    <p className="f-body2-b">
+                      제보하신 내용 및 관련부서를 확인하고 정확성을 면밀히
+                      검토합니다. 내용확인 후 조사에서 제외 또는 전담부서로
+                      이관될 수 있습니다.
+                    </p>
                   </div>
                   <div className="txt-div">
                     <p className="f-body1-eb">3.조사개시</p>
-                    <p className="f-body2-b">제보된 시안에 대해 심층적으로 조사를 진행하고 관련된 자료를 철저히 분석하여 상황을 체계적으로 파악합니다.</p>
+                    <p className="f-body2-b">
+                      제보된 시안에 대해 심층적으로 조사를 진행하고 관련된
+                      자료를 철저히 분석하여 상황을 체계적으로 파악합니다.
+                    </p>
                   </div>
                   <div className="txt-div">
                     <p className="f-body1-eb">4.조사완료</p>
-                    <p className="f-body2-b">수집된 증거와 조사를 꼼꼼하게 검토하여 상황을 신중하게 판단하고 적절한 대응을 결정합니다.</p>
+                    <p className="f-body2-b">
+                      수집된 증거와 조사를 꼼꼼하게 검토하여 상황을 신중하게
+                      판단하고 적절한 대응을 결정합니다.
+                    </p>
                   </div>
                   <div className="txt-div">
                     <p className="f-body1-eb">5.종결</p>
-                    <p className="f-body2-b">필요한 후속조치를 신속하고 적극적으로 취하며, 처리결과에 따른 내용은 [제보결과 확인]을 통해 확인 하실 수 있습니다.</p>
+                    <p className="f-body2-b">
+                      필요한 후속조치를 신속하고 적극적으로 취하며, 처리결과에
+                      따른 내용은 [제보결과 확인]을 통해 확인 하실 수 있습니다.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -169,10 +173,19 @@ export default function Guide() {
               </div>
               <div className="gray-bg-box">
                 <div className="dot-flex-box">
-                  <p className="dot-txt f-desc-b">고객불만, 하자보수 등 서비스/품질 관련 사항</p>
-                  <p className="dot-txt f-desc-b">회사가 관여할 수 없는 개인 사생활에 관한 경우</p>
-                  <p className="dot-txt f-desc-b">허위사실 또는 일방적 주장으로 대상자를 비방하는 경우</p>
-                  <p className="dot-txt f-desc-b">근거 없는 악의적 제보는 제재대상이 될 수 있음을 안내 드립니다.</p>
+                  <p className="dot-txt f-desc-b">
+                    고객불만, 하자보수 등 서비스/품질 관련 사항
+                  </p>
+                  <p className="dot-txt f-desc-b">
+                    회사가 관여할 수 없는 개인 사생활에 관한 경우
+                  </p>
+                  <p className="dot-txt f-desc-b">
+                    허위사실 또는 일방적 주장으로 대상자를 비방하는 경우
+                  </p>
+                  <p className="dot-txt f-desc-b">
+                    근거 없는 악의적 제보는 제재대상이 될 수 있음을 안내
+                    드립니다.
+                  </p>
                 </div>
               </div>
             </div>

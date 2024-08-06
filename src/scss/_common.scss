@@ -6,8 +6,13 @@ body {
   margin: 0;
 }
 
-li {
-  list-style: none;
+ul {
+  padding: 0;
+  margin: 0;
+
+  li {
+    list-style: none;
+  }
 }
 
 a {
@@ -16,6 +21,10 @@ a {
 
 p {
   margin: 0;
+}
+
+button {
+  cursor: pointer;
 }
 
 .cont-inner {
@@ -43,6 +52,10 @@ p {
   border-radius: 8px;
   background: $lhtGray;
 
+  &:has(.info-txt) {
+    margin-top: 72px;
+  }
+
   .dot-flex-box {
     display: flex;
     flex-wrap: wrap;
@@ -66,5 +79,34 @@ p {
         background: $gray80;
       }
     }
+  }
+
+  .info-txt {
+    position: relative;
+    padding-left: 24px;
+    background: url("/images/icon-info-gray.png") no-repeat left top 3px;
+  }
+}
+
+.btn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.submit {
+    margin-top: 144px;
+  }
+}
+
+.color-btn {
+  padding: 21px 96px;
+  color: $white;
+  font-size: 18px;
+  line-height: 160%;
+  border-radius: 4px;
+  border: 0;
+
+  &.orange {
+    background: $brdOrange;
   }
 }

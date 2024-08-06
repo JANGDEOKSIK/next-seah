@@ -1,22 +1,21 @@
 "use client";
 import classNames from "classnames";
 import { useState } from "react";
-import Checkbox from "./Checkbox";
 
-export default function Input({
+export default function Radio({
   id,
-  isVertical = false,
   label,
-  ex,
   isEssential = false,
   placeholder,
   value,
   isNoTitle,
-  isDisabled,
+  children,
+  defaultChecked,
+  name,
 }) {
   return (
     <>
-      <div className={classNames("input-wrap", { horizontal: isVertical })}>
+      <div className="input-wrap">
         {isNoTitle ? (
           ""
         ) : (
@@ -27,14 +26,15 @@ export default function Input({
             </div>
           </div>
         )}
-        {ex != "" ? <div className="ex-txt f-desc-b">{ex}</div> : ""}
-        <input
-          id={id}
-          type="text"
-          placeholder={placeholder}
-          onChange={(e) => value(e.target.value)}
-          disabled={isDisabled}
-        />
+        <label>
+          <input
+            type="radio"
+            value={value}
+            defaultChecked={defaultChecked}
+            name={name}
+          />
+          {children}
+        </label>
       </div>
     </>
   );
