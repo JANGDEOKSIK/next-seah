@@ -10,7 +10,6 @@ export default function GuidePage() {
   ]);
 
 	const pathname = usePathname();
-	console.log(pathname)
 	
 	return (
 		<div id="wrap">
@@ -22,14 +21,14 @@ export default function GuidePage() {
 						?.filter(item => item.menuId === "ReportPage")
 						.flatMap(item => item.subMenu)
 						.map((subItem) => (
-							<a href={subItem.url} key={subItem.menuSeq} className={pathname.includes(subItem.url) ? "on" : ""}>
+							<a href={`/report${subItem.url}`} key={subItem.menuSeq} className={pathname.includes(subItem.url) ? "on" : ""}>
 								{subItem.menuNm}
 							</a>
 						))
 					}
 				</div>
 			</div>
-
+					
 			<div className="sub-wrap inner">
 				<div className="guide">
 
@@ -108,7 +107,7 @@ export default function GuidePage() {
 
 						<div className="noti">
 							<p className="f-title4-eb">제보 내용이 아래 사항에 해당하는 경우<br /> 조사 대상에서 제외될 수 있음을 알려드립니다.</p>
-							<div className="grey-box">
+							<div className="gray-box">
 								<p className="dot-txt">고객불만, 하자보수 등 서비스/품질 관련 사항</p>
 								<p className="dot-txt">회사가 관여할 수 없는 개인 사생활에 관한 경우</p>
 								<p className="dot-txt">허위사실 또는 일방적 주장으로 대상자를 비방하는 경우</p>

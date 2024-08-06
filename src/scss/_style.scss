@@ -31,16 +31,25 @@
 
 .sub-wrap {
 	margin-top: 144px;
-}
-
-// 제보가이드
-.guide {
 
 	.top-copy {
 		text-align: center;
 		margin-bottom: 144px;
 	}
 
+	.gray-box {
+		background: #F8F8F8;
+		margin-top: 48px;
+		padding: 48px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+}
+
+// 제보가이드
+.guide {
 	.sec {
 		+ .sec {
 			margin-top: 216px;
@@ -96,14 +105,7 @@
 		.noti {
 			margin-top: 216px;
 			
-			.grey-box {
-				background: #F8F8F8;
-				margin-top: 48px;
-				padding: 48px;
-				display: flex;
-				flex-wrap: wrap;
-				gap: 8px;
-
+			.gray-box {
 				.dot-txt {
 					position: relative;
 					display: flex;
@@ -111,7 +113,7 @@
 					gap: 8px;
 					width: 625px;
 					color: #606B72;
-					
+
 					&::before {
 						content: "";
 						width: 4px;
@@ -125,3 +127,89 @@
 		}
 	}
 }
+
+
+// 온라인 제보
+.online {
+	.gray-box {
+		p {
+			display: flex;
+			gap: 8px;
+			color: #606B72;
+			&::before {
+				content: "";
+				width: 16px;
+				height: 16px;
+				background: url("../../public/images/ico-noti.png") no-repeat;
+				display: block;
+				transform: translateY(3px);
+			}
+		}
+	}
+
+
+	ul {
+		margin-top: 146px;
+		li {
+			display: flex;
+
+			& + li {
+				margin-top: 216px;
+			}
+
+			.left {
+				width: calc(100% - 680px);
+				span {
+					color: #E54E2B;
+					border: 1px solid #E54E2B;
+					display: inline-block;
+					border-radius: 50px;
+					padding: 6px 24px;
+					margin-bottom: 24px;
+				}
+				a {
+					color: #E54E2B;
+					border-bottom: 1px solid #E54E2B;
+					padding-bottom: 3px;
+					margin-top: 50px;
+					display: inline-flex;
+					gap: 4px;
+					&::before {
+						content: "";
+						width: 18px;
+						height: 18px;
+						background: url("../../public/images/ico-noti-red.png") no-repeat;
+						background-size: cover;
+						display: block;
+						transform: translateY(3px);
+					}
+				}
+			}
+
+			.right {
+				width: 680px;
+				.form-input {
+					textarea {
+						height: 357px;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

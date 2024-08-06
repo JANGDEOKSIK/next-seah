@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  line-height: 160%;
 }
 
 body {
@@ -24,6 +25,11 @@ p {
   margin: 0;
 }
 
+button {
+  background: 0;
+  border: 0;
+  cursor: pointer;
+}
 
 #wrap {
   position: relative;
@@ -36,3 +42,212 @@ p {
   width: 1365px;
   margin: 0 auto;
 }
+
+.for-flex {
+  display: flex;
+}
+
+
+.form-wrap {
+  & + .form-wrap {
+    margin-top: 46px;
+  }
+
+  & + .form-input {
+    margin-top: 46px;
+  }
+  
+  .f-body1-eb {
+    margin-bottom: 24px;
+  }
+
+  .for-flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;      
+  }
+}
+
+
+.form-input {
+  width: 100%;
+  position: relative;
+
+  & + .form-input {
+    margin-top: 48px;
+  }
+
+  & + .form-wrap {
+    margin-top: 48px;
+  }
+
+  & + .form-file {
+    margin-top: 48px;
+  }
+
+  .for-flex {
+    gap: 8px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 16px;
+
+    &.essen::after {
+      content: "*";
+      color: #E54E2B;
+    }
+  }
+
+  input {
+    height: 64px;
+    padding: 0 20px;
+    border: 1px solid #D0D3D4;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 16px;
+    
+    &::placeholder {
+      font-size: 16px;
+      color: #ABB0B3;
+    }
+  }
+
+  select {
+    background: 0;
+    border: 1px solid #D0D3D4;
+    border-radius: 4px;
+    height: 64px;
+    padding: 0 20px;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  textarea {
+    width: 100%;
+    border: 1px solid #D0D3D4;
+    padding: 20px;
+    font-size: 18px;
+  }
+  .msg {
+    color: #ABB0B3;
+    &.for-position {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    & + input {
+      margin-top: 16px;
+    }
+  }
+}
+
+
+.form-radio {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  input[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    margin: 0;
+
+    & + label {
+      position: relative;
+      display: inline-block;
+      padding-left: 25px;
+      background: url(../../public/images/ico-radio.png) no-repeat 0 center;
+      background-size: 20px 20px;
+      cursor: pointer;
+    }
+    &:checked + label {
+      position: relative;
+      display: inline-block;
+      padding-left: 25px;
+      background: url(../../public/images/ico-radio-chk.png) no-repeat 0 center;
+      background-size: 20px 20px;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+.form-file {
+  .f-body1-eb {
+    margin-bottom: 16px;
+  }
+  label {
+    display: inline-flex;
+    height: 64px;
+    width: 198px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: #3B4951;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 4px;
+  }
+  input[type=text] {
+    height: 64px;
+    padding: 0 20px;
+    border: 1px solid #D0D3D4;
+    width: 474px;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  input[type=file] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+  }
+
+  .file-list {
+    margin-top: 16px;
+    p {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      span {
+        text-decoration: underline;
+      }
+      .del {
+        width: 18px;
+        height: 18px;
+        background: url("../../public/images/ico-del.png")
+      }
+    }
+    
+  }
+  .msg {
+    margin-top: 16px;
+    p {
+      color: #858E93;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      &::before {
+        content: "";
+        width: 3px;
+        height: 3px;
+        display: block;
+        background: #858E93;
+        border-radius: 50px;
+      }
+      & + p {
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
