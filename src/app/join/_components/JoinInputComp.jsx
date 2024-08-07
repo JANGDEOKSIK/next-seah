@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 export default function JoinInputComp({
   inputId,
@@ -10,7 +10,10 @@ export default function JoinInputComp({
   placeholder,
   validation,
 }) {
-  const { register } = useForm();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <div>
@@ -25,6 +28,7 @@ export default function JoinInputComp({
         placeholder={placeholder}
         {...register(inputId, validation)}
       />
+      {errors[inputId] && <p>{errors[inputId]?.message}</p>}
     </div>
   );
 }
