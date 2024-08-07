@@ -1,6 +1,9 @@
-import Link from "next/link";
+"use client";
 
+import Link from "next/link";
+import { getList } from "@/app/_lib/fetch";
 export default function Header() {
+  const { data } = getList("/menu", ["root", "allMenus"]);
   return (
     <>
       <div id="skipNavi">
@@ -10,22 +13,16 @@ export default function Header() {
         <h1></h1>
         <nav>
           <ul>
-            <li>
-              <Link
-                className="one-dep"
-                href={"/report/guide"}
-              >
-                윤리경영제안센터 소개
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="one-dep"
-                href={"/report/online"}
-              >
-                제보하기
-              </Link>
-            </li>
+            {data?.map((item, index) => (
+              <li key={index}>
+                <Link
+                  className="one-dep"
+                  href={item.url}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <div className="utils"></div>
