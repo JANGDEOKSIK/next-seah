@@ -3,18 +3,17 @@
 import Link from "next/link";
 // import { getList, setMutation } from "@/app/_lib/fetch";
 
-export default async function Nav() {
+export default function Nav({ data }) {
   //const { data, isLoading, refetch } = getList("/menus", ["header", "gnb"]);
 
-  let data;
+  /*let data;
   const promise = await fetch("http://localhost:4000/menus")
     .then((res) => res.json())
     .then((json) => {
       console.log(json);
       data = json;
     });
-
-  console.log("promise", promise);
+    */
 
   return (
     <>

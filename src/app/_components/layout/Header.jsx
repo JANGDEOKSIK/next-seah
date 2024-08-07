@@ -1,8 +1,10 @@
-//"use client";
+"use client";
 import Link from "next/link";
 import Nav from "./nav";
+import { getList } from "@/app/_lib/fetch";
 
 export default function Header() {
+  const { data } = getList("/menus", ["str1", "str2"]);
   return (
     <>
       <div id="skipNavi">
@@ -15,7 +17,7 @@ export default function Header() {
           </Link>
         </h1>
 
-        <Nav></Nav>
+        <Nav data={data}></Nav>
       </header>
     </>
   );

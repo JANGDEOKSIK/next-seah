@@ -14,10 +14,10 @@ export default function TestPage() {
     gsap.to(boxRef.current, {
       scrollTrigger: {
         trigger: boxRef.current,
-        start: () => "top center",
+        start: () => "top 30%",
         end: () => "bottom top",
         pin: true,
-        //pinSpacing: false,
+        pinSpacing: false,
         markers: true,
       },
     });
