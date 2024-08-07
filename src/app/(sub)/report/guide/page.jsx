@@ -1,26 +1,12 @@
 import PageTransition from "@/app/_components/layout/PageTransition";
-import Image from "next/image";
-import ImgReportTitBg from "/public/images/img-report-tit-bg.jpg";
-import PageMenu from "../_components/PageMenu";
+import PageTitWrap from "../_components/PageTitWrap";
 import TypeList from "./_components/TypeList";
+import ImgReportTitBg from "/public/images/img-report-tit-bg.jpg";
 
 export default function GuidePage() {
   return (
     <div id="wrap">
-      <div className="page-tit-wrap">
-        <div className="bg">
-          <Image
-            src={ImgReportTitBg}
-            // layout="fill"
-            fill
-            alt=""
-          />
-        </div>
-        <div className="inenr">
-          <p className="page-tit f-tit1">제보 가이드</p>
-          <PageMenu />
-        </div>
-      </div>
+      <PageTitWrap bg={ImgReportTitBg} />
       <PageTransition>
         <div className="cont-wrap">
           <div className="inner">

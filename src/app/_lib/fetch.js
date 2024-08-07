@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 
-export const getList = (url, key = []) => {
+export const useGetList = (url, key = []) => {
   if (key.length === 0) {
     throw new Error("key값은 필수입니다.");
   }
@@ -16,7 +16,7 @@ export const getList = (url, key = []) => {
   });
 };
 
-export const setMutation = (url, options = {}) => {
+export const useSetMutation = (url, options = {}) => {
   const mutation = useMutation({
     mutationFn: async (data) => {
       const response = await fetch(

@@ -2,9 +2,8 @@
 
 import { useEffect } from "react";
 // import { useMutation, useQuery } from "@tanstack/react-query";
-import PageMenu from "@/app/(sub)/(report)/_components/PageMenu";
-import Image from "next/image";
 import ImgReportTitBg from "/public/images/img-report-tit-bg.jpg";
+import PageTitWrap from "../_components/PageTitWrap";
 import { useForm } from "react-hook-form";
 import InputBox from "@/app/_components/input/InputBox";
 import Aattachment from "@/app/_components/input/Aattachment";
@@ -17,7 +16,7 @@ import ContactBox from "@/app/_components/input/ContactBox";
 import CaptchaBox from "@/app/_components/input/CaptchaBox";
 import PageTransition from "@/app/_components/layout/PageTransition";
 // import Loading from "@/app/loading";
-import { setMutation } from "@/app/_lib/fetch";
+import { useSetMutation } from "@/app/_lib/fetch";
 
 export default function OnlinePage() {
   const {
@@ -36,7 +35,7 @@ export default function OnlinePage() {
 
   const selectedValue = watch("tabIdC");
 
-  const { mutate, isError, error } = setMutation("/dataForm", {
+  const { mutate, isError, error } = useSetMutation("/dataForm", {
     onSuccess: (data) => {
       refetch();
       console.log("Success:", data);
@@ -146,20 +145,7 @@ export default function OnlinePage() {
 
   return (
     <div id="wrap">
-      <div className="page-tit-wrap">
-        <div className="bg">
-          <Image
-            src={ImgReportTitBg}
-            // layout="fill"
-            fill
-            alt=""
-          />
-        </div>
-        <div className="inenr">
-          <p className="page-tit f-tit1">온라인 제보</p>
-          <PageMenu />
-        </div>
-      </div>
+      <PageTitWrap bg={ImgReportTitBg} />
       <PageTransition>
         <div className="cont-wrap">
           <div className="inner">
