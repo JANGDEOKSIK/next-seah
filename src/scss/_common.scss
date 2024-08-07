@@ -45,8 +45,53 @@ button {
 
 .for-flex {
   display: flex;
+
+  &:has(.form-select) {
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  & + .form-input {
+    margin-top: 46px;
+  }
 }
 
+.form-area {
+  position: relative;
+
+  & + .form-wrap {
+    margin-top: 48px;
+  }
+  
+  & + .form-input {
+    margin-top: 48px;
+  }
+
+  & + .form-file {
+    margin-top: 48px;
+  }
+
+  & + .form-text {
+    margin-top: 48px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 16px;
+
+    &.essen::after {
+      content: "*";
+      color: #E54E2B;
+    }
+  }
+
+  .msg {
+    color: #ABB0B3;
+    & + input {
+      margin-top: 16px;
+    }
+  }
+}
 
 .form-wrap {
   & + .form-wrap {
@@ -64,7 +109,7 @@ button {
   .for-flex {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 18px;      
+    column-gap: 18px;
   }
 }
 
@@ -73,30 +118,9 @@ button {
   width: 100%;
   position: relative;
 
-  & + .form-input {
-    margin-top: 48px;
-  }
-
-  & + .form-wrap {
-    margin-top: 48px;
-  }
-
-  & + .form-file {
-    margin-top: 48px;
-  }
 
   .for-flex {
     gap: 8px;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 16px;
-
-    &.essen::after {
-      content: "*";
-      color: #E54E2B;
-    }
   }
 
   input {
@@ -112,7 +136,21 @@ button {
       color: #ABB0B3;
     }
   }
+}
 
+
+.form-select {
+  width: 100%;
+  &.no-lab {
+    label {
+      display: none;
+    }
+  }
+
+  & + .form-input {
+    margin-top: 48px;
+  }
+  
   select {
     background: 0;
     border: 1px solid #D0D3D4;
@@ -123,25 +161,26 @@ button {
     font-size: 16px;
   }
 
+}
+
+.form-text {
   textarea {
     width: 100%;
     border: 1px solid #D0D3D4;
     padding: 20px;
     font-size: 18px;
+    height: 400px;
+    &::placeholder {
+      font-size: 16px;
+      color: #ABB0B3;
+    }
   }
   .msg {
-    color: #ABB0B3;
-    &.for-position {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-    & + input {
-      margin-top: 16px;
-    }
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
-
 
 .form-radio {
   display: flex;
@@ -174,8 +213,11 @@ button {
       cursor: pointer;
     }
   }
-}
 
+  & + .form-radio {
+    margin-top: 8px;
+  }
+}
 
 
 .form-file {
@@ -227,7 +269,6 @@ button {
         background: url("../../public/images/ico-del.png")
       }
     }
-    
   }
   .msg {
     margin-top: 16px;
@@ -251,3 +292,69 @@ button {
   }
 }
 
+
+.tab-area {
+  display: flex;
+  gap: 8px;
+
+  button {
+    width: 100%;
+    height: 64px;
+    border-radius: 4px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ABB0B3;
+    font-size: inherit;
+    
+    &.on {
+      border: 1px solid transparent;
+      background: #3B4951;
+      color: #fff;
+    }
+  }
+
+  & + .form-input {
+    margin-top: 48px;
+  }
+}
+
+.input-msgs {
+  margin-top: 16px;
+  p {
+    color: #858E93;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    &::before {
+      content: "";
+      width: 3px;
+      height: 3px;
+      display: block;
+      background: #858E93;
+      border-radius: 50px;
+    }
+    & + p {
+      margin-top: 8px;
+    }
+  }
+}
+
+
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+
+  button[type="submit"] {
+    width: 258px;
+    height: 72px;
+    background: #E54E2B;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-size: inherit;
+    justify-content: center;
+    border-radius: 4px;
+  }
+}

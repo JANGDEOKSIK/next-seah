@@ -188,10 +188,56 @@
 
 			.right {
 				width: 680px;
-				.form-input {
-					textarea {
-						height: 357px;
+
+
+				.safe-num {
+					margin-top: 16px;
+				}
+
+				.policy {
+					& + .policy {
+						margin-top: 48px;
 					}
+
+					& > .f-body1-eb.essen {
+						margin-bottom: 16px;
+						&::after {
+							content: "*";
+							color: #E54E2B;
+						}
+					}
+						.policy-area {
+						background: rgba(227, 228, 229, 0.20);
+						border-radius: 4px;
+						border: 1px solid #E3E4E5;
+						padding: 20px 5px 20px 20px;
+						overflow: hidden;
+						
+						.scrl {
+							overflow-y: auto;
+							height: 180px;
+							padding-right: 15px;
+							color: #858E93;
+							&::-webkit-scrollbar {
+								width: 4px;
+								height: 100%;
+							}
+							&::-webkit-scrollbar-thumb {
+								background-color: #D0D3D4;
+							}
+							&::-webkit-scrollbar-track {
+								background-color: transparent;
+							}
+						}
+						& + .pol-msg {
+							color: #606B72;
+							margin: 16px 0;
+						}
+					}
+				}
+
+				.cap {
+					margin-top: 48px;
 				}
 			}
 		}
