@@ -1,5 +1,6 @@
 @import "./variable";
 @import "./mixin";
+@import "./reset";
 @import "./typo";
 @import "./color";
 @import "./layout";
@@ -7,6 +8,10 @@
 @import "./footer";
 @import "./spinner";
 @import "./modal";
+
+body {
+  background: #eee;
+}
 
 .box1 {
   width: 150px;

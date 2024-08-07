@@ -1,4 +1,45 @@
 header {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  h1 {
+    position: absolute;
+    top: 40px;
+    left: 140px;
+    width: 120px;
+    height: 38px;
+    background: url("/images/ci.png") no-repeat 0 0 / auto;
+  }
+
+  nav {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    ul {
+      display: flex;
+
+      .one-dep {
+        display: flex;
+        padding: 46px 48px;
+        font-size: 18px;
+        color: #fff;
+      }
+    }
+  }
+
+  .utils {
+    position: absolute;
+  }
+}
+
+.subvisual {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+  background: url("/images/subvisual.jpg") no-repeat center center;
 }
 
 #skipNavi a {
@@ -11,5 +52,9 @@ header {
 
   &:focus {
     top: 0;
+    width: 100%;
+    height: 60px;
+    color: #fff;
+    background-color: #e31d1a;
   }
 }
