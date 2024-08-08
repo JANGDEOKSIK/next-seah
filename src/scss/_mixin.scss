@@ -22,3 +22,38 @@
     @content;
   }
 }
+
+@mixin bg($url) {
+  background: url($url) no-repeat center center / cover;
+}
+
+@mixin grid($col: 3, $colgap: 20rem, $rowgap: 20rem) {
+  display: grid;
+  grid-template-columns: repeat($col, minmax(auto, 1fr));
+  column-gap: $colgap;
+  row-gap: $rowgap;
+}
+
+@mixin maxGrid($col: 3, $colgap: 20rem, $rowgap: 20rem, $maxW) {
+  display: grid;
+  grid-template-columns: repeat($col, minmax(auto, $maxW));
+  column-gap: $colgap;
+  row-gap: $rowgap;
+}
+
+// 폰트 설정
+@mixin font-face($name, $weight) {
+  @font-face {
+    font-family: "NanumSquare";
+    src: url("../../public/fonts/#{$name}.woff2") format("woff2"),
+      url("../../public/fonts/#{$name}.ttf") format("truetype");
+    font-weight: $weight;
+    font-style: normal;
+  }
+}
+
+@mixin font($size: 16rem, $weight: 600, $color: $black) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}

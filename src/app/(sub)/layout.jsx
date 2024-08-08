@@ -3,10 +3,10 @@ import Footer from "@/app/_components/layout/Footer";
 
 export default function Layout({ children }) {
   return (
-    <>
-      <Header title={"about과 seah의 헤더입니다."} />
+    <div className="wrap">
+      <Header />
       {children}
       <Footer />
-    </>
+    </div>
   );
 }

@@ -1,0 +1,101 @@
+.wrap {
+  width: 100vw;
+  min-width: 320rem;
+}
+
+.inner {
+  position: relative;
+  margin: 0 auto;
+  width: 1640rem;
+
+  @include tablet() {
+    width: calc(100% - 40rem);
+  }
+}
+
+.section-inner {
+  padding: 0 240px;
+}
+
+.dis {
+  &-flex {
+    display: flex !important;
+
+    &.dir-column {
+      flex-direction: column;
+    }
+    &.dir-row {
+      flex-direction: row;
+    }
+
+    &.end {
+      justify-content: flex-end;
+    }
+
+    &.both {
+      justify-content: space-between;
+    }
+
+    &.jus-center {
+      justify-content: center;
+    }
+
+    &.align-center {
+      align-items: center;
+    }
+  }
+
+  &-block {
+    display: block !important;
+  }
+
+  &-inline-block {
+    display: inline-block !important;
+  }
+
+  &-grid {
+    display: grid !important;
+  }
+
+  &-none {
+    display: none !important;
+  }
+}
+
+.txt {
+  &-align-left {
+    text-align: left;
+  }
+}
+
+.bullet-list-wrap {
+  .bullet-list {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 11rem;
+    font-size: 14rem;
+    font-weight: 700;
+    line-height: 160%;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 8rem;
+      left: 0;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: $gray80;
+    }
+  }
+}
+
+$padding_list: (36, 48, 56, 72, 96, 144, 216);
+
+@each $padding_list in $padding_list {
+  .pdt {
+    &-#{$padding_list} {
+      padding-top: #{$padding_list}rem;
+    }
+  }
+}

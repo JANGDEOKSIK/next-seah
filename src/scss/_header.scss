@@ -1,6 +1,3 @@
-header {
-}
-
 #skipNavi a {
   position: fixed;
   top: -9999px;
@@ -11,5 +8,178 @@ header {
 
   &:focus {
     top: 0;
+  }
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 120rem;
+  z-index: 10;
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    width: 120rem;
+    height: 37.5rem;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url(../../public/images/logo.png) no-repeat center / 100%;
+      cursor: pointer;
+    }
+  }
+  nav {
+    .nav-header {
+      display: flex;
+      align-items: center;
+      li {
+        position: relative;
+        color: $white;
+        cursor: pointer;
+      }
+      & > li + li {
+        margin-left: 96rem;
+        &:hover {
+          .dpth2 {
+            opacity: 1;
+          }
+        }
+      }
+      .dpth2 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 24rem;
+        margin-top: 24rem;
+        min-width: 210rem;
+        color: $brdGray;
+        border: 1px solid $gray10;
+        background: $white;
+        border-radius: 8rem;
+        transition: ease 0.3s;
+        li + li {
+          margin-top: 10rem;
+        }
+        opacity: 0;
+        li {
+          a {
+            padding-bottom: 4rem;
+            color: $gray60;
+            &:hover {
+              color: $brdOrange;
+              border-bottom: 1px solid $brdOrange;
+            }
+          }
+        }
+      }
+    }
+  }
+  .utils {
+    display: flex;
+    align-items: center;
+    .lang-type {
+      display: flex;
+      a {
+        color: $white;
+        cursor: pointer;
+        & + a {
+          margin-left: 24rem;
+        }
+        &:active {
+          color: $brdOrange;
+        }
+      }
+    }
+    .btn-menu {
+      margin-left: 52rem;
+      width: 52rem;
+      height: 52rem;
+      border-radius: 16rem;
+      background: $gray10;
+      button {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6rem;
+        padding: 17rem;
+      }
+      .dot {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        background: $brdGray;
+      }
+    }
+  }
+  .dim {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.14);
+    &.active {
+      display: block;
+    }
+  }
+  .slide-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    padding: 72rem;
+    width: 647rem;
+    height: 100vh;
+    background: $gray;
+    overflow-y: auto;
+    &.active {
+      display: block;
+    }
+
+    .lang-type {
+      display: flex;
+      a + a {
+        margin-left: 24rem;
+      }
+    }
+    .menu-wrap {
+      margin-top: 258rem;
+      .menu.active {
+        color: $brdGray;
+      }
+      .menu + .menu {
+        margin-top: 20rem;
+      }
+      .dpth2 {
+        margin-top: 20rem;
+        li + li {
+          margin-top: 16rem;
+        }
+      }
+    }
+    .footer-menu {
+      position: absolute;
+      bottom: 72rem;
+      right: 72rem;
+      display: flex;
+      li + li {
+        margin-left: 48rem;
+      }
+    }
+    .menu-close {
+      position: absolute;
+      top: 72rem;
+      right: 72rem;
+      width: 24rem;
+      height: 24rem;
+      background: url("../../public/images/icon-btn-close.png") no-repeat
+        center/ 24rem 24rem;
+    }
   }
 }

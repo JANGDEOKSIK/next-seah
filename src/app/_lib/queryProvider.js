@@ -11,15 +11,15 @@ export default function QueryProvider({ children }) {
         retryOnMount: true,
         refetchOnReconnect: false,
         retry: false,
-        staleTime: 60 * 3000
-      }
-    }
-  })
+        staleTime: 60 * 3000,
+      },
+    },
+  });
 
   return (
     <QueryClientProvider client={queryClient}>
       {children}
       <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
     </QueryClientProvider>
-  )
+  );
 }

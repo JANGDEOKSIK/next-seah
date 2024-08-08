@@ -12,10 +12,10 @@ export default function RootLayout({ children, loading }) {
     <html lang="ko">
       <body>
         <QueryProvider>
-          <ReduxProvider>
-            {loading}
-            {children}
-          </ReduxProvider>
+          {/* <ReduxProvider> */}
+          {loading}
+          {children}
+          {/* </ReduxProvider> */}
         </QueryProvider>
       </body>
     </html>

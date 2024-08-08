@@ -1,0 +1,30 @@
+footer {
+  margin-top: 144rem;
+  padding: 144rem;
+  border-top: 1px solid $gray10;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    .logo {
+      width: 118rem;
+      height: 38rem;
+      background: url("../../public/images/logo-footer.png") no-repeat center /
+        118rem 38rem;
+    }
+    .footer-link {
+      @include grid(3, 40rem, 0);
+      a {
+        font-size: 16rem;
+        font-weight: 700;
+        line-height: 160%;
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 48rem;
+    .txt & + .txt {
+      margin-top: 6rem;
+    }
+  }
+}
