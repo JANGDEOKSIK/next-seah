@@ -1,33 +1,37 @@
+import classNames from "classnames";
+
 export default function Radio({
   id,
   title,
   isEssential,
   infoTxt,
   children,
-  radioName,
+  infoColumn,
 }) {
   return (
     <div className="radio-wrap">
-      <div className="title-area">
-        <label htmlFor={id}>
+      <div className={classNames("title-area", infoColumn && info - column)}>
+        <label htmlFor={id + "0"}>
           {title}
           {isEssential && <span className="essential">*</span>}
         </label>
         <div className="info-txt">{infoTxt}</div>
       </div>
-      {children.map((value, index) => {
-        return (
-          <>
-            <input
-              type="radio"
-              name={radioName}
-              id={`${value.value}${index}`}
-              value={value.value}
-            />
-            <label htmlFor={`${value.value}${index}`}>{value.label}</label>
-          </>
-        );
-      })}
+      <div className="radio-group">
+        {children.map((value, index) => {
+          return (
+            <div key={value + index}>
+              <input
+                type="radio"
+                name={id}
+                id={`${id}${index}`}
+                value={value.value}
+              />
+              <label htmlFor={`${id}${index}`}>{value.label}</label>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import classNames from "classnames";
+
 export default function Input({
   id,
   label,
@@ -5,15 +7,23 @@ export default function Input({
   type = "text",
   isEssential,
   infoTxt,
+  txtShort,
+  infoTxtBlock,
 }) {
   return (
     <div className="input-wrap">
-      <div className="title-area">
+      <div
+        className={classNames(
+          "title-area",
+          txtShort && "txt-short",
+          infoTxtBlock && "block"
+        )}
+      >
         <label htmlFor={id}>
           {label}
           {isEssential && <span className="essential">*</span>}
         </label>
-        <div className="info-txt">{infoTxt}</div>
+        {infoTxt && <div className="info-txt">{infoTxt}</div>}
       </div>
       <input
         id={id}

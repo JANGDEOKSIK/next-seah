@@ -5,13 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import HeaderSideMenu from "../layout/HeaderSide";
+import HeaderSideMenu from "../header/HeaderSideMenu";
 
-export default function MenuButton({ data }) {
+export default function HeaderSide({ data }) {
   const [isMenuOpened, setIsMenuOpend] = useState(false);
   const handleMenuState = () => {
     setIsMenuOpend(!isMenuOpened);
-    // console.log("dlhfgdlkdjkddj");
   };
 
   const headerPathname = usePathname();

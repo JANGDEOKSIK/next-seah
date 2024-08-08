@@ -1,15 +1,14 @@
-// "use client";
+"use client";
 
-// import { getList, setMutation } from "@/app/_lib/fetch";
+import { getList, setMutation } from "@/app/_lib/fetch";
 // import { QueryClient, useQuery } from "@tanstack/react-query";
 import classNames from "classnames";
 import Link from "next/link";
 // import { usePathname } from "next/navigation";
 // import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import MenuButton from "../button/MenuButton";
+import HeaderSide from "./HeaderSide";
 
-export default async function Header() {
+export default function Header() {
   // const { data } = useQuery({
   //   queryKey: ["header", "menus"],
   //   queryFn: async () => {
@@ -19,7 +18,7 @@ export default async function Header() {
   //   },
   // });
 
-  // const { data, isLoading, refetch } = getList("/menus", ["header", "menus"]);
+  const { data, isLoading, refetch } = getList("/menus", ["header", "menus"]);
 
   // const [isMenuOpened, setIsMenuOpend] = useState(false);
 
@@ -29,10 +28,10 @@ export default async function Header() {
   //   setIsMenuOpend(!isMenuOpened);
   // };
 
-  const dataTest = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/menus`, {
-    cache: "no-store",
-  });
-  const response = await dataTest.json();
+  // const dataTest = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/menus`, {
+  //   cache: "no-store",
+  // });
+  // const response = await dataTest.json();
 
   return (
     <>
@@ -46,7 +45,7 @@ export default async function Header() {
           </h1>
           <nav>
             <ul className="nav-header">
-              {response?.map((item) => {
+              {data?.map((item) => {
                 return (
                   item.dpth === 1 &&
                   !item.menuEtc && (
@@ -83,7 +82,8 @@ export default async function Header() {
               <a>KOR</a>
               <a>ENG</a>
             </div>
-            <MenuButton data={response} />
+            <HeaderSide data={data} />
+            {/* <MenuButton data={data} /> */}
             {/* <div className="btn-menu">
               <button
                 type="button"

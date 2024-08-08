@@ -1,6 +1,9 @@
 import ReduxProvider from "@/store/provider";
 import QueryProvider from "./_lib/queryProvider";
 import "@/scss/index.scss";
+import Header from "./_components/layout/Header";
+import Footer from "./_components/layout/Footer";
+import PrefetchElement from "./_lib/prefetch";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,10 +15,15 @@ export default function RootLayout({ children, loading }) {
     <html lang="ko">
       <body>
         <QueryProvider>
-          {/* <ReduxProvider> */}
+          <PrefetchElement
+            url="/menus"
+            keyValue={["header", "menus"]}
+          >
+            <Header />
+          </PrefetchElement>
           {loading}
           {children}
-          {/* </ReduxProvider> */}
+          <Footer />
         </QueryProvider>
       </body>
     </html>

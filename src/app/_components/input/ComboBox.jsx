@@ -30,7 +30,6 @@ export default function ComboBox({
           );
         })}
       </select>
-
       {errors && <p>{errors.message}</p>}
     </div>
   );

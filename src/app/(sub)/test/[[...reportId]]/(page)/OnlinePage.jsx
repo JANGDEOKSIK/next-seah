@@ -60,6 +60,60 @@ export default function OnlinePage() {
       label: "우연히 문서/파일을 보다가 알게 되었음",
     },
   ];
+
+  const radioOption2 = [
+    {
+      value: "once",
+      label: "한번",
+    },
+    {
+      value: "1week",
+      label: "일주일",
+    },
+    {
+      value: "1to3months",
+      label: "1개월 이상 3개월 미만",
+    },
+    {
+      value: "lessThan1Yr",
+      label: "3개월 이상 1년 미만",
+    },
+    {
+      value: "lessThan3Yrs",
+      label: "1년 이상 3년 미만",
+    },
+    {
+      value: "moreThan3Yrs",
+      label: "3년 이상",
+    },
+  ];
+
+  const radioOption3 = [
+    {
+      value: "coworker",
+      label: "회사 임직원",
+    },
+    {
+      value: "groupCoworker",
+      label: "그룹 임직원",
+    },
+    {
+      value: "partnerCo",
+      label: "협력사",
+    },
+    {
+      value: "client",
+      label: "고객",
+    },
+    {
+      value: "Stakeholder",
+      label: "외부 관계자",
+    },
+    {
+      value: "etc",
+      label: "밝히고 싶지 않음",
+    },
+  ];
   return (
     <PageTransition>
       <section className="section pdt-short">
@@ -77,8 +131,6 @@ export default function OnlinePage() {
         </div>
       </section>
       <section className="section pdt-short">
-        {/* <OnlineSubmitForm />
-         */}
         <form>
           <div className="form-wrap">
             <div className="form-title f-tit2">
@@ -86,7 +138,7 @@ export default function OnlinePage() {
               제보대상을 <br /> 입력해주세요.
             </div>
             <div className="form-area">
-              <div className="form-list">
+              <div className="form-list double">
                 <ComboBox
                   label="대상회사"
                   id="company"
@@ -108,7 +160,7 @@ export default function OnlinePage() {
               </div>
             </div>
           </div>
-          <div className="form-wrap">
+          <div className="form-wrap pdt-long">
             <div className="form-title f-tit2">
               <span className="number">01</span>
               제보대상을 <br /> 입력해주세요.
@@ -143,6 +195,41 @@ export default function OnlinePage() {
                 <Radio
                   children={radioOption}
                   title={"문제를 알게된 경로"}
+                  id="route"
+                />
+              </div>
+              <div className="form-list">
+                <Radio
+                  children={radioOption2}
+                  title={"문제의 지속 기간"}
+                  id="duration"
+                />
+              </div>
+              <div className="form-list">
+                <Radio
+                  children={radioOption3}
+                  title={"대상회사와 관계"}
+                  id="relationship"
+                />
+              </div>
+              <div className="form-list">
+                <Input
+                  id="personName"
+                  placeholder="내용을 입력해 주세요."
+                  label="제보와 관련된 문제를 잘 아는 사람과 알 것으로 예상되는 사람을 적어주세요."
+                  txtShort
+                  infoTxt={
+                    "예시. xx팀 xxx 과장에게 확인 문의, 00년 0월 0일 xx팀 법인카드 내역 확인 등"
+                  }
+                  infoTxtBlock
+                />
+              </div>
+              <div className="form-list">
+                <Input
+                  id="personName"
+                  placeholder="내용을 입력해 주세요."
+                  label="문제를 확인/조사하기 위해 가장 좋은 방법으로 생각되는 것을 적어주세요."
+                  txtShort
                 />
               </div>
             </div>

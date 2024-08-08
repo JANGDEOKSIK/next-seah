@@ -176,11 +176,41 @@
       font-weight: 700;
       color: $gray40;
     }
+    &.txt-short {
+      label {
+        width: 50%;
+      }
+    }
+    &.block {
+      // flex-direction: column;
+      // align-items: baseline;
+      display: block;
+      label {
+        margin-top: 8rem;
+      }
+      .info-txt {
+        margin-top: 16rem;
+      }
+    }
+  }
+
+  .form-area {
+    width: 680rem;
   }
 }
 
 .form-list {
   & + .form-list {
     margin-top: 48rem;
+  }
+  &.double {
+    display: flex;
+    align-items: flex-end;
+    .combo-wrap {
+      width: 336rem;
+      & + .combo-wrap {
+        margin-left: 8rem;
+      }
+    }
   }
 }
