@@ -1,6 +1,8 @@
 .input-wrap {
   overflow: hidden;
-  input {
+  input[type="text"],
+  input[type="number"],
+  input[type="password"] {
     display: block;
     padding: 20rem;
     margin-top: 16rem;
@@ -12,6 +14,50 @@
     line-height: 160%;
     font-weight: 700;
     color: $gray40;
+  }
+  .input-area {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    .btn-checkbox {
+      position: relative;
+      display: block;
+      margin-left: 8rem;
+      flex-shrink: 0;
+      width: 180rem;
+      height: 64rem;
+      label {
+        display: block;
+        padding-left: 24rem;
+        width: 100%;
+        height: 100%;
+        font-size: 16rem;
+        font-weight: 700;
+        line-height: 64rem;
+        text-align: center;
+        color: $gray40;
+        background: url("../../public/images/icon-check.png") no-repeat center
+          left 28rem / 24rem 24rem $white;
+        border: 1px solid $gray40;
+        box-sizing: border-box;
+        border-radius: 4rem;
+      }
+      input[type="checkbox"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        &:checked {
+          & ~ label {
+            border: 1px solid $brdGray;
+            background: url("../../public/images/icon-check-checked.png")
+              no-repeat center left 28rem / 24rem 24rem;
+            color: $brdGray;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -95,4 +141,112 @@
 .radio-group {
   @include grid(2, 106rem, 20rem);
   margin-top: 24rem;
+}
+
+.file-wrap {
+  .input-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16rem;
+    &::before {
+      content: "";
+      display: block;
+      width: calc(100% - 198rem - 8rem);
+      height: 64rem;
+      border-radius: 4rem;
+      border: 1px solid $brdGray;
+      overflow: hidden;
+    }
+    input[type="file"] {
+      width: 0;
+      height: 0;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      border: 0;
+    }
+    .btn-add-file {
+      padding: 20rem 56rem 20rem 83rem;
+      width: 198rem;
+      height: 64rem;
+      border-radius: 4rem;
+      box-sizing: border-box;
+      color: $white;
+      font-size: 16rem;
+      font-weight: 700;
+      line-height: 160%;
+      background: url("../../public//images/icon-file-add.png") no-repeat 56rem
+        center / 15rem 14rem $brdGray;
+    }
+  }
+  .file-list {
+    margin-top: 16rem;
+    .file {
+      display: flex;
+      align-items: center;
+      .file-name {
+        font-size: 16rem;
+        font-weight: 700;
+        line-height: 160%;
+        text-decoration: underline;
+      }
+      .delete-file {
+        margin-left: 8rem;
+        width: 18rem;
+        height: 18rem;
+        border-radius: 50%;
+        background: url("../../public/images/icon-delete-file.png") no-repeat
+          center / 8rem $gray20;
+      }
+    }
+    & + .file {
+      margin-top: 4rem;
+    }
+  }
+  .bullet-list-wrap {
+    margin-top: 16rem;
+  }
+}
+
+.radio-btn-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .radio-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 2 - 8rem);
+    height: 76rem;
+    box-sizing: border-box;
+
+    color: $brdGray;
+    input[type="radio"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 4rem;
+      border: 1px solid $gray40;
+      & ~ label {
+        color: $gray40;
+      }
+      &:checked {
+        background: $brdGray;
+        & ~ label {
+          color: $white;
+        }
+      }
+    }
+    label {
+      position: relative;
+      font-size: 18rem;
+      font-weight: 800;
+      line-height: 160%;
+      z-index: 2;
+    }
+  }
 }

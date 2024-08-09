@@ -134,6 +134,62 @@
       "id": "7088"
     }
   ],
+  "codeLists": [
+    {
+      "cdSeq": 1,
+      "dpth": 1,
+      "cdId": "HOLDINGS_LINE_CD",
+      "cd": "HOLDINGS_LINE_CD",
+      "cdNm": "세아홀딩스 계열",
+      "cdDsc": "",
+      "useYn": "Y"
+    },
+    {
+      "cdSeq": 1,
+      "dpth": 2,
+      "cdId": "HOLDINGS_LINE_CD",
+      "cd": "HOLDINGS_LINE1",
+      "cdNm": "세아",
+      "cdDsc": "",
+      "useYn": "Y"
+    },
+    {
+      "cdSeq": 1,
+      "dpth": 3,
+      "cdId": "HOLDINGS_LINE_CD",
+      "cd": "HOLDINGS_LINE1",
+      "cdNm": "홀딩스",
+      "cdDsc": "",
+      "useYn": "Y"
+    },
+    {
+      "cdSeq": 1,
+      "dpth": 1,
+      "cdId": "STEELS_LINE_CD",
+      "cd": "STEELS_LINE_CD",
+      "cdNm": "세아제강지주 계열",
+      "cdDsc": "",
+      "useYn": "Y"
+    },
+    {
+      "cdSeq": 1,
+      "dpth": 2,
+      "cdId": "STEELS_LINE_CD",
+      "cd": "STEELS_LINE1",
+      "cdNm": "세아제강지주",
+      "cdDsc": "",
+      "useYn": "Y"
+    },
+    {
+      "cdSeq": 1,
+      "dpth": 3,
+      "cdId": "STEELS_LINE_CD",
+      "cd": "STEELS_LINE1",
+      "cdNm": "세아제강지주 계열",
+      "cdDsc": "",
+      "useYn": "Y"
+    }
+  ],
   "lists": [],
   "posts": []
 }

@@ -45,7 +45,41 @@ export default function Header() {
           </h1>
           <nav>
             <ul className="nav-header">
-              {data?.map((item) => {
+              <li className="f-bdy1"></li>
+              {data
+                ?.filter((item) => item.dpth === 1 && !item.menuEtc)
+                .map((item) => {
+                  return (
+                    <li className="f-bdy1">
+                      {item.url ? (
+                        <Link href={`${item.url}`}>{item.menuNm}</Link>
+                      ) : (
+                        <div>
+                          {item.menuNm}
+                          <div className="dpth2">
+                            <ul className="f-desc2 fc-gray60">
+                              {item.subMenu
+                                ?.filter(
+                                  (sub) => sub.parentSeq === item.menuSeq
+                                )
+                                .map((subMenu, index) => {
+                                  return (
+                                    <li key={index}>
+                                      <Link href={`${subMenu.url}`}>
+                                        {subMenu.menuNm}
+                                      </Link>
+                                    </li>
+                                  );
+                                })}
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+
+              {/* {data?.map((item) => {
                 return (
                   item.dpth === 1 &&
                   !item.menuEtc && (
@@ -74,7 +108,7 @@ export default function Header() {
                     </li>
                   )
                 );
-              })}
+              })} */}
             </ul>
           </nav>
           <div className="utils">

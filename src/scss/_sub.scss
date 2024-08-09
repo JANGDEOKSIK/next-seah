@@ -213,4 +213,80 @@
       }
     }
   }
+  & + .bullet-list-wrap {
+    margin-top: 16rem;
+  }
+}
+
+.info-safety-num {
+  margin-top: 16rem;
+  width: 100%;
+  height: auto;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.scroll-content {
+  width: 100%;
+  height: 180rem;
+  overflow-y: auto;
+  box-sizing: border-box;
+  &::-webkit-scrollbar {
+    width: 4rem;
+    height: 48rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $gray20;
+    border-radius: 4rem;
+  }
+}
+.terms-wrap {
+  .terms-list {
+    padding: 20rem 10rem 20rem;
+    border: 1px solid $gray10;
+    border-radius: 4rem;
+    background: rgba(227, 228, 229, 0.2);
+    .terms {
+      .terms-tit {
+        font-size: 16rem;
+        font-weight: 700;
+        line-height: 160%;
+        color: $gray60;
+        & + .term-txt {
+          margin-top: 10rem;
+        }
+      }
+      .terms-txt {
+        font-size: 16rem;
+        font-weight: 700;
+        line-height: 160%;
+        color: $gray60;
+      }
+    }
+  }
+  .radio-wrap {
+    .title-area {
+      margin-top: 16rem;
+      font-size: 16rem;
+      line-height: 160%;
+      font-weight: 700;
+      color: $gray80;
+    }
+    .radio-group {
+      display: block;
+      .radio {
+        & + .radio {
+          margin-top: 16rem;
+        }
+      }
+    }
+  }
+}
+
+.footer-btn-wrap {
+  margin-top: 144rem;
+  display: flex;
+  justify-content: center;
 }

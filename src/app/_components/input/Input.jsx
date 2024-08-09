@@ -9,6 +9,8 @@ export default function Input({
   infoTxt,
   txtShort,
   infoTxtBlock,
+  btnTxt,
+  hasCheckbox,
 }) {
   return (
     <div className="input-wrap">
@@ -25,11 +27,22 @@ export default function Input({
         </label>
         {infoTxt && <div className="info-txt">{infoTxt}</div>}
       </div>
-      <input
-        id={id}
-        type={type}
-        placeholder={placeholder}
-      />
+      <div className="input-area">
+        <input
+          id={id}
+          type={type}
+          placeholder={placeholder}
+        />
+        {hasCheckbox && (
+          <div className="btn-checkbox">
+            <input
+              type="checkbox"
+              name={id}
+            />
+            <label htmlFor={id}>{btnTxt}</label>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
