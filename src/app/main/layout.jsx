@@ -11,7 +11,7 @@ export default function Layout({ children }) {
       >
         <Header title="my header ! ! !" />
       </PrefetchElement>
-      {children}
+      <div className="cont-area">{children}</div>
       <Footer />
     </div>
   );

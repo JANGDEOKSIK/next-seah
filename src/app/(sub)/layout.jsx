@@ -10,8 +10,9 @@ export default function Layout({ children }) {
         keyValue={["str1", "str2"]}
       >
         <Header title={"about과 seah의 헤더입니다."} />
+
+        <div className="cont-area">{children}</div>
       </PrefetchElement>
-      {children}
       <Footer />
     </>
   );

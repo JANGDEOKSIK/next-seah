@@ -1,6 +1,8 @@
-//"use client";
+"use client";
 
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 // import { getList, setMutation } from "@/app/_lib/fetch";
 
 export default function Nav({ data }) {
@@ -15,34 +17,67 @@ export default function Nav({ data }) {
     });
     */
 
+  const [isTwoDvisibleArr, setIsTwoDvisibleArr] = useState([]);
+
+  const handleTwoD = (index) => {
+    const updatedIndexArr = isTwoDvisibleArr.includes(index)
+      ? isTwoDvisibleArr.filter((i) => i !== index)
+      : [index];
+    setIsTwoDvisibleArr(updatedIndexArr);
+  };
+
+  const handleTwoDHide = () => {
+    setIsTwoDvisibleArr([]);
+  };
+
   return (
     <>
-      <nav>
+      <nav onMouseLeave={handleTwoDHide}>
         <ul>
           {data?.map((item, index) => {
-            return (
-              <li key={index}>
-                <Link href={"/"}>
-                  <span>{item.menuNm}</span>
-                </Link>
+            if (item.menuEtc === false) {
+              return (
+                <li key={index}>
+                  <Link
+                    href={`${!item.subMenu ? item.url : ""}`}
+                    className="one-d"
+                    onMouseEnter={() => handleTwoD(index)}
+                    onFocus={() => handleTwoD(index)}
+                  >
+                    <span>{item.menuNm}</span>
+                  </Link>
 
-                <div className="nav-twodepth">
-                  <ul>
-                    {item.subMenu?.map((twoDItem, index) => {
-                      return (
-                        <li key={index}>
-                          <Link href={"/"}>
-                            <span>{twoDItem.menuNm}</span>
-                          </Link>
-
-                          <div className="nav-twodepth"></div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </li>
-            );
+                  <AnimatePresence>
+                    {isTwoDvisibleArr.includes(index) && item.subMenu && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{
+                          duration: 0.15,
+                          ease: [0.43, 0.13, 0.23, 0.96],
+                        }}
+                      >
+                        <ul className="nav-twodepth">
+                          {item.subMenu?.map((twoDItem, idx) => {
+                            return (
+                              <li key={idx}>
+                                <Link
+                                  href={`${item.url}${twoDItem.url}`}
+                                  className="two-d"
+                                >
+                                  <span>{twoDItem.menuNm}</span>
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </li>
+              );
+            }
           })}
         </ul>
       </nav>

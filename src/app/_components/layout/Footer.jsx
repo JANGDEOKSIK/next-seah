@@ -1,5 +1,3 @@
 export default function Footer() {
-  return (
-    <div>footer</div>
-  )
+  return <footer>Footer 영역</footer>;
 }
