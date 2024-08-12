@@ -6,9 +6,11 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Logo from "/public/images/icon-logo.svg";
 import Loading from "@/app/loading";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [hoverMenu, setHoverMenu] = useState(null);
+  const [allMenu, setAllMenu] = useState(false);
   const { isLoading, error, data } = useQuery({
     queryKey: ["headerFooter"],
     queryFn: async () => {
@@ -18,7 +20,16 @@ export default function Header() {
       return response;
     },
   });
-  // console.log(data);
+  const variants = {
+    hidden: { opacity: 0 },
+    enter: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
+  const variants2 = {
+    hidden: { right: "-700rem" },
+    enter: { right: "0" },
+    exit: { right: "-700rem" },
+  };
 
   if (isLoading) {
     return <Loading />;
@@ -102,108 +113,135 @@ export default function Header() {
             </div>
             <div className="allmenu">
               <button
+                onClick={() => {
+                  setAllMenu(true);
+                }}
                 type="button"
                 className="allmenu-btn"
                 title="전체메뉴 팝업"
               ></button>
-              <div className="allmenu-popup layer-poup">
-                <div className="pop-wrap">
-                  <div className="pop-cont">
-                    <div className="utils">
-                      <Link
-                        href="javascript:"
-                        className="on f-bdy1-eb"
-                      >
-                        KOR
-                      </Link>
-                      <Link
-                        href="javascript:"
-                        className="f-bdy1-eb"
-                      >
-                        ENG
-                      </Link>
-                    </div>
-                    <ul className="accordion-wrap">
-                      {data.map(
-                        (item, idx) =>
-                          !item.menuEtc &&
-                          item.menuShow &&
-                          (item.childCnt ? (
-                            <li
-                              className="accordion-item"
-                              key={item.id}
-                            >
-                              <div className="accor-head">
-                                <a
-                                  title="아코디언 열기"
-                                  href="javascript:"
+              {allMenu && (
+                <AnimatePresence>
+                  <motion.div
+                    className="allmenu-popup layer-poup"
+                    // key={pathname}
+                    variants={variants}
+                    initial="hidden"
+                    animate="enter"
+                    exit="exit"
+                    transition={{ duration: 0.4 }}
+                  >
+                    <motion.div
+                      className="pop-wrap"
+                      // key={pathname}
+
+                      variants={variants2}
+                      initial="hidden"
+                      animate="enter"
+                      exit="exit"
+                      transition={{ duration: 0.4 }}
+                    >
+                      <div className="pop-cont">
+                        <div className="utils">
+                          <Link
+                            href="javascript:"
+                            className="on f-bdy1-eb"
+                          >
+                            KOR
+                          </Link>
+                          <Link
+                            href="javascript:"
+                            className="f-bdy1-eb"
+                          >
+                            ENG
+                          </Link>
+                        </div>
+                        <ul className="accordion-wrap">
+                          {data.map(
+                            (item, idx) =>
+                              !item.menuEtc &&
+                              item.menuShow &&
+                              (item.childCnt ? (
+                                <li
+                                  className="accordion-item"
+                                  key={item.id}
                                 >
-                                  <p className="f-tit2">{item.menuNm}</p>
-                                </a>
-                              </div>
-                              <div className="accor-body">
-                                <div className="accor-cont">
-                                  {item.subMenu.map((subItem, idx) => (
-                                    <Link
-                                      href={subItem.url}
-                                      key={subItem.menuSeq}
-                                      className="f-sub2"
+                                  <div className="accor-head">
+                                    <a
+                                      title="아코디언 열기"
+                                      href="javascript:"
                                     >
-                                      {subItem.menuNm}
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
-                            </li>
-                          ) : (
-                            <li
-                              className="accordion-item"
-                              key={item.id}
-                            >
-                              <div className="accor-head">
-                                <a
-                                  title="아코디언 열기"
-                                  href="javascript:"
+                                      <p className="f-tit2">{item.menuNm}</p>
+                                    </a>
+                                  </div>
+                                  <div className="accor-body">
+                                    <div className="accor-cont">
+                                      {item.subMenu.map((subItem, idx) => (
+                                        <Link
+                                          href={subItem.url}
+                                          key={subItem.menuSeq}
+                                          className="f-sub2"
+                                        >
+                                          {subItem.menuNm}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </li>
+                              ) : (
+                                <li
+                                  className="accordion-item"
+                                  key={item.id}
                                 >
-                                  <p className="f-tit2">{item.menuNm}</p>
-                                </a>
-                              </div>
-                              <div className="accor-body">
-                                <div className="accor-cont">
-                                  <Link
-                                    href={item.url}
-                                    className="f-sub2"
-                                  >
-                                    {item.menuNm}
-                                  </Link>
-                                </div>
-                              </div>
-                            </li>
-                          ))
-                      )}
-                    </ul>
-                    <div className="etcs">
-                      {data.map(
-                        (item, idx) =>
-                          item.menuEtc && (
-                            <Link
-                              href={item.url}
-                              key={item.id}
-                              className="f-desc1"
-                            >
-                              {item.menuNm}
-                            </Link>
-                          )
-                      )}
-                    </div>
-                  </div>
-                  <button
-                    type="button"
-                    title="팝업 닫기"
-                    className="pop-btn"
-                  ></button>
-                </div>
-              </div>
+                                  <div className="accor-head">
+                                    <a
+                                      title="아코디언 열기"
+                                      href="javascript:"
+                                    >
+                                      <p className="f-tit2">{item.menuNm}</p>
+                                    </a>
+                                  </div>
+                                  <div className="accor-body">
+                                    <div className="accor-cont">
+                                      <Link
+                                        href={item.url}
+                                        className="f-sub2"
+                                      >
+                                        {item.menuNm}
+                                      </Link>
+                                    </div>
+                                  </div>
+                                </li>
+                              ))
+                          )}
+                        </ul>
+                        <div className="etcs">
+                          {data.map(
+                            (item, idx) =>
+                              item.menuEtc && (
+                                <Link
+                                  href={item.url}
+                                  key={item.id}
+                                  className="f-desc1"
+                                >
+                                  {item.menuNm}
+                                </Link>
+                              )
+                          )}
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        title="팝업 닫기"
+                        className="pop-btn"
+                        onClick={() => {
+                          setAllMenu(false);
+                        }}
+                      ></button>
+                    </motion.div>
+                  </motion.div>
+                </AnimatePresence>
+              )}
             </div>
           </div>
         </div>
