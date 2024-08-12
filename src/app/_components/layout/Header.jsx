@@ -11,6 +11,8 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Header() {
   const [hoverMenu, setHoverMenu] = useState(null);
   const [allMenu, setAllMenu] = useState(false);
+  const [accorMenu, setAccorMenu] = useState(null);
+
   const { isLoading, error, data } = useQuery({
     queryKey: ["headerFooter"],
     queryFn: async () => {
@@ -20,15 +22,21 @@ export default function Header() {
       return response;
     },
   });
+
   const variants = {
     hidden: { opacity: 0 },
     enter: { opacity: 1 },
-    exit: { opacity: 0 },
+    exit: { opacity: 0, transition: { delay: 0.2 } },
   };
-  const variants2 = {
+  const allMenuPopVariants = {
     hidden: { right: "-700rem" },
     enter: { right: "0" },
     exit: { right: "-700rem" },
+  };
+  const allMenuAccorVariants = {
+    hidden: { height: 0 },
+    enter: { height: "auto" },
+    exit: { height: 0 },
   };
 
   if (isLoading) {
@@ -68,12 +76,12 @@ export default function Header() {
                       onMouseEnter={() => setHoverMenu(idx)}
                       onMouseLeave={() => setHoverMenu(null)}
                     >
-                      <Link
-                        href="javascript:"
+                      <button
+                        type="button"
                         title="투뎁스 메뉴"
                       >
                         {item.menuNm}
-                      </Link>
+                      </button>
                       <ul className="two-menu">
                         {item.subMenu.map((subItem, idx) => (
                           <li
@@ -99,13 +107,13 @@ export default function Header() {
           <div className="util-menu">
             <div className="utils">
               <Link
-                href="javascript:"
+                href="https://www.naver.com/"
                 className="on f-bdy1-eb"
               >
                 KOR
               </Link>
               <Link
-                href="javascript:"
+                href="https://www.naver.com/"
                 className="f-bdy1-eb"
               >
                 ENG
@@ -120,37 +128,36 @@ export default function Header() {
                 className="allmenu-btn"
                 title="전체메뉴 팝업"
               ></button>
-              {allMenu && (
-                <AnimatePresence>
+              <AnimatePresence>
+                {allMenu && (
                   <motion.div
                     className="allmenu-popup layer-poup"
-                    // key={pathname}
+                    key="allMenuPopDimd"
                     variants={variants}
                     initial="hidden"
                     animate="enter"
                     exit="exit"
-                    transition={{ duration: 0.4 }}
+                    transition={{ duration: 0.3 }}
                   >
                     <motion.div
                       className="pop-wrap"
-                      // key={pathname}
-
-                      variants={variants2}
+                      key="allMenuPop"
+                      variants={allMenuPopVariants}
                       initial="hidden"
                       animate="enter"
                       exit="exit"
-                      transition={{ duration: 0.4 }}
+                      transition={{ duration: 0.3 }}
                     >
                       <div className="pop-cont">
                         <div className="utils">
                           <Link
-                            href="javascript:"
+                            href="https://www.naver.com/"
                             className="on f-bdy1-eb"
                           >
                             KOR
                           </Link>
                           <Link
-                            href="javascript:"
+                            href="https://www.naver.com/"
                             className="f-bdy1-eb"
                           >
                             ENG
@@ -160,59 +167,60 @@ export default function Header() {
                           {data.map(
                             (item, idx) =>
                               !item.menuEtc &&
-                              item.menuShow &&
-                              (item.childCnt ? (
+                              item.menuShow && (
                                 <li
                                   className="accordion-item"
                                   key={item.id}
                                 >
                                   <div className="accor-head">
-                                    <a
+                                    <button
+                                      type="button"
                                       title="아코디언 열기"
-                                      href="javascript:"
+                                      onClick={() =>
+                                        accorMenu === idx
+                                          ? setAccorMenu(null)
+                                          : setAccorMenu(idx)
+                                      }
                                     >
                                       <p className="f-tit2">{item.menuNm}</p>
-                                    </a>
+                                    </button>
                                   </div>
-                                  <div className="accor-body">
-                                    <div className="accor-cont">
-                                      {item.subMenu.map((subItem, idx) => (
-                                        <Link
-                                          href={subItem.url}
-                                          key={subItem.menuSeq}
-                                          className="f-sub2"
-                                        >
-                                          {subItem.menuNm}
-                                        </Link>
-                                      ))}
-                                    </div>
-                                  </div>
-                                </li>
-                              ) : (
-                                <li
-                                  className="accordion-item"
-                                  key={item.id}
-                                >
-                                  <div className="accor-head">
-                                    <a
-                                      title="아코디언 열기"
-                                      href="javascript:"
-                                    >
-                                      <p className="f-tit2">{item.menuNm}</p>
-                                    </a>
-                                  </div>
-                                  <div className="accor-body">
-                                    <div className="accor-cont">
-                                      <Link
-                                        href={item.url}
-                                        className="f-sub2"
+                                  <AnimatePresence>
+                                    {accorMenu === idx && (
+                                      <motion.div
+                                        key="allMenuAccor"
+                                        className="accor-body"
+                                        variants={allMenuAccorVariants}
+                                        initial="hidden"
+                                        animate="enter"
+                                        exit="exit"
+                                        transition={{ duration: 0.3 }}
                                       >
-                                        {item.menuNm}
-                                      </Link>
-                                    </div>
-                                  </div>
+                                        <div className="accor-cont">
+                                          {item.childCnt ? (
+                                            item.subMenu.map((subItem, idx) => (
+                                              <Link
+                                                href={subItem.url}
+                                                key={subItem.menuSeq}
+                                                className="f-sub2"
+                                              >
+                                                {subItem.menuNm}
+                                              </Link>
+                                            ))
+                                          ) : (
+                                            <Link
+                                              href={item.url}
+                                              className="f-sub2"
+                                            >
+                                              {item.menuNm}
+                                            </Link>
+                                          )}
+                                        </div>
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
                                 </li>
-                              ))
+                              )
                           )}
                         </ul>
                         <div className="etcs">
@@ -236,12 +244,13 @@ export default function Header() {
                         className="pop-btn"
                         onClick={() => {
                           setAllMenu(false);
+                          setAccorMenu(null);
                         }}
                       ></button>
                     </motion.div>
                   </motion.div>
-                </AnimatePresence>
-              )}
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>

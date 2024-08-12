@@ -8,7 +8,7 @@ export default function ResultPage() {
       <PageTitWrap bg={ImgReportResultTitBg} />
       <PageTransition>
         <div className="cont-wrap">
-          <div classNam="inner"></div>
+          <div className="inner"></div>
         </div>
       </PageTransition>
     </div>

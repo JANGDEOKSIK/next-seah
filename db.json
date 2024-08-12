@@ -86,6 +86,76 @@
       "id": "42e0"
     },
     {
+      "menuSeq": 10,
+      "parentSeq": 0,
+      "dpth": 1,
+      "menuId": "ReportPage",
+      "menuNm": "제보하기",
+      "url": "/report",
+      "childCnt": 4,
+      "menuShow": true,
+      "menuEtc": false,
+      "subMenu": [
+        {
+          "menuSeq": 3,
+          "parentSeq": 2,
+          "dpth": 2,
+          "menuId": "ReportGuidePage",
+          "menuNm": "제보 가이드",
+          "url": "/report/guide",
+          "keywords": "세아, 윤리경영, 제안센터, 세아홀딩스",
+          "content": "제보 가이드 | 세아윤리경영제안센터",
+          "desc": "세아홀딩스 윤리경영 제안센터에서만 열람이 가능하므로 제안자의 비밀이 절대적으로 보호됩니다.",
+          "childcnt": 0,
+          "menuShow": true,
+          "menuEtc": false
+        },
+        {
+          "menuSeq": 4,
+          "parentSeq": 2,
+          "dpth": 2,
+          "menuId": "ReportOnlinePage",
+          "menuNm": "온라인 제보",
+          "url": "/report/online",
+          "keywords": "세아, 윤리경영, 제안센터, 세아홀딩스",
+          "content": "온라인 제보 | 세아윤리경영제안센터",
+          "desc": "세아홀딩스 윤리경영 제안센터에서만 열람이 가능하므로 제안자의 비밀이 절대적으로 보호됩니다.",
+          "childcnt": 0,
+          "menuShow": true,
+          "menuEtc": false
+        },
+        {
+          "menuSeq": 5,
+          "parentSeq": 2,
+          "dpth": 2,
+          "menuId": "ReportResultPage",
+          "menuNm": "제보결과 확인",
+          "url": "/report/result",
+          "keywords": "세아, 윤리경영, 제안센터, 세아홀딩스",
+          "content": "제보결과 확인 | 세아윤리경영제안센터",
+          "desc": "세아홀딩스 윤리경영 제안센터에서만 열람이 가능하므로 제안자의 비밀이 절대적으로 보호됩니다.",
+          "childcnt": 0,
+          "menuShow": true,
+          "menuEtc": false
+        },
+        {
+          "menuSeq": 6,
+          "parentSeq": 2,
+          "dpth": 2,
+          "menuId": "letterPhoneFaxPage",
+          "menuNm": "서신·전화·Fax 이용안내",
+          "url": "/report/letter-phone-fax",
+          "keywords": "세아, 윤리경영, 제안센터, 세아홀딩스",
+          "content": "서신·전화·Fax 이용안내 | 세아윤리경영제안센터",
+          "desc": "세아홀딩스 윤리경영 제안센터에서만 열람이 가능하므로 제안자의 비밀이 절대적으로 보호됩니다.",
+          "childcnt": 0,
+          "menuShow": true,
+          "menuEtc": false
+        }
+      ],
+      "id": "42e0"
+    },
+    {
       "menuSeq": 7,
       "parentSeq": 0,
       "dpth": 1,

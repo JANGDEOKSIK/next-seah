@@ -40,7 +40,8 @@ header {
       .one-dpth {
         position: relative;
 
-        & > a {
+        & > a,
+        button {
           padding: 0 20rem;
           font-family: "NanumSquareEB";
           font-size: 18rem;
@@ -223,11 +224,12 @@ header {
                   }
                 }
                 .accor-body {
-                  padding-top: 20rem;
+                  overflow: hidden;
                   .accor-cont {
                     display: flex;
                     flex-direction: column;
                     gap: 16rem;
+                    padding-top: 20rem;
                     a {
                       position: relative;
                       color: $gray60;

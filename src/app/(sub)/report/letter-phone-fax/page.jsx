@@ -8,7 +8,7 @@ export default function LetterPhoneFaxPage() {
       <PageTitWrap bg={ImgReportTitBg} />
       <PageTransition>
         <div className="cont-wrap">
-          <div classNam="inner"></div>
+          <div className="inner"></div>
         </div>
       </PageTransition>
     </div>
