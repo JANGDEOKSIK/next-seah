@@ -12,12 +12,7 @@ export default function MutatePage() {
     formState: { errors },
   } = useForm();
 
-  const { mutate } = setMutation("/posts", {
-    onSuccess: (data) => {
-      refetch();
-    },
-    onError: (data) => {},
-  });
+  const { mutate } = setMutation("/posts");
 
 	const onSubmit = (data) => {
 		console.log("제출할 데이터: ", data);
