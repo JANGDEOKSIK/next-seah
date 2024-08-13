@@ -18,7 +18,7 @@ export default function TwoDepth() {
   return (
     <div className="two-depth">
       {data
-        ?.filter((item) => item.childcnt > 0)
+        ?.filter((item) => item.menuSeq == 2)
         ?.map((item) => {
           return item.subMenu?.map((subItem) => {
             return (

@@ -1,5 +1,4 @@
 "use client";
-import classNames from "classnames";
 import { useRef, useState } from "react";
 
 export default function File({ isNoTitle, isEssential, id, label }) {

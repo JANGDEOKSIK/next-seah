@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getList, setMutation } from "../../_lib/fetch";
+import AllMenu from "./AllMenu";
+import { useState } from "react";
 
 export default function Header() {
   const { data, refetch } = getList("/menus", ["header", "menus"]);
@@ -12,6 +14,16 @@ export default function Header() {
       refetch();
     },
   });
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onclick = () => {
+    setIsOpen(true);
+  };
+
+  const onClose = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -76,15 +88,22 @@ export default function Header() {
               </Link>
               <Link href="">ENG</Link>
             </div>
-            <Link href="">
+            <button
+              type="button"
+              onClick={onclick}
+            >
               <Image
                 src="/images/btn-all-menu.png"
                 width={52}
                 height={52}
               />
-            </Link>
+            </button>
           </div>
         </div>
+        <AllMenu
+          open={isOpen}
+          onClose={onClose}
+        />
       </header>
     </>
   );

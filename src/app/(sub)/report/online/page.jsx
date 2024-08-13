@@ -12,7 +12,6 @@ import Radio from "@/app/_components/Radio";
 import File from "@/app/_components/File";
 import Checkbox from "@/app/_components/Checkbox";
 import Agree from "../_components/Agree";
-import classNames from "classnames";
 
 export default function Guide() {
   const [reportSubject, setReportSubject] = useState(""); // 제보대상

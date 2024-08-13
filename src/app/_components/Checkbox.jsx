@@ -1,6 +1,3 @@
-"use client";
-import classNames from "classnames";
-
 export default function Checkbox({
   id,
   label,
