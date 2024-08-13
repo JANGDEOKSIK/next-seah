@@ -39,7 +39,7 @@ export default function MutatePage() {
           <textarea
             placeholder="내용을 입력해주세여"
             id="body"
-            {...register("body", { required: true })}
+            {...register("body")}
           />
         </div>
         <button type="submit">submit</button>
