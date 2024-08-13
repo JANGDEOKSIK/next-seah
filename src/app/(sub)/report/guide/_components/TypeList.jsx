@@ -28,7 +28,7 @@ export default function TypeList() {
         return (
           <li
             className="item"
-            key={item.idx}
+            key={idx}
           >
             <div className="img">
               <Image

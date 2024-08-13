@@ -201,13 +201,13 @@ header {
               margin: 40rem 0 60rem;
 
               .accordion-item {
-                &:hover .accor-head a p {
+                &:hover .accor-head button p {
                   color: $brdGray;
                 }
 
                 &.on {
                   .accor-head {
-                    a {
+                    button {
                       p {
                         color: $brdGray;
                       }
@@ -216,7 +216,7 @@ header {
                 }
 
                 .accor-head {
-                  a {
+                  button {
                     p {
                       color: $gray60;
                       @include dynamic-transition("color");

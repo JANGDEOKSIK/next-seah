@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Logo from "/public/images/icon-logo.svg";
 import Loading from "@/app/loading";
 import { motion, AnimatePresence } from "framer-motion";
+import classNames from "classnames";
 
 export default function Header() {
   const [hoverMenu, setHoverMenu] = useState(null);
@@ -22,6 +23,10 @@ export default function Header() {
       return response;
     },
   });
+
+  useEffect(() => {
+    document.body.classList.toggle("stop-scroll", allMenu);
+  }, [allMenu]);
 
   const variants = {
     hidden: { opacity: 0 },
@@ -71,7 +76,10 @@ export default function Header() {
                   item.menuShow &&
                   (item.childCnt ? (
                     <li
-                      className={`one-dpth ${hoverMenu === idx ? "on" : ""}`}
+                      // className={`one-dpth ${hoverMenu === idx ? "on" : ""}`}
+                      className={classNames("one-dpth", {
+                        on: hoverMenu === idx,
+                      })}
                       key={item.id}
                       onMouseEnter={() => setHoverMenu(idx)}
                       onMouseLeave={() => setHoverMenu(null)}
@@ -83,7 +91,7 @@ export default function Header() {
                         {item.menuNm}
                       </button>
                       <ul className="two-menu">
-                        {item.subMenu.map((subItem, idx) => (
+                        {item.subMenu.map((subItem) => (
                           <li
                             key={subItem.menuSeq}
                             className="two-dpth"
@@ -169,7 +177,12 @@ export default function Header() {
                               !item.menuEtc &&
                               item.menuShow && (
                                 <li
-                                  className="accordion-item"
+                                  className={classNames("accordion-item", {
+                                    on: accorMenu === idx,
+                                  })}
+                                  // className={`accordion-item ${
+                                  //   accorMenu === idx ? "on" : ""
+                                  // }`}
                                   key={item.id}
                                 >
                                   <div className="accor-head">
@@ -198,7 +211,7 @@ export default function Header() {
                                       >
                                         <div className="accor-cont">
                                           {item.childCnt ? (
-                                            item.subMenu.map((subItem, idx) => (
+                                            item.subMenu.map((subItem) => (
                                               <Link
                                                 href={subItem.url}
                                                 key={subItem.menuSeq}
