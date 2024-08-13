@@ -4,6 +4,8 @@ import { getList } from "@/app/_lib/fetch";
 import { usePathname } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import Image from 'next/image';
+import Link from "next/link";
 import Input from "@/app/_components/Input";
 import SelectBox from "@/app/_components/SelectBox";
 import TextArea from "@/app/_components/TextArea";
@@ -23,12 +25,37 @@ export default function GuidePage() {
     register,
     handleSubmit,
     formState: { errors },
+		watch,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  // const onSubmit = (data) => {
 
+  //   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,10}$/;
+  //   if (!passwordRegex.test(data.password)) {
+  //     alert("비밀번호는 영문, 숫자를 포함하여 6~10자리여야 합니다.");
+  //     return;
+  //   }
+
+
+  //   if (data.password !== data["password-conf"]) {
+  //     alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+  //     return;
+  //   }
+
+  //   if (!data["persnal-agree"] || data["persnal-agree"] === "no-persnal-ag") {
+  //     alert("개인정보 수집 및 이용에 동의하지 않으면 제출할 수 없습니다.");
+  //     return;
+  //   }
+
+  //   // 유효성 검사를 모두 통과한 경우에만 콘솔에 출력
+  //   console.log("제출할 데이터: ", data);
+  // };
+
+	const onSubmit = (data) => {
+		console.log("제출할 데이터: ", data);
+	};
+
+	console.log(errors);
 
 	// 대상회사 옵션 정보
 	const optionV = [
@@ -67,9 +94,9 @@ export default function GuidePage() {
 						?.filter(item => item.menuId === "ReportPage")
 						.flatMap(item => item.subMenu)
 						.map((subItem) => (
-							<a href={`/report${subItem.url}`} key={subItem.menuSeq} className={pathname.includes(subItem.url) ? "on" : ""}>
+							<Link href={`/report${subItem.url}`} key={subItem.menuSeq} className={pathname.includes(subItem.url) ? "on" : ""}>
 								{subItem.menuNm}
-							</a>
+							</Link>
 						))
 					}
 				</div>
@@ -99,12 +126,14 @@ export default function GuidePage() {
 											id="company"
 											essen={true}
 											options={optionV}
+											{...register("company", { required: true })}
 										/>
 										<SelectBox
 											label={false}
 											name="company2"
 											id="company2"
 											options={optionV2}
+											{...register("company2")}
 										/>
 									</div>
 									<Input
@@ -115,6 +144,7 @@ export default function GuidePage() {
 										placeholder="제보대상을 입력하세요."
 										hasMsg={false}
 										essen={false}
+										{...register("subject")}
 									/>
 								</div>
 							</li>
@@ -141,6 +171,7 @@ export default function GuidePage() {
 										placeholder="제목을 입력하세요."
 										hasMsg={false}
 										essen={true}
+										{...register("tit", { required: true })}
 									/>
 									<TextArea 
 										label="내용"
@@ -149,6 +180,7 @@ export default function GuidePage() {
 										hasMsg={true}
         						msg="작성가이드 안내 참고하여 작성해주세요."
 										essen={true}
+										{...register("con", { required: true })}
 									/>
 
 									<div className="form-wrap">
@@ -160,36 +192,42 @@ export default function GuidePage() {
 												value="happenedMe"
 												label="내게 일어난 일이라서"
 												defaultChecked={true}
+												{...register("prob-path")}
 											/>
 											<Radio
 												id="heard-someone"
 												name="prob-path"
 												value="heard-someone"
-												label="외부인에게 들었s음"
+												label="외부인에게 들었음"
+												{...register("prob-path")}
 											/>
 											<Radio
 												id="heard-myself"
 												name="prob-path"
 												value="heard-myself"
 												label="내가 직접 보거나 들은 일이라서"
+												{...register("prob-path")}
 											/>
 											<Radio
 												id="heard-rumor"
 												name="prob-path"
 												value="heard-rumor"
 												label="소문으로 들었음"
+												{...register("prob-path")}
 											/>
 											<Radio
 												id="heard-cowork"
 												name="prob-path"
 												value="heard-cowork"
 												label="직장 동료에게 들었음"
+												{...register("prob-path")}
 											/>
 											<Radio
 												id="accident-docu"
 												name="prob-path"
 												value="accident-docu"
 												label="우연히 문서/파일을 보다가 알게 되었음"
+												{...register("prob-path")}
 											/>
 										</div>
 									</div>
@@ -209,30 +247,35 @@ export default function GuidePage() {
 												name="prob-duration"
 												value="week"
 												label="일주일"
+												{...register("prob-duration")}
 											/>
 											<Radio
 												id="month1"
 												name="prob-duration"
 												value="month1"
 												label="1개월 이상 3개월 미만"
+												{...register("prob-duration")}
 											/>
 											<Radio
 												id="month3"
 												name="prob-duration"
 												value="month3"
 												label="3개월 이상 1년 미만"
+												{...register("prob-duration")}
 											/>
 											<Radio
 												id="year1"
 												name="prob-duration"
 												value="year1"
 												label="1년 이상 3년 미만"
+												{...register("prob-duration")}
 											/>
 											<Radio
 												id="year3"
 												name="prob-duration"
 												value="year3"
 												label="3년 이상"
+												{...register("prob-duration")}
 											/>
 										</div>
 									</div>
@@ -246,36 +289,42 @@ export default function GuidePage() {
 												value="com-emp"
 												label="회사 임직원"
 												defaultChecked={true}
+												{...register("prob-relation")}
 											/>
 											<Radio
 												id="group-emp"
 												name="prob-relation"
 												value="group-emp"
 												label="그룹 임직원"
+												{...register("prob-relation")}
 											/>
 											<Radio
 												id="cooperate-com"
 												name="prob-relation"
 												value="cooperate-com"
 												label="협력사"
+												{...register("prob-relation")}
 											/>
 											<Radio
 												id="client"
 												name="prob-relation"
 												value="client"
 												label="고객"
+												{...register("prob-relation")}
 											/>
 											<Radio
 												id="outside"
 												name="prob-relation"
 												value="outside"
 												label="외부 관계자"
+												{...register("prob-relation")}
 											/>
 											<Radio
 												id="secret"
 												name="prob-relation"
 												value="secret"
 												label="밝히고 싶지 않음"
+												{...register("prob-relation")}
 											/>
 										</div>
 									</div>
@@ -321,6 +370,7 @@ export default function GuidePage() {
 										placeholder="이름을 입력해 주세요."
 										hasMsg={false}
 										essen={true}
+										{...register("name", { required: true })}
 									/>
 									<Input
 										type="text"
@@ -336,12 +386,13 @@ export default function GuidePage() {
 										label="연락처"
 										name="num"
 										id="num"
-										placeholder="연락처을 입력해 주세요."
+										placeholder="연락처를 입력해 주세요."
 										hasMsg={false}
 										essen={true}
+										{...register("num", { required: true })}
 									/>
 									<div className="safe-num">
-										<img src="/images/safe-num-img.png" alt="" />
+										<Image src="/images/safe-num-img.png" alt="" fill />
 									</div>
 								</div>
 							</li>
@@ -360,6 +411,9 @@ export default function GuidePage() {
 										placeholder="비밀번호를 입력해 주세요."
 										hasMsg={false}
 										essen={true}
+										{...register("password", {
+											required: true,
+										})}
 									/>
 									<Input
 										type="password"
@@ -369,6 +423,10 @@ export default function GuidePage() {
 										placeholder="비밀번호를 다시 입력해 주세요."
 										hasMsg={false}
 										essen={true}
+										{...register("password-conf", {
+                      required: true,
+                      validate: (value) => value === watch("password"),
+                    })}
 									/>
 									<div className="input-msgs f-desc-b">
 										<p>제보결과확인을 위한 비밀번호이며 영문, 숫자를 포함한 6~10자리 조합으로 사용해 주시기 바랍니다.</p>
@@ -405,16 +463,18 @@ export default function GuidePage() {
 										<p className="pol-msg">개인정보처리 방침에 따라 개인정보 수집ㆍ활용에 동의합니다.</p>
 										<Radio
 											id="no-persnal-ag"
-											name="persnal-agree"
 											value="no-persnal-ag"
+											name="persnal-agree"
 											label="동의하지 않음"
 											defaultChecked={true}
+											{...register("persnal-agree", { required: true })}
 										/>
 										<Radio
 											id="yes-persnal-ag"
-											name="persnal-agree"
 											value="yes-persnal-ag"
+											name="persnal-agree"
 											label="동의"
+											{...register("persnal-agree")}
 										/>
 									</div>
 									<div className="policy">
@@ -439,20 +499,22 @@ export default function GuidePage() {
 										<p className="pol-msg">개인정보 제3자 제공에 동의합니다.</p>
 										<Radio
 											id="no-third-ag"
-											name="third-agree"
 											value="no-third-ag"
+											name="third-agree"
 											label="동의하지 않음"
 											defaultChecked={true}
+											{...register("third-agree", { required: true })}
 										/>
 										<Radio
 											id="yes-third-ag"
-											name="third-agree"
 											value="yes-third-ag"
+											name="third-agree"
 											label="동의"
+											{...register("third-agree")}
 										/>
 									</div>
 									<div className="cap">
-										<img src="/images/img-cap.png" alt="" />
+										<Image src="/images/img-cap.png" alt="" fill />
 									</div>
 								</div>
 							</li>

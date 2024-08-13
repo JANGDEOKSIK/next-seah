@@ -191,7 +191,15 @@
 
 
 				.safe-num {
+					width: 100%;
+					height: 416px;
 					margin-top: 16px;
+					position: relative;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
 				}
 
 				.policy {
@@ -238,6 +246,15 @@
 
 				.cap {
 					margin-top: 48px;
+					width: 100%;
+					height: 64px;
+					position: relative;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
 				}
 			}
 		}

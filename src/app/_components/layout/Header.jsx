@@ -1,5 +1,6 @@
 "use client";
-
+import Link from "next/link";
+import Image from "next/image";
 import { getList } from "@/app/_lib/fetch";
 
 export default function Header({  }) {
@@ -14,23 +15,26 @@ export default function Header({  }) {
         <a href="#wrap">본문 바로가기</a>
       </div>
       <header>
-        <a href="" className="logo"><img src="/images/logo-wht.png" alt="" /></a>
+        <Link href="/" className="logo"><Image src="/images/logo-wht.png" alt="" fill/></Link>
 				<ul>
-          { data
+          { !isLoading && data
             ?.filter((item) => item.dpth === 1 && item.menuEtc === false)
             .map((item, idx) => (
               <li key={item.menuSeq}>
-                <a href={item.url} className="one-dep f-body1-eb">
+                <Link 
+                  href={item.subMenu?.length > 0 ? "/" : item?.url}
+                  className="one-dep f-body1-eb"
+                >
                   <span>{item.menuNm}</span>
-                </a>
+                </Link>
                 {item.subMenu?.length > 0 && (
                   <div>
                     {item.subMenu
                       ?.filter((subItem) => subItem.dpth === 2)
                       .map((subItem) => (
-                        <a href={subItem.url} key={subItem.menuSeq} className="two-dep f-body2-b">
+                        <Link href={subItem.url} key={subItem.menuSeq} className="two-dep f-body2-b">
                           <span>{subItem.menuNm}</span>
-                        </a>
+                        </Link>
                       ))
                     }
                   </div>
