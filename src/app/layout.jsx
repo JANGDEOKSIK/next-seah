@@ -1,6 +1,8 @@
 import ReduxProvider from "@/store/provider";
 import QueryProvider from "./_lib/queryProvider";
 import "@/scss/index.scss";
+import Header from "./_components/layout/Header";
+import Footer from "./_components/layout/Footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,8 +15,10 @@ export default function RootLayout({ children, loading }) {
       <body>
         <QueryProvider>
           <ReduxProvider>
+            <Header />
             {loading}
             {children}
+            <Footer />
           </ReduxProvider>
         </QueryProvider>
       </body>
