@@ -13,16 +13,18 @@ export default function Header() {
         <h1></h1>
         <nav>
           <ul>
-            {data?.map((item, index) => (
-              <li key={index}>
-                <Link
-                  className="one-dep"
-                  href={item.url}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
+            {data
+              ?.filter((item) => item.url !== "/report/finish")
+              .map((item, index) => (
+                <li key={index}>
+                  <Link
+                    className="one-dep"
+                    href={item.url}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </nav>
         <div className="utils"></div>
