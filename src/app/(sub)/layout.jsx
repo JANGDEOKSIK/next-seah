@@ -12,7 +12,7 @@ export default function Layout({ children }) {
       >
         {/* <Header /> */}
       </PrefetchElement>
-      {/* <SubVisualArea /> */}
+      <SubVisualArea />
 
       {children}
       {/* <Footer /> */}
