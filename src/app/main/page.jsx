@@ -10,6 +10,8 @@ import {
 } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
+import { useForm } from "react-hook-form";
+import Input from "./_components/Input";
 
 export default function MainPage() {
   const [isOn, setIsOn] = useState(false);
@@ -35,6 +37,16 @@ export default function MainPage() {
       console.log("보인다....");
     }
   }, [isInView]);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <PageTransition>
@@ -76,6 +88,27 @@ export default function MainPage() {
             style={{ width: "100px", height: "100px", backgroundColor: "red" }}
           ></div>
         </motion.div>
+
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Input
+            id="id1"
+            placeholder="입력1"
+            {...register("id1", { required: "필수입력1" })}
+            errors={errors?.id1 && errors.id1.message}
+          />
+          <Input
+            id="id2"
+            placeholder="입력2"
+            {...register("id2", { required: "필수입력2" })}
+            errors={errors?.id2 && errors.id2.message}
+          />
+          <button type="submit">Submit</button>
+          <input
+            type="checkbox"
+            id="myChk1"
+            {...register("myChk1")}
+          />
+        </form>
       </>
     </PageTransition>
   );

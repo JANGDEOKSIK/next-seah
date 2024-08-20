@@ -1,10 +1,12 @@
 import PageTransition from "@/app/_components/layout/PageTransition";
+import SubVisualArea from "../_components/SubVisualArea";
 
 export default function OnlinePage() {
   return (
     <>
+      <SubVisualArea />
       <PageTransition>
-        <h2>Online Page</h2>
+        <div>online page</div>
         <div style={{ height: "120vh" }}></div>
       </PageTransition>
     </>

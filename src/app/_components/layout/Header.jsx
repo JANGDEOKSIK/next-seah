@@ -10,7 +10,9 @@ export default function Header() {
         <a href="#wrap">본문 바로가기</a>
       </div>
       <header>
-        <h1></h1>
+        <Link href="/main">
+          <h1></h1>
+        </Link>
         <nav>
           <ul>
             {data?.map((item, index) => (
