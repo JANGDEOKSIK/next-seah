@@ -30,9 +30,14 @@ export default function Nav({ data }) {
     setIsTwoDvisibleArr([]);
   };
 
+  const clickFn = () => {
+    handleTwoDHide();
+  };
+  
+
   return (
     <>
-      <nav onMouseLeave={handleTwoDHide}>
+      <nav>
         <ul>
           {data?.map((item, index) => {
             if (item.menuEtc === false) {
@@ -43,6 +48,7 @@ export default function Nav({ data }) {
                     className="one-d"
                     onMouseEnter={() => handleTwoD(index)}
                     onFocus={() => handleTwoD(index)}
+                    onClick={clickFn}
                   >
                     <span>{item.menuNm}</span>
                   </Link>
@@ -65,6 +71,7 @@ export default function Nav({ data }) {
                                 <Link
                                   href={`${item.url}${twoDItem.url}`}
                                   className="two-d"
+                                  onClick={clickFn}
                                 >
                                   <span>{twoDItem.menuNm}</span>
                                 </Link>

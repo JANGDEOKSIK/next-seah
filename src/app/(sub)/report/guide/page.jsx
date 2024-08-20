@@ -1,11 +1,15 @@
 "use client";
 
 import { useQueryClient } from "@tanstack/react-query";
+import { usePathname } from "next/navigation";
 
 export default function ReportGuidePage() {
   const cache = useQueryClient();
   const data = cache.getQueryData(["str1", "str2"]);
   console.log("data", data);
+
+  const pathname = usePathname();
+  console.log("pathname", pathname);
 
   return (
     <>
