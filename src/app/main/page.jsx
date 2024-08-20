@@ -1,13 +1,15 @@
 "use client";
 
+import { getList } from "@/app/_lib/fetch";
 import Image from "next/image";
-
 import { useSelector } from "react-redux";
 import PageTransition from "../_components/layout/PageTransition";
-import { Children, useState } from "react";
+import { Children, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import Link from "next/link";
 
 export default function MainPage() {
+  // const { data } = getList("/menus", ["test1", "test2"]);
   return (
     <PageTransition>
       <div className="main-kv-area">
@@ -23,6 +25,8 @@ export default function MainPage() {
           //placeholder="blur" // Optional blur-up while loading
         /> */}
       </div>
+
+      <Link href="/">루트페이지로 이동</Link>
 
       <div className="cont">
         <div className="inner">

@@ -9,7 +9,10 @@ export default async function PrefetchElement({ children, url, keyValue }) {
   await queryClient.prefetchQuery({
     queryKey: keyValue.map((item) => item),
     queryFn: async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}${url}`
+        //,{method: 'GET', next: { revalidate: 60 * 60 * 1} }
+      );
       return response.json();
     },
     // staleTime: 60 * 1000,

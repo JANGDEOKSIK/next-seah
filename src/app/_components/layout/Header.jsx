@@ -13,7 +13,7 @@ export default function Header() {
       </div>
       <header>
         <h1 className="logo">
-          <Link href={"/"}>
+          <Link href={"/main"}>
             <span></span>
           </Link>
         </h1>
