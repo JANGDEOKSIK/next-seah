@@ -1,0 +1,43 @@
+footer {
+  padding: 144rem 0;
+  border-top: 1px solid $gray10;
+
+  h2 {
+    width: 118rem;
+    height: 37rem;
+    margin-bottom: 48rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  & > div.f-inner {
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .wrap {
+    p {
+      & + p {
+        margin-top: 6px;
+      }
+    }
+  }
+}
+.f-inner {
+  width: 1636rem;
+  margin: 0 auto;
+}
+.policy-list {
+  margin-top: 6rem;
+
+  a {
+    display: block;
+
+    & + a {
+      margin-left: 40rem;
+    }
+  }
+}

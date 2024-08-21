@@ -10,7 +10,7 @@
 @import "./modal";
 
 body {
-  background: #eee;
+  background: $white;
 }
 
 .box1 {
@@ -44,4 +44,126 @@ body {
 .wrap.finish {
   height: 100vh;
   background: url("/images/bg.jpg") no-repeat center center / cover;
+}
+
+.sc-reporttype {
+  margin-top: 144px;
+
+  .type-list {
+    gap: 72rem 24rem;
+
+    li {
+      height: 500rem;
+
+      .f-bdy1 {
+        margin-top: 24px;
+      }
+      .ig-wrap {
+        height: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+.sc-reportstep {
+  .circle-list {
+    margin: 72px 0 146px;
+
+    li {
+      flex-direction: column;
+      justify-content: center;
+      width: 290rem;
+      height: 290rem;
+      border: 1px dashed $brdOrange;
+      border-radius: 50%;
+
+      & + li {
+        margin-left: -22rem;
+      }
+
+      span {
+        color: $brdOrange;
+
+        & + span {
+          margin-top: 4px;
+        }
+      }
+
+      &:first-child {
+        background: rgba(229, 78, 43, 0.04);
+      }
+      &:nth-child(3) {
+        background: rgba(229, 78, 43, 0.04);
+      }
+      &:nth-child(5) {
+        background: $brdOrange;
+
+        span {
+          color: #fff;
+        }
+      }
+    }
+  }
+  .bar-list {
+    gap: 96rem 24rem;
+
+    li {
+      &::before {
+        content: "";
+        display: inline-block;
+        margin-bottom: 24px;
+        width: 100%;
+        height: 1px;
+        background-color: $gray10;
+      }
+
+      p {
+        &:first-child {
+          margin-bottom: 16px;
+          color: $brdOrange;
+        }
+      }
+    }
+  }
+}
+.sc-except {
+  margin-bottom: 144rem;
+
+  .f-tit5 {
+    margin-bottom: 48rem;
+  }
+  .box-list {
+    flex-wrap: wrap;
+    padding: 48rem;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+
+    li {
+      position: relative;
+      padding-left: 11px;
+      width: 50%;
+      font-weight: 700;
+      color: $gray80;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 3rem;
+        height: 3rem;
+        transform: translateY(-50%);
+        background-color: $gray80;
+      }
+
+      &:nth-child(n + 3) {
+        margin-top: 8px;
+      }
+    }
+  }
 }

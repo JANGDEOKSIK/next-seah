@@ -4,7 +4,7 @@ import { redirect, usePathname } from "next/navigation";
 
 export default function SubVisualArea() {
   const pathname = usePathname();
-  console.log(pathname);
+  // console.log(pathname);
 
   return (
     <>

@@ -1,0 +1,63 @@
+.subvisual {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 550rem;
+  overflow: hidden;
+  background: url("/images/subvisual.jpg") no-repeat center center / cover;
+}
+section {
+  &.inner + section {
+    margin-top: 216rem;
+  }
+  > h3 {
+    & + * {
+      margin-top: 48rem;
+    }
+    & + p {
+      margin-top: 24rem;
+    }
+  }
+}
+.inner {
+  width: 1362rem;
+  margin: 0 auto;
+}
+.flex {
+  display: flex;
+  align-items: center;
+
+  .between {
+    justify-content: space-between;
+  }
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.top-tit-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 550rem;
+}
+.lnb-list {
+  position: absolute;
+  top: 50%;
+  right: 140rem;
+  transform: translateY(-50%);
+
+  li {
+    & + li {
+      margin-top: 16rem;
+    }
+  }
+}
+.sub-desc {
+  margin: 144px 0 0;
+  text-align: center;
+}
