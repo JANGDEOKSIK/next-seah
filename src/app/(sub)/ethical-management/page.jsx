@@ -1,7 +1,4 @@
 //import { Metadata } from "next";
-"use client";
-
-import { usePathname } from 'next/navigation'
 
 /*export async function generateMetadata({ searchParams }) {  
   console.log("searchParams", searchParams);
@@ -13,8 +10,6 @@ import { usePathname } from 'next/navigation'
 }*/
 
 export default function ethicalManagementPage() {
-  const pathname = usePathname();
-  console.log("pathname", pathname);
 
   return (
     <>

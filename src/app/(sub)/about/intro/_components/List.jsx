@@ -64,10 +64,12 @@ export default function List() {
       </form>
 
       <div>
-        <button onClick={(e)=>openModalFn(e)}>팝업1</button>
         <AnimatePresence>
           {isOpen && <Modal onClose={() => closeModalFn()} />}
         </AnimatePresence>
+        <div>
+          <button onClick={(e)=>openModalFn(e)}>팝업1</button>        
+        </div>
       </div>
     </>
   );

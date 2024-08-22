@@ -37,7 +37,7 @@ export default function Nav({ data }) {
 
   return (
     <>
-      <nav>
+      <nav onMouseLeave={handleTwoDHide}>
         <ul>
           {data?.map((item, index) => {
             if (item.menuEtc === false) {

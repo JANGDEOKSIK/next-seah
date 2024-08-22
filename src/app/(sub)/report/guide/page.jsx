@@ -1,15 +1,10 @@
 "use client";
 
 import { useQueryClient } from "@tanstack/react-query";
-import { usePathname } from "next/navigation";
 
 export default function ReportGuidePage() {
   const cache = useQueryClient();
   const data = cache.getQueryData(["str1", "str2"]);
-  console.log("data", data);
-
-  const pathname = usePathname();
-  console.log("pathname", pathname);
 
   return (
     <>
@@ -155,6 +150,10 @@ export default function ReportGuidePage() {
         accusamus, blanditiis officiis ullam, ipsa ipsum quas, itaque numquam.
         Hic, nesciunt error rem ipsum excepturi deserunt expedita quibusdam
         iusto.
+      </div>
+
+      <div className="inner">
+        <button style={{border: "1px solid red"}}>제보하기 내부 버튼</button>
       </div>
     </>
   );

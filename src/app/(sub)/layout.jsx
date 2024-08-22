@@ -1,7 +1,8 @@
 import Header from "@/app/_components/layout/Header";
 import Footer from "@/app/_components/layout/Footer";
+import SkipNavi from "@/app/(sub)/_component/SkipNavi";
 import PrefetchElement from "../_lib/prefetch";
-import Link from "next/link";
+
 
 export default function Layout({ children }) {
   return (
@@ -10,9 +11,7 @@ export default function Layout({ children }) {
         url={"/menus"}
         keyValue={["str1", "str2"]}
       >
-        <div id="skipNavi">
-          <Link href="#wrap">본문 바로가기</Link>
-        </div>
+        <SkipNavi />
         <Header title={"about과 seah의 헤더입니다."} />
 
         <div className="cont-area">{children}</div>
