@@ -152,7 +152,7 @@ export default function ReportGuidePage() {
         iusto.
       </div>
 
-      <div className="inner">
+      <div id="wrap" className="inner" tabIndex={0}>
         <button style={{border: "1px solid red"}}>제보하기 내부 버튼</button>
       </div>
     </>

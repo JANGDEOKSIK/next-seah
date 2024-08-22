@@ -383,7 +383,7 @@ export default function ethicalManagementPage() {
           laboriosam error saepe nobis placeat ipsa repellendus doloribus
         </div>
 
-        <div className="inner" id="wrap">
+        <div id="wrap" className="inner" tabIndex={0}>
           본문 콘텐츠 영역 가정<br />
           본문 콘텐츠 영역 가정<br />
           본문 콘텐츠 영역 가정<br />
@@ -400,6 +400,9 @@ export default function ethicalManagementPage() {
           본문 콘텐츠 영역 가정<br />
           본문 콘텐츠 영역 가정<br />
           본문 콘텐츠 영역 가정<br />
+
+          <button>test1</button>
+          <button>test2</button>
         </div>
       </div>
     </>
