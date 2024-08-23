@@ -41,7 +41,10 @@ export default function Header() {
       <header>
         <div className="inner">
           <h1 className="logo">
-            <Link href="/main" />
+            <Link
+              href="/main"
+              aria-label="메인 화면으로 가기"
+            />
           </h1>
           <nav>
             <ul className="nav-header">
@@ -50,7 +53,10 @@ export default function Header() {
                 ?.filter((item) => item.dpth === 1 && !item.menuEtc)
                 .map((item) => {
                   return (
-                    <li className="f-bdy1">
+                    <li
+                      className="f-bdy1"
+                      key={item.menuSeq}
+                    >
                       {item.url ? (
                         <Link href={`${item.url}`}>{item.menuNm}</Link>
                       ) : (

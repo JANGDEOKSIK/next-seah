@@ -1,4 +1,16 @@
-export default function FileAdd({ label, id, isEssential, infoTxt }) {
+export default function FileAdd({
+  label,
+  id,
+  isEssential,
+  infoTxt,
+  value,
+  // multiple,
+  register,
+  onChange,
+  onClick,
+}) {
+  console.log(value, "valuevaluevaluevalue");
+
   return (
     <div className="file-wrap">
       <div className="title-area">
@@ -12,6 +24,9 @@ export default function FileAdd({ label, id, isEssential, infoTxt }) {
           name={id}
           id={id}
           multiple
+          // multiple={multiple && multiple}
+          {...register}
+          onChange={onChange}
         />
         <label
           className="btn-add-file"
@@ -22,7 +37,28 @@ export default function FileAdd({ label, id, isEssential, infoTxt }) {
       </div>
       <div className="file-list-wrap">
         <div className="file-list">
-          <div className="file">
+          {value?.map((file, index) => (
+            <div
+              className="file"
+              key={index}
+            >
+              <span className="file-name">{file}</span>
+              <button
+                className="delete-file"
+                type="button"
+                onClick={onClick}
+                value={file}
+              ></button>
+            </div>
+          ))}
+          {/* <div className="file">
+            <span className="file-name">첨부파일.txt</span>
+            <button
+              className="delete-file"
+              type="button"
+            ></button>
+          </div> */}
+          {/* <div className="file">
             <span className="file-name">첨부파일.txt</span>
             <button
               className="delete-file"
@@ -35,14 +71,7 @@ export default function FileAdd({ label, id, isEssential, infoTxt }) {
               className="delete-file"
               type="button"
             ></button>
-          </div>
-          <div className="file">
-            <span className="file-name">첨부파일.txt</span>
-            <button
-              className="delete-file"
-              type="button"
-            ></button>
-          </div>
+          </div> */}
         </div>
         <div className="bullet-list-wrap">
           <div className="bullet-list">최대 5개까지 등록 가능합니다.</div>

@@ -23,6 +23,7 @@ export default function HeaderSide({ data }) {
           aria-haspopup="true"
           aria-controls="menu"
           aria-expanded="false"
+          aria-label="메뉴 열기"
           onClick={handleMenuState}
         >
           <span className="dot"></span>

@@ -7,6 +7,7 @@ export default function Radio({
   infoTxt,
   children,
   infoColumn,
+  register,
 }) {
   return (
     <div className="radio-wrap">
@@ -26,6 +27,7 @@ export default function Radio({
                 name={id}
                 id={`${id}${index}`}
                 value={value.value}
+                {...register}
               />
               <label htmlFor={`${id}${index}`}>{value.label}</label>
             </div>

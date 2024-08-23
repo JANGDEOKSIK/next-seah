@@ -7,7 +7,7 @@ export default async function Page({ params }) {
     });
     const response = await dataTest.json();
 
-    console.log(response, "response");
+    // console.log(response, "response");
 
     const getSubMenus = await response?.reduce((acc, menu) => {
       if (menu.subMenu) {

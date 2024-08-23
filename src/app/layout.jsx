@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children, loading }) {
   return (
     <html lang="ko">
-      <body>
+      <body tabIndex="0">
         <QueryProvider>
           <PrefetchElement
             url="/menus"

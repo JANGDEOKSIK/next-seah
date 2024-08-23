@@ -185,6 +185,9 @@ input {
     color: transparent;
     font-size: 16rem;
   }
+  &[type="password"] {
+    font-family: "Malgun gothic", dotum, sans-serif;
+  }
 }
 textarea {
   &::-webkit-input-placeholder {

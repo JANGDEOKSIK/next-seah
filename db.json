@@ -141,55 +141,283 @@
       "cdId": "HOLDINGS_LINE_CD",
       "cd": "HOLDINGS_LINE_CD",
       "cdNm": "세아홀딩스 계열",
-      "cdDsc": "",
-      "useYn": "Y"
+      "useYn": "Y",
+      "id": "1646"
     },
     {
-      "cdSeq": 1,
+      "cdSeq": 2,
       "dpth": 2,
       "cdId": "HOLDINGS_LINE_CD",
       "cd": "HOLDINGS_LINE1",
       "cdNm": "세아",
-      "cdDsc": "",
-      "useYn": "Y"
+      "useYn": "Y",
+      "id": "e003"
     },
     {
-      "cdSeq": 1,
+      "cdSeq": 12,
+      "dpth": 2,
+      "cdId": "HOLDINGS_LINE_CD",
+      "cd": "HOLDINGS_LINE22",
+      "cdNm": "세아2",
+      "useYn": "Y",
+      "id": "7f9b"
+    },
+    {
+      "cdSeq": 3,
       "dpth": 3,
       "cdId": "HOLDINGS_LINE_CD",
-      "cd": "HOLDINGS_LINE1",
+      "cd": "HOLDINGS_LINE2",
       "cdNm": "홀딩스",
-      "cdDsc": "",
-      "useYn": "Y"
+      "useYn": "Y",
+      "id": "7514"
     },
     {
-      "cdSeq": 1,
+      "cdSeq": 4,
       "dpth": 1,
       "cdId": "STEELS_LINE_CD",
       "cd": "STEELS_LINE_CD",
       "cdNm": "세아제강지주 계열",
-      "cdDsc": "",
-      "useYn": "Y"
+      "useYn": "Y",
+      "id": "9334"
     },
     {
-      "cdSeq": 1,
+      "cdSeq": 5,
       "dpth": 2,
       "cdId": "STEELS_LINE_CD",
       "cd": "STEELS_LINE1",
       "cdNm": "세아제강지주",
-      "cdDsc": "",
-      "useYn": "Y"
+      "useYn": "Y",
+      "id": "f695"
     },
     {
-      "cdSeq": 1,
+      "cdSeq": 6,
       "dpth": 3,
       "cdId": "STEELS_LINE_CD",
-      "cd": "STEELS_LINE1",
-      "cdNm": "세아제강지주 계열",
-      "cdDsc": "",
-      "useYn": "Y"
+      "cd": "STEELS_LINE2",
+      "cdNm": "세아제강지주2",
+      "useYn": "Y",
+      "id": "7e20"
     }
   ],
   "lists": [],
-  "posts": []
+  "posts": [
+    {
+      "id": "196a",
+      "reportSubject": "sdg",
+      "reportTitle": "sdg",
+      "reportContent": "sg",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null
+    },
+    {
+      "id": "dc91",
+      "reportSubject": "sdg",
+      "reportTitle": "sg",
+      "reportContent": "sg",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null
+    },
+    {
+      "id": "6476",
+      "reportSubject": "fdh",
+      "reportTitle": "dfh",
+      "reportContent": "dfh",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": ["C:\\fakepath\\main-btn-prev.png"]
+    },
+    {
+      "id": "919a",
+      "reportSubject": "zg",
+      "reportTitle": "sdg",
+      "reportContent": "sg",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": ["C:\\fakepath\\main-category-option-btn.png"]
+    },
+    {
+      "id": "0569",
+      "reportSubject": "dfh",
+      "reportTitle": "dfh",
+      "reportContent": "dfh",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "a9e6",
+      "reportSubject": "dh",
+      "reportTitle": "dh",
+      "reportContent": "ddh",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "36e4",
+      "reportSubject": "ㄴㅇㅎ",
+      "reportTitle": "ㄶㅇ",
+      "reportContent": "ㄴㅇㅎ",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "3af4",
+      "reportSubject": "dfh",
+      "reportTitle": "dfh",
+      "reportContent": "fdh",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "0498",
+      "reportSubject": "sdg",
+      "reportTitle": "sg",
+      "reportContent": "sg",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "1604",
+      "reportSubject": "dfh",
+      "reportTitle": "dfh",
+      "reportContent": "dfh",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "c928",
+      "reportSubject": "dfh",
+      "reportTitle": "dfh",
+      "reportContent": "dfh",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "712c",
+      "reportSubject": "dfh",
+      "reportTitle": "dfh",
+      "reportContent": "dfh",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "61f0",
+      "reportSubject": "dfh",
+      "reportTitle": "dfh",
+      "reportContent": "dfh",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "f49a",
+      "reportSubject": "dfh",
+      "reportTitle": "dh",
+      "reportContent": "dfh",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "e9cb",
+      "reportSubject": "dfh",
+      "reportTitle": "dfh",
+      "reportContent": "dfh",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "8b4e",
+      "reportSubject": "dhf",
+      "reportTitle": "dhf",
+      "reportContent": "dhf",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "b89f",
+      "reportSubject": "sg",
+      "reportTitle": "sdg",
+      "reportContent": "sg",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "e2ad",
+      "reportSubject": "sdg",
+      "reportTitle": "sgdd",
+      "reportContent": "sdg",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "98f1",
+      "reportSubject": "dfh",
+      "reportTitle": "dfh",
+      "reportContent": "dfh",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "f575",
+      "reportSubject": "ㅌㅇㅎ",
+      "reportTitle": "ㄴㅇㅀ",
+      "reportContent": "ㄴㄹ",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "4fa5",
+      "reportSubject": "ㄴㅇㅎ",
+      "reportTitle": "ㄴㅇㅎ",
+      "reportContent": "ㄴㅇㅎ",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    },
+    {
+      "id": "e85f",
+      "reportSubject": "fdg",
+      "reportTitle": "dfg",
+      "reportContent": "sdfg",
+      "personalInfoCollect": "personalInfoAgree",
+      "thirdPartyCollect": "thirdPartyCollectAgree",
+      "problemRoute": null,
+      "file": []
+    }
+  ]
 }

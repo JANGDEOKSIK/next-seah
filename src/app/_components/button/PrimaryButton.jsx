@@ -1,8 +1,15 @@
-export default function PrimaryButton({ label }) {
+export default function PrimaryButton({
+  label,
+  onClick,
+  onSubmit,
+  isSubmit = "false",
+}) {
   return (
     <button
       className="btn-primary"
-      type="button"
+      type={isSubmit ? "submit" : "button"}
+      onClick={onClick}
+      // onSubmit={onSubmit}
     >
       {label}
     </button>

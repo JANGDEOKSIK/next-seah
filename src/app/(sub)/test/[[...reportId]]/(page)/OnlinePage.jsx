@@ -8,6 +8,7 @@ import RadioButton from "@/app/_components/input/RadioButton";
 import safetyNum from "../../../../../../public/images/image-safety-num.png";
 import Image from "next/image";
 import PrimaryButton from "@/app/_components/button/PrimaryButton";
+import OnlineSubmitForm from "../_component/OnlineSubmitForm";
 
 export default function OnlinePage() {
   const companyOption1 = [
@@ -119,6 +120,7 @@ export default function OnlinePage() {
       label: "밝히고 싶지 않음",
     },
   ];
+
   return (
     <PageTransition>
       <section className="section pdt-short">
@@ -136,7 +138,13 @@ export default function OnlinePage() {
         </div>
       </section>
       <section className="section pdt-short">
-        <form>
+        {/* <PrefetchElement
+          url="/codeLists"
+          key={["code", "codeLists"]}
+        >
+        </PrefetchElement> */}
+        <OnlineSubmitForm />
+        {/* <form>
           <div className="form-wrap">
             <div className="form-title f-tit2">
               <span className="number">01</span>
@@ -394,9 +402,6 @@ export default function OnlinePage() {
                       </div>
                     </div>
                   </div>
-                  {/* <div className="scroll-content">
-
-                  </div> */}
                   <div className="radio-wrap">
                     <div className="title-area">
                       개인정보처리 방침에 따라 개인정보 수집ㆍ활용에 동의합니다.
@@ -502,7 +507,7 @@ export default function OnlinePage() {
           <div className="footer-btn-wrap">
             <PrimaryButton label="제출하기" />
           </div>
-        </form>
+        </form> */}
       </section>
     </PageTransition>
   );

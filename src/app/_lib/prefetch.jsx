@@ -12,7 +12,8 @@ export default async function PrefetchElement({ children, url, keyValue }) {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`);
       return response.json();
     },
-    staleTime: 60 * 1000 * 5,
+    staleTime: 0,
+    gcTime: 0,
   });
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

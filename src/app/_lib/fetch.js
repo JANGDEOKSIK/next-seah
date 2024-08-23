@@ -13,6 +13,7 @@ export const getList = (url, key = []) => {
 
       return response;
     },
+    gcTime: 0,
   });
 };
 
@@ -24,7 +25,7 @@ export const setMutation = (url, options = {}) => {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
           },
           body: JSON.stringify(data),
         }

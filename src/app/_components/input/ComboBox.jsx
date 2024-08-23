@@ -5,6 +5,10 @@ export default function ComboBox({
   children,
   infoTxt,
   errors,
+  value,
+  onChange,
+  defaultOptionName,
+  defaultOption,
 }) {
   return (
     <div className="combo-wrap">
@@ -18,17 +22,23 @@ export default function ComboBox({
       <select
         name=""
         id={id}
+        value={value}
+        onChange={onChange}
       >
-        {children?.map((item, index) => {
-          return (
-            <option
-              value={item.value}
-              key={index}
-            >
-              {item.name}
-            </option>
-          );
-        })}
+        {defaultOption && (
+          <option value={defaultOption?.value}>{defaultOption?.name}</option>
+        )}
+        {children &&
+          children?.map((item, index) => {
+            return (
+              <option
+                value={item.value}
+                key={index}
+              >
+                {item.name}
+              </option>
+            );
+          })}
       </select>
       {errors && <p>{errors.message}</p>}
     </div>

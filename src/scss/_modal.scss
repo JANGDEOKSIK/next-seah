@@ -1,0 +1,12 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  background: #fff;
+  border: 1px solid #000;
+  .content:focus {
+    border: 1px solid #000;
+  }
+}

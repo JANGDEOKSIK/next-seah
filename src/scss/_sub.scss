@@ -140,10 +140,13 @@
 }
 
 .form-wrap {
+  position: relative;
   display: flex;
   justify-content: space-between;
   width: 100%;
   .form-title {
+    position: sticky;
+    top: 0;
     .number {
       display: block;
       padding: 6rem 24rem;
