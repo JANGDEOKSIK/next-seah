@@ -1,6 +1,3 @@
-header {
-}
-
 #skipNavi a {
   position: fixed;
   top: -9999px;
@@ -11,5 +8,23 @@ header {
 
   &:focus {
     top: 0;
+  }
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 140px;
+  box-sizing: border-box;
+  // background-color: #000;
+
+  h1 {
+    width: 120px;
+    height: 37px;
+    margin: 0;
+    background: url("../../public/images/ico-logo.svg") no-repeat center center / 120px;
+    text-indent: -9999px;
   }
 }
