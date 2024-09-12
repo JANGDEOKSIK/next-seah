@@ -2,6 +2,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="left">
+        <img src="/images/ico-logo-bk.svg" alt="SeAH" />
         <p className="address">04036 서울시 마포구 양화로 45 세아타워</p>
         <p className="copyright">Copyright © SeAH All rights reserved.</p>
       </div>

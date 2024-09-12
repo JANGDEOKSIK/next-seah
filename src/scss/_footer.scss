@@ -1,0 +1,27 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 144px 142px;
+  box-sizing: border-box;
+  border-top: 1px solid $gray10;
+  color: $brdGray;
+
+  .left {
+    img {
+      margin-bottom: 48px;
+    }
+
+    p {
+      &.address {
+        margin-bottom: 6px;
+      }
+    }
+  }
+
+  .right ul {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+  }
+}

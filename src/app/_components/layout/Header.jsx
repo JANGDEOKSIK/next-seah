@@ -5,7 +5,9 @@ export default function Header() {
         <a href="#wrap">본문 바로가기</a>
       </div>
       <header>
-        <h1>SeAH</h1>
+        <h1>
+          <a href="">SeAH</a>
+        </h1>
         <ul className="gnb">
           <li>
             <a href="">윤리경영제안센터 소개</a>

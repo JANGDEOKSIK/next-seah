@@ -16,15 +16,71 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0 140px;
+  height: 120px;
   box-sizing: border-box;
-  // background-color: #000;
 
   h1 {
+    position: absolute;
+    top: 50%;
+    left: 140px;
     width: 120px;
     height: 37px;
     margin: 0;
-    background: url("../../public/images/ico-logo.svg") no-repeat center center / 120px;
+    transform: translateY(-50%);
     text-indent: -9999px;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url("../../public/images/ico-logo.svg") no-repeat center
+        center / 120px;
+    }
+  }
+
+  .gnb {
+    display: flex;
+    align-items: center;
+    column-gap: 96px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+
+    a {
+      color: $white;
+      text-decoration: initial;
+    }
+  }
+
+  .utils {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 140px;
+    transform: translateY(-50%);
+
+    .lang {
+      display: flex;
+      align-items: center;
+      column-gap: 24px;
+      margin-right: 56px;
+
+      a {
+        color: $white;
+        text-decoration: initial;
+      }
+    }
+
+    button {
+      width: 52px;
+      height: 52px;
+      background: url("../../public/images/ico-sub-menu.svg") no-repeat center
+        center / 52px;
+      border: none;
+      cursor: pointer;
+    }
   }
 }

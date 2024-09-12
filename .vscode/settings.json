@@ -1,3 +1,4 @@
 {
-  "zenMode.hideActivityBar": true
+  "zenMode.hideActivityBar": true,
+  "liveServer.settings.port": 5508
 }
