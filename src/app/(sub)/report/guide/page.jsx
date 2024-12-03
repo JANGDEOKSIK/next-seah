@@ -3,10 +3,7 @@
 import { getList } from "@/app/_lib/fetch";
 
 export default function Guide() {
-  const { data, isLoading, refetch } = getList("/dummy/menu.json", [
-    "about",
-    "todoList",
-  ]);
+  // const { data } = getList("", []);
 
   return (
     <>
