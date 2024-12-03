@@ -38,11 +38,39 @@ ul {
 
 // 서브 페이지
 .visual-area {
+  position: relative;
   width: 100%;
   height: 550px;
 
   &.report {
     background: url("/images/img-report-kv.jpg") no-repeat center center / cover;
+  }
+
+  h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 56px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .sub-nav {
+    position: absolute;
+    top: 50%;
+    right: 140px;
+    transform: translateY(-50%);
+    a {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: initial;
+
+      &.on {
+        color: $brdOrange;
+      }
+    }
   }
 }
 

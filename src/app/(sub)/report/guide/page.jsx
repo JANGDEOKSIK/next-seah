@@ -1,11 +1,25 @@
+"use client";
+
+import { getList } from "@/app/_lib/fetch";
+
 export default function Guide() {
+  const { data, isLoading, refetch } = getList("/dummy/menu.json", [
+    "about",
+    "todoList",
+  ]);
+
   return (
     <>
       <div className="visual-area report">
         <h2>제보 가이드</h2>
         <ul className="sub-nav">
           <li>
-            <a href="">제보 가이드</a>
+            <a
+              href=""
+              className="on"
+            >
+              제보 가이드
+            </a>
           </li>
           <li>
             <a href="">온라인 제보</a>
