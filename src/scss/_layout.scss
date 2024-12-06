@@ -61,14 +61,21 @@ ul {
     top: 50%;
     right: 140px;
     transform: translateY(-50%);
-    a {
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      text-decoration: initial;
 
-      &.on {
-        color: $brdOrange;
+    li {
+      + li {
+        margin-top: 16px;
+      }
+
+      a {
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: initial;
+
+        &.on {
+          color: $brdOrange;
+        }
       }
     }
   }

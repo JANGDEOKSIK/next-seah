@@ -1,32 +1,36 @@
 "use client";
 
 import { getList } from "@/app/_lib/fetch";
+import { usePathname } from "next/navigation";
 
 export default function Guide() {
-  // const { data } = getList("", []);
+  const { data } = getList("/dummy/menu.json", ["dummy", "menu"]);
+  const pathname = usePathname();
 
   return (
     <>
       <div className="visual-area report">
         <h2>제보 가이드</h2>
         <ul className="sub-nav">
-          <li>
-            <a
-              href=""
-              className="on"
-            >
-              제보 가이드
-            </a>
-          </li>
-          <li>
-            <a href="">온라인 제보</a>
-          </li>
-          <li>
-            <a href="">제보결과 확인</a>
-          </li>
-          <li>
-            <a href="">서신·전화·Fax 이용안내</a>
-          </li>
+          {data
+            ?.filter((item) => item.menuId === "ReportPage")
+            .map((item) =>
+              item.subMenu?.map((subItem) => {
+                const linkPath = `/report${subItem.url}`;
+                const isTrue = pathname === linkPath;
+
+                return (
+                  <li key={subItem.menuSeq}>
+                    <a
+                      href={`/report${subItem.url}`}
+                      className={isTrue ? "on" : ""}
+                    >
+                      {subItem.menuNm}
+                    </a>
+                  </li>
+                );
+              })
+            )}
         </ul>
       </div>
       <div className="contents-area">
