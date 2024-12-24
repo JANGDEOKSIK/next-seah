@@ -12,7 +12,7 @@ export default function customerInquiryPage() {
       <div className="contents-area customer-inquiry">
         <h2 className="f-exBold title">
           {
-            data?.map(function (item) {
+            data?.map((item) => {
               if (item.url === pathname) {
                 return item.menuNm;
               }

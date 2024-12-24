@@ -160,6 +160,8 @@
 
 // 고객문의
 .customer-inquiry {
+  padding-top: 230px;
+
   .title {
     margin-bottom: 64px;
     font-size: 56px;
@@ -314,12 +316,16 @@
   }
 }
 
-// 개인정보처리방침
-.policy {
+// 개인정보처리방침, 내부제보 운영규정
+.policy,
+.manage-rule {
+  padding-top: 230px;
+
   .title {
     font-size: 56px;
     text-align: center;
   }
+
   img {
     display: block;
     margin: 284px auto 0;

@@ -7,6 +7,7 @@ export default function Header() {
   const blackHeaderPaths  = [
     "/customer-inquiry",
     "/policy",
+    "/manage-rule"
   ];
   const isBlackHeader = blackHeaderPaths.includes(pathname);
 
