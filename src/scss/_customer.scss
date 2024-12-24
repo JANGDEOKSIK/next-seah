@@ -20,8 +20,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
       padding: 72px;
       border-bottom: 1px solid $gray20;
+
+      .f-exBold {
+        transition: .5s;
+      }
 
       a {
         display: flex;
@@ -29,6 +34,7 @@
         column-gap: 8px;
         color: $brdGray;
         text-decoration: none;
+        transition: .5s;
 
         &::after {
           content: "";
@@ -36,6 +42,7 @@
           width: 12px;
           height: 12px;
           background: url("../../public/images/ico-arrow-link.svg") no-repeat center center / cover;
+          transition: .5s;
         }
       }
 
@@ -53,6 +60,94 @@
           height: 100%;
           margin: 0 auto;
         }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        z-index: -1;
+        transition: opacity 0.5s ease;
+        opacity: 0;
+      }
+
+      &:hover {
+        .f-exBold {
+          color: $white;
+        }
+
+        a::after {
+          background: url("../../public/images/ico-arrow-link-wht.svg") no-repeat center center / 12px;
+        }
+
+        .img-box {
+          opacity: 0;
+        }
+
+        &::before {
+          opacity: 1;
+        }
+
+        &:first-child::before {
+          background: url("../../public/images/img-customer-inquiry-hover1.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(2)::before {
+          background: url("../../public/images/img-customer-inquiry-hover2.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(3)::before {
+          background: url("../../public/images/img-customer-inquiry-hover3.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(4)::before {
+          background: url("../../public/images/img-customer-inquiry-hover4.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(5)::before {
+          background: url("../../public/images/img-customer-inquiry-hover5.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(6)::before {
+          background: url("../../public/images/img-customer-inquiry-hover6.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(7)::before {
+          background: url("../../public/images/img-customer-inquiry-hover7.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(8)::before {
+          background: url("../../public/images/img-customer-inquiry-hover8.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(9)::before {
+          background: url("../../public/images/img-customer-inquiry-hover9.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(10)::before {
+          background: url("../../public/images/img-customer-inquiry-hover10.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(11)::before {
+          background: url("../../public/images/img-customer-inquiry-hover11.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(12)::before {
+          background: url("../../public/images/img-customer-inquiry-hover12.jpg") no-repeat center center / cover;
+        }
+
+        &:nth-child(13)::before {
+          background: url("../../public/images/img-customer-inquiry-hover13.jpg") no-repeat center center / cover;
+        }
+
+        &:last-child::before {
+          background: url("../../public/images/img-customer-inquiry-hover14.jpg") no-repeat center center / cover;
+        }
+
       }
     }
   }
