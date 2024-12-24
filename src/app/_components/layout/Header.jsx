@@ -4,7 +4,11 @@ import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname();
-  const isBlackHeader = pathname === "/customer-inquiry";
+  const blackHeaderPaths  = [
+    "/customer-inquiry",
+    "/policy",
+  ];
+  const isBlackHeader = blackHeaderPaths.includes(pathname);
 
   return (
     <>

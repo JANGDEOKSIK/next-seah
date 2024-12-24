@@ -1,8 +1,24 @@
+"use client";
+
+import { getList } from "@/app/_lib/fetch";
+import { usePathname } from "next/navigation";
+
 export default function customerInquiryPage() {
+  const { data } = getList("/dummy/menu.json", ["dummy", "menu"]);
+  const pathname = usePathname();
+
   return (
     <>
       <div className="contents-area customer-inquiry">
-        <h2 className="f-exBold title">고객문의</h2>
+        <h2 className="f-exBold title">
+          {
+            data?.map(function (item) {
+              if (item.url === pathname) {
+                return item.menuNm;
+              }
+            })
+          }
+        </h2>
         <p className="f-exBold title-desc">
           고객불편 사항(품질 및 서비스 불만)이나 문의사항은 <br />
           해당 회사의 채널로 접수하시면 신속한 조치가 가능합니다.
