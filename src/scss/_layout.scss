@@ -85,6 +85,10 @@ ul {
   padding: 144px 0;
   color: $brdGray;
 
+  &.no-padding-bt {
+    padding-bottom: 0;
+  }
+
   h3 {
     margin-bottom: 144px;
     font-size: 40px;
