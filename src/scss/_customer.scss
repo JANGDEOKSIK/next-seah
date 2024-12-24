@@ -1,0 +1,59 @@
+.customer-inquiry {
+  .title {
+    margin-bottom: 64px;
+    font-size: 56px;
+    text-align: center;
+
+    &-desc {
+      font-size: 24px;
+      line-height: 160%;
+      text-align: center;
+    }
+  }
+
+  .customer-inquiry-list {
+    width: 1362px;
+    margin: 144px auto 0;
+    border-top: 1px solid $brdGray;
+
+    .customer-inquiry-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 72px;
+      border-bottom: 1px solid $gray20;
+
+      a {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        color: $brdGray;
+        text-decoration: none;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 12px;
+          height: 12px;
+          background: url("../../public/images/ico-arrow-link.svg") no-repeat center center / cover;
+        }
+      }
+
+      .f-exBold {
+        font-size: 24px;
+      }
+
+      .img-box {
+        width: 300px;
+        height: 30px;
+
+        img {
+          display: block;
+          width: auto;
+          height: 100%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
