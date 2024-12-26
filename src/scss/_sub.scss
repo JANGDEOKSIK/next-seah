@@ -99,6 +99,14 @@
   }
 }
 
+
+// 제보결과 확인
+.contents-area.result img {
+  display: block;
+  margin: 0 auto;
+}
+
+
 // 서신/전화/fax 이용안내
 .contact-type {
   width: calc(100% - 558px);

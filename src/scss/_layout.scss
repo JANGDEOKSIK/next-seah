@@ -46,6 +46,10 @@ ul {
     background: url("/images/img-report-kv.jpg") no-repeat center center / cover;
   }
 
+  &.result {
+    background: url("/images/img-result-kv.jpg") no-repeat center center / cover;
+  }
+
   h2 {
     position: absolute;
     top: 50%;
