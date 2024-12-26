@@ -1,0 +1,84 @@
+// 에러페이지, 사이트 점검안내
+.etc-wrap {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../public/images/img-etc-bg.jpg") no-repeat center center / cover;
+  overflow: hidden;
+
+  .cont-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &.error {
+    position: relative;
+
+    .txt-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .btn-wrap a {
+      display: block;
+      width: fit-content;
+      margin: 48px auto 0;
+      padding: 21.5px 96px;
+      border-radius: 4px;
+      background-color: $brdOrange;
+      font-size: 18px;
+      font-weight: bold;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+  // 브라우저 업데이트
+  &.pop-up {
+    background: none;
+    background-color: rgba($color: #000, $alpha: 0.6);
+
+    .pop-conts {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 808px;
+      background-color: $white;
+      border-radius: 36px;
+      transform: translate(-50%, -50%);
+      transition: .3s ease-out;
+
+      .top-area {
+        position: relative;
+        padding: 20px 0;
+        border-bottom: 1px solid $gray10;
+        font-size: 20px;
+        text-align: center;
+        color: $brdGray;
+
+        .btn-close {
+          position: absolute;
+          top: 50%;
+          right: 24px;
+          width: 24px;
+          height: 24px;
+          background: url("../../public/images/ico-close.svg") no-repeat center center / cover;
+          transform: translateY(-50%);
+          text-indent: -9999px;
+        }
+      }
+
+      .conts-area {
+        padding: 48px 48px 24px;
+      }
+
+      &.hidden {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+  }
+}

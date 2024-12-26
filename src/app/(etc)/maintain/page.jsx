@@ -3,7 +3,9 @@ import PageTransition from "@/app/_components/layout/PageTransition";
 export default async function Maintain() {
   return (
     <PageTransition>
-      <div>사이트 점검 안내 페이지</div>
+      <div className="etc-wrap">
+        <img src="/images/img-maintain.jpg" alt="" className="cont-img" />
+      </div>
     </PageTransition>
   );
 }
