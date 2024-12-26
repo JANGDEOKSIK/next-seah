@@ -1,0 +1,162 @@
+// 메인
+.main {
+  .visual-area {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    .kv-conts {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      text-align: center;
+
+      img {
+        width: 300px;
+        margin-bottom: 72px;
+      }
+
+      p {
+        margin-bottom: 120px;
+        font-weight: bold;
+        font-size: 28px;
+        line-height: 160%;
+        color: $white;
+      }
+
+      .btn-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 16px;
+
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 320px;
+          height: 96px;
+          padding: 40px 0;
+          box-sizing: border-box;
+          border-radius: 8px;
+          border: 1px solid $white;
+          font-size: 18px;
+          color: $white;
+          text-decoration: none;
+          backdrop-filter: blur(6px);
+          transition: .3s;
+
+          span {
+            padding-right: 36px;
+            background: url("../../public/images/ico-arrow.svg") no-repeat center right / 20px;
+          }
+
+          &:hover {
+            background-color: $brdOrange;
+            border: 1px solid $brdOrange;
+          }
+        }
+      }
+    }
+
+    .swiper-slide {
+      width: 100%;
+      height: 100vh;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    > img {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      z-index: 1;
+      transform: translateX(-50%);
+    }
+  }
+
+  .conts-area {
+    padding: 144px 140px;
+
+    .tit {
+      margin-bottom: 48px;
+      font-size: 40px;
+    }
+
+    .desc {
+      font-size: 18px;
+      line-height: 160%;
+    }
+
+    .link-conts {
+      display: flex;
+      column-gap: 24px;
+
+      .link-item {
+        position: relative;
+        width: 531px;
+        height: 712px;
+        margin-top: 96px;
+        border-radius: 8px;
+        overflow: hidden;
+
+        &:first-child {
+          background: url("../../public/images/img-main-link1.png") no-repeat center center / cover;
+        }
+
+        &:nth-child(2) {
+          background: url("../../public/images/img-main-link2.png") no-repeat center center / cover;
+        }
+
+        &:last-child {
+          background: url("../../public/images/img-main-link3.png") no-repeat center center / cover;
+        }
+
+        .link-detail {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 459px;
+          height: 640px;
+          padding: 64px 60px;
+          box-sizing: border-box;
+          background: $white url("../../public/images/ico-logo-verti.svg") no-repeat top 64px left 52px / 25px;
+          border: 1px solid #F1F1F1;
+          transition: .3s;
+
+          .link-tit {
+            margin: 376px 0 24px;
+            font-size: 28px;
+            color: $brdGray;
+            transition: .3s;
+          }
+
+          .link-desc {
+            font-size: 18px;
+            color: $gray60;
+            transition: .3s;
+          }
+        }
+
+        &:hover {
+          .link-detail {
+            background: $brdOrange url("../../public/images/ico-logo-verti-wht.svg") no-repeat top 64px left 52px / 25px;
+            border: 1px solid $brdOrange;
+
+            .link-tit,
+            .link-desc {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
