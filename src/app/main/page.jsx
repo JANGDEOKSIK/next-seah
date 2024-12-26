@@ -1,13 +1,12 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade } from "swiper/modules";
+import { EffectFade, Autoplay } from "swiper/modules";
 
 import PageTransition from "../_components/layout/PageTransition";
 
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
 export default function MainPage() {
   return (
@@ -15,15 +14,18 @@ export default function MainPage() {
       <div className="wrap main">
         <div className="visual-area">
           <Swiper
-            modules={[EffectFade]}  // EffectFade 모듈만 추가
-            effect="fade"  // effect를 'fade'로 설정
+            modules={[EffectFade, Autoplay]}
+            effect="fade"
+            speed={2500}
             autoplay={{
-              delay: 3000,  // 3초마다 자동 전환
-              disableOnInteraction: false,  // 마우스 인터랙션과 관계없이 autoplay 유지
+              delay: 5000,
+              disableOnInteraction: false
             }}
-            loop={true}  // 슬라이드가 끝나면 처음으로 돌아가며 루프
+            loop={true}
             slidesPerView={1}
-            fadeEffect={{ crossFade: true }}  // crossFade로 부드럽게 전환
+            fadeEffect={{
+              crossFade: true
+            }}
           >
             <SwiperSlide>
               <img src="/images/img-main-kv1.jpg" alt="" />
