@@ -39,7 +39,6 @@ export default function ReportResultPage() {
           최종 결과 확인까지 소정의 시간이 소요되니 <br />
           이점 양지하여 주시기 바랍니다.
         </h3>
-        <img src="/images/img-result-contents.png" alt="" />
       </div>
     </>
   );

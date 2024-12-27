@@ -76,7 +76,7 @@ export default function MainPage() {
                 </p>
               </div>
             </a>
-            <a href="#" className="link-item">
+            <a href="/customer-inquiry" className="link-item">
               <div className="link-detail">
                 <p className="f-exBold link-tit">고객문의</p>
                 <p className="link-desc">
