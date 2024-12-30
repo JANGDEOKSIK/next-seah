@@ -526,9 +526,15 @@
 }
 
 // 제보결과 확인
-.contents-area.result img {
-  display: block;
-  margin: 0 auto;
+.contents-area.result {
+  h3 {
+    margin-bottom: 72px;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 // 서신/전화/fax 이용안내
