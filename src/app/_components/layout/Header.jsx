@@ -7,6 +7,9 @@ import Link from "next/link";
 // import { usePathname } from "next/navigation";
 // import { useState } from "react";
 import HeaderSide from "./HeaderSide";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 
 export default function Header() {
   // const { data } = useQuery({
@@ -20,13 +23,43 @@ export default function Header() {
 
   const { data, isLoading, refetch } = getList("/menus", ["header", "menus"]);
 
-  // const [isMenuOpened, setIsMenuOpend] = useState(false);
+  const [lastY, setLastY] = useState(null);
 
-  // const headerPathname = usePathname();
+  const [headerState, setHeaderState] = useState("default");
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    latest > lastY ? setHeaderState("down") : setHeaderState("up");
+    latest <= 0 && setHeaderState("default");
+    setLastY(latest);
+  });
 
-  // const handleMenuState = () => {
-  //   setIsMenuOpend(!isMenuOpened);
+  // const handleScroll = () => {
+  //   const position = window.scrollY; // 현재 스크롤 위치
+  //   setLastY(position);
+
+  //   if (window.scrollY > lastY) {
+  //     setHeaderState("down");
+  //   } else if (window.scrollY <= 0) {
+  //     setHeaderState("default");
+  //   } else {
+  //     setHeaderState("up");
+  //   }
   // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll); // 스크롤 이벤트 등록
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll); // 컴포넌트 언마운트 시 이벤트 제거
+  //   };
+  // }, [lastY]);
+
+  const [isMenuOpened, setIsMenuOpend] = useState(false);
+
+  const headerPathname = usePathname();
+
+  const handleMenuState = () => {
+    setIsMenuOpend(!isMenuOpened);
+  };
 
   // const dataTest = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/menus`, {
   //   cache: "no-store",
@@ -38,7 +71,7 @@ export default function Header() {
       <div id="skipNavi">
         <a href="#wrap">본문 바로가기</a>
       </div>
-      <header>
+      <header className={classNames("header", headerState)}>
         <div className="inner">
           <h1 className="logo">
             <Link

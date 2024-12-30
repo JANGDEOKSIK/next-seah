@@ -13,7 +13,8 @@ export const getList = (url, key = []) => {
 
       return response;
     },
-    gcTime: 0,
+    staleTime: 0,
+    // gcTime: 0,
   });
 };
 

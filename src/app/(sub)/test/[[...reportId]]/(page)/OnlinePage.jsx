@@ -122,7 +122,8 @@ export default function OnlinePage() {
   ];
 
   return (
-    <PageTransition>
+    // <PageTransition>
+    <>
       <section className="section pdt-short">
         <h3 className="f-tit1 sub-tit">
           제보하고 싶은 내용을 올려주시면 빠른 시일내에 답변해 드리겠습니다.
@@ -509,6 +510,7 @@ export default function OnlinePage() {
           </div>
         </form> */}
       </section>
-    </PageTransition>
+    </>
+    // </PageTransition>
   );
 }

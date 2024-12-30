@@ -12,7 +12,7 @@
 }
 
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -20,6 +20,8 @@ header {
   width: 100%;
   height: 120rem;
   z-index: 10;
+  background: #fff;
+  transition: 0.3s;
   .inner {
     display: flex;
     align-items: center;
@@ -181,5 +183,35 @@ header {
       background: url("../../public/images/icon-btn-close.png") no-repeat
         center/ 24rem 24rem;
     }
+  }
+  &.default {
+    background: transparent;
+  }
+  &.up {
+    background: $white;
+    border-bottom: 1px solid $gray10;
+    .logo {
+      a {
+        background: url(../../public/images/logo-active.png) no-repeat center /
+          100%;
+      }
+    }
+    nav {
+      .nav-header {
+        li {
+          color: $brdGray;
+        }
+      }
+    }
+    .utils {
+      .lang-type {
+        a {
+          color: $brdGray;
+        }
+      }
+    }
+  }
+  &.down {
+    top: -120rem;
   }
 }

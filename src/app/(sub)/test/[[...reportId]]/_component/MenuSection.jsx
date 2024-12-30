@@ -17,8 +17,6 @@ export default async function MenuSection({ params }) {
     return null;
   }
 
-  console.log(params, "paramsparamsparamsparamsparams");
-
   return (
     <section className={classNames("menu-section", params.reportId[0])}>
       <div className="inner">

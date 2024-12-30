@@ -83,7 +83,7 @@ export default function GuidePage() {
           </div>
         </div>
       </section>
-      <section className="section pdt-long">
+      {/* <section className="section pdt-long">
         <div className="sec-tit f-tit1">제보절차</div>
         <p className="sec-desc f-bdy2 f-bold">
           제보를 접수하시고 해당 시안을 종결하기까지
@@ -132,7 +132,7 @@ export default function GuidePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="section pdt-long">
         <div className="sec-tit f-tit1">
           제보 내용이 아래 사항에 해당하는 경우

@@ -26,24 +26,29 @@ export default function MenuSection({ name }) {
 
   return (
     <section className="menu-section">
-      <div className="inner">
-        <h2 className="title f-sub1">
-          {data?.map((item) => {
-            return (
-              item.menuId === "ReportPage" &&
-              item.subMenu.map((sub) => {
-                return headerPathname.includes(sub.url) && sub.menuNm;
-              })
-            );
-          })}
-        </h2>
+      {/* <div className="inner">
+        {data?.map((item) => {
+          return (
+            item.menuId === "ReportPage" &&
+            item.subMenu.map((sub, index) => {
+              return (
+                <h2
+                  className="title f-sub1"
+                  key={`${sub}${index}`}
+                >
+                  {headerPathname.includes(sub.url) && sub.menuNm}
+                </h2>
+              );
+            })
+          );
+        })}
         <ul className="side-menu f-sub2">
           {data?.map((item) => {
             return (
               item.menuId === "ReportPage" &&
-              item.subMenu.map((sub) => {
+              item.subMenu.map((sub, index) => {
                 return (
-                  <li>
+                  <li key={`${sub}${index}`}>
                     <Link
                       href={`${sub.url}`}
                       className={classNames(
@@ -58,7 +63,7 @@ export default function MenuSection({ name }) {
             );
           })}
         </ul>
-      </div>
+      </div> */}
     </section>
   );
 }

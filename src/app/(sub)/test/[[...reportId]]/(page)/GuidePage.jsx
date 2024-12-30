@@ -10,7 +10,8 @@ import PageTransition from "@/app/_components/layout/PageTransition";
 
 export default function GuidePage() {
   return (
-    <PageTransition>
+    // <PageTransition>
+    <>
       <section className="section pdt-short">
         <h3 className="f-tit1 sub-tit">
           윤리경영 제안센터는 세아 임직원 외에도 고객, 주주 및 협력사 등
@@ -157,6 +158,7 @@ export default function GuidePage() {
           </ul>
         </div>
       </section>
-    </PageTransition>
+    </>
+    // </PageTransition>
   );
 }

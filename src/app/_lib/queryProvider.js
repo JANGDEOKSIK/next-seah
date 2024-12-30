@@ -11,8 +11,8 @@ export default function QueryProvider({ children }) {
         retryOnMount: true,
         refetchOnReconnect: false,
         retry: false,
-        staleTime: 0,
-        gcTime: 0,
+        // staleTime: 0,
+        // gcTime: 0,
       },
     },
   });
