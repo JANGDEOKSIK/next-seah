@@ -9,6 +9,8 @@ export default function OnlineInputComp({
   inputName,
   placeholder,
   validation,
+  description,
+  button = false,
 }) {
   const {
     register,
@@ -17,18 +19,31 @@ export default function OnlineInputComp({
 
   return (
     <div className="box">
-      <div className="label-wrap">
+      <div className="f-exBold label-wrap">
         {isLabel && <label htmlFor={inputId}>{label}</label>}
-        {isEssential && <span className="essential">*</span>}
+        {isEssential && <span className="f-exBold essential">*</span>}
       </div>
-      <input
-        type={type}
-        name={inputName}
-        id={inputId}
-        placeholder={placeholder}
-        {...register(inputId, validation)}
-      />
-      {errors[inputId] && <p>{errors[inputId]?.message}</p>}
+      {description && <p className="desc">{description}</p>}
+      <div className="input-box">
+        <input
+          type={type}
+          name={inputName}
+          id={inputId}
+          placeholder={type === "file" ? undefined : placeholder}
+          {...register(inputId, validation)}
+        />
+        {button && (
+          <a
+            href="#"
+            className="safe-num"
+          >
+            <span>안심번호 사용</span>
+          </a>
+        )}
+      </div>
+      {errors[inputId] && (
+        <p className="error-msg">{errors[inputId]?.message}</p>
+      )}
     </div>
   );
 }

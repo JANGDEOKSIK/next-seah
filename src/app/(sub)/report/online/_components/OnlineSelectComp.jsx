@@ -1,3 +1,4 @@
+import { color } from "framer-motion";
 import { useFormContext } from "react-hook-form";
 
 export default function OnlineSelectComp({
@@ -13,12 +14,12 @@ export default function OnlineSelectComp({
   return (
     <div className="box">
       {groupLabel && (
-        <div className="label-wrap">
+        <div className="label-wrap f-exBold">
           <label htmlFor={selects[0]?.id || ""}>{groupLabel}</label>
           {isEssential && <span className="essential">*</span>}
         </div>
       )}
-      <div className="select-wrap">
+      <div className="select-box">
         {selects.map((select, index) => (
           <div
             key={index}
@@ -27,9 +28,17 @@ export default function OnlineSelectComp({
             <select
               id={select.id}
               name={select.name}
+              required
               {...register(select.id, select.validation)}
             >
-              <option value="">{select.placeholder || "선택하세요"}</option>
+              <option
+                value=""
+                disabled="true"
+                hidden="true"
+                selected="true"
+              >
+                {select.placeholder || "선택하세요"}
+              </option>
               {select.options.map((option) => (
                 <option
                   key={option.value}
