@@ -29,16 +29,6 @@ export default function ethicalManagementPage() {
         },
       },
     });
-
-    // gsap.to(".tip-off-wrap .left", {
-    //   scrollTrigger: {
-    //     trigger: ".tip-off-wrap .left",
-    //     start: "top top",
-    //     end: "bottom 41%",
-    //     endTrigger: ".tip-off-wrap",
-    //     pin: true,
-    //   },
-    // });
   });
 
   return (
