@@ -5,9 +5,17 @@ export default async function Error() {
     <PageTransition>
       <div className="etc-wrap error">
         <div className="txt-box">
-          <img src="/images/img-error-txt.png" alt="" />
+          <img
+            src="/images/img-error-txt.png"
+            alt=""
+          />
           <div className="btn-wrap">
-            <a href="/main">홈으로</a>
+            <a
+              href="/main"
+              className="f-bold"
+            >
+              홈으로
+            </a>
           </div>
         </div>
       </div>

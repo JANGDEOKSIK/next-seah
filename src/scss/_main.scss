@@ -21,7 +21,6 @@
 
       p {
         margin-bottom: 120px;
-        font-weight: bold;
         font-size: 28px;
         line-height: 160%;
         color: $white;
@@ -47,11 +46,12 @@
           color: $white;
           text-decoration: none;
           backdrop-filter: blur(6px);
-          transition: .3s;
+          transition: 0.3s;
 
           span {
             padding-right: 36px;
-            background: url("../../public/images/ico-arrow.svg") no-repeat center right / 20px;
+            background: url("/images/ico-arrow.svg") no-repeat center right /
+              20px;
           }
 
           &:hover {
@@ -108,15 +108,18 @@
         overflow: hidden;
 
         &:first-child {
-          background: url("../../public/images/img-main-link1.png") no-repeat center center / cover;
+          background: url("/images/img-main-link1.png") no-repeat center center /
+            cover;
         }
 
         &:nth-child(2) {
-          background: url("../../public/images/img-main-link2.png") no-repeat center center / cover;
+          background: url("/images/img-main-link2.png") no-repeat center center /
+            cover;
         }
 
         &:last-child {
-          background: url("../../public/images/img-main-link3.png") no-repeat center center / cover;
+          background: url("/images/img-main-link3.png") no-repeat center center /
+            cover;
         }
 
         .link-detail {
@@ -127,27 +130,29 @@
           height: 640px;
           padding: 64px 60px;
           box-sizing: border-box;
-          background: $white url("../../public/images/ico-logo-verti.svg") no-repeat top 64px left 52px / 25px;
-          border: 1px solid #F1F1F1;
-          transition: .3s;
+          background: $white url("/images/ico-logo-verti.svg") no-repeat top
+            64px left 52px / 25px;
+          border: 1px solid #f1f1f1;
+          transition: 0.3s;
 
           .link-tit {
             margin: 376px 0 24px;
             font-size: 28px;
             color: $brdGray;
-            transition: .3s;
+            transition: 0.3s;
           }
 
           .link-desc {
             font-size: 18px;
             color: $gray60;
-            transition: .3s;
+            transition: 0.3s;
           }
         }
 
         &:hover {
           .link-detail {
-            background: $brdOrange url("../../public/images/ico-logo-verti-wht.svg") no-repeat top 64px left 52px / 25px;
+            background: $brdOrange url("/images/ico-logo-verti-wht.svg")
+              no-repeat top 64px left 52px / 25px;
             border: 1px solid $brdOrange;
 
             .link-tit,

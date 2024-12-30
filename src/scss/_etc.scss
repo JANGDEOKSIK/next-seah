@@ -2,7 +2,7 @@
 .etc-wrap {
   width: 100vw;
   height: 100vh;
-  background: url("../../public/images/img-etc-bg.jpg") no-repeat center center / cover;
+  background: url("/images/img-etc-bg.jpg") no-repeat center center / cover;
   overflow: hidden;
 
   .cont-img {
@@ -30,7 +30,6 @@
       border-radius: 4px;
       background-color: $brdOrange;
       font-size: 18px;
-      font-weight: bold;
       color: $white;
       text-decoration: none;
     }
@@ -49,7 +48,7 @@
       background-color: $white;
       border-radius: 36px;
       transform: translate(-50%, -50%);
-      transition: .3s ease-out;
+      transition: 0.3s ease-out;
 
       .top-area {
         position: relative;
@@ -65,7 +64,8 @@
           right: 24px;
           width: 24px;
           height: 24px;
-          background: url("../../public/images/ico-close.svg") no-repeat center center / cover;
+          background: url("/images/ico-close.svg") no-repeat center center /
+            cover;
           transform: translateY(-50%);
           text-indent: -9999px;
         }

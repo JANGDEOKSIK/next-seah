@@ -27,7 +27,9 @@ export default function OnlineRadioComp({
           <div className="scrl-area">{description}</div>
         </div>
       )}
-      {descriptionNotice && <p className="desc-notice">{descriptionNotice}</p>}
+      {descriptionNotice && (
+        <p className="f-bold desc-notice">{descriptionNotice}</p>
+      )}
       <div className="option-box">
         {options.map((option, index) => (
           <div

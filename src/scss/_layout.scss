@@ -50,6 +50,12 @@ ul {
     background: url("/images/img-result-kv.jpg") no-repeat center center / cover;
   }
 
+  &.ethical {
+    height: 100vh;
+    background: url("/images/img-ethical-manage-kv.jpg") no-repeat center center /
+      cover;
+  }
+
   h2 {
     position: absolute;
     top: 50%;

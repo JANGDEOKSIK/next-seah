@@ -5,8 +5,8 @@ import { EffectFade, Autoplay } from "swiper/modules";
 
 import PageTransition from "../_components/layout/PageTransition";
 
-import 'swiper/css';
-import 'swiper/css/effect-fade';
+import "swiper/css";
+import "swiper/css/effect-fade";
 
 export default function MainPage() {
   return (
@@ -19,36 +19,62 @@ export default function MainPage() {
             speed={2500}
             autoplay={{
               delay: 5000,
-              disableOnInteraction: false
+              disableOnInteraction: false,
             }}
             loop={true}
             slidesPerView={1}
             fadeEffect={{
-              crossFade: true
+              crossFade: true,
             }}
           >
             <SwiperSlide>
-              <img src="/images/img-main-kv1.jpg" alt="" />
+              <img
+                src="/images/img-main-kv1.jpg"
+                alt=""
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="/images/img-main-kv2.jpg" alt="" />
+              <img
+                src="/images/img-main-kv2.jpg"
+                alt=""
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="/images/img-main-kv3.jpg" alt="" />
+              <img
+                src="/images/img-main-kv3.jpg"
+                alt=""
+              />
             </SwiperSlide>
           </Swiper>
           <div className="kv-conts">
-            <img src="/images/ico-logo.svg" alt="" />
-            <p>
-              윤리경영은 시대적 소명이며 지속성장을 위한 <br />
+            <img
+              src="/images/ico-logo.svg"
+              alt=""
+            />
+            <p className="f-bold">
+              윤리경영은 시대적 소명이며 지속성장을 위한 
+              <br />
               필수적인 요소입니다
             </p>
             <div className="btn-wrap">
-              <a href="/report/online" className="f-exBold"><span>제보하기</span></a>
-              <a href="/report/result" className="f-exBold"><span>제보결과 확인</span></a>
+              <a
+                href="/report/online"
+                className="f-exBold"
+              >
+                <span>제보하기</span>
+              </a>
+              <a
+                href="/report/result"
+                className="f-exBold"
+              >
+                <span>제보결과 확인</span>
+              </a>
             </div>
           </div>
-          <img src="/images/ico-scroll.svg" alt="" />
+          <img
+            src="/images/ico-scroll.svg"
+            alt=""
+          />
         </div>
         <div className="conts-area">
           <p className="f-exBold tit">윤리경영 제안센터</p>
@@ -57,7 +83,10 @@ export default function MainPage() {
             제안자의 비밀이 절대적으로 보호됩니다
           </p>
           <div className="link-conts">
-            <a href="/report/guide" className="link-item">
+            <a
+              href="/report/guide"
+              className="link-item"
+            >
               <div className="link-detail">
                 <p className="f-exBold link-tit">제보 가이드</p>
                 <p className="link-desc">
@@ -67,7 +96,10 @@ export default function MainPage() {
                 </p>
               </div>
             </a>
-            <a href="/report/letter-phone-fax" className="link-item">
+            <a
+              href="/report/letter-phone-fax"
+              className="link-item"
+            >
               <div className="link-detail">
                 <p className="f-exBold link-tit">서신·전화·Fax 이용안내</p>
                 <p className="link-desc">
@@ -76,12 +108,16 @@ export default function MainPage() {
                 </p>
               </div>
             </a>
-            <a href="/customer-inquiry" className="link-item">
+            <a
+              href="/customer-inquiry"
+              className="link-item"
+            >
               <div className="link-detail">
                 <p className="f-exBold link-tit">고객문의</p>
                 <p className="link-desc">
                   고객 불편 사항(품질 및 서비스 불만)이나 <br />
-                  문의사항은 해당 회사의 채널로 접수하시면 신속한 조치가 가능합니다.
+                  문의사항은 해당 회사의 채널로 접수하시면 신속한 조치가
+                  가능합니다.
                 </p>
               </div>
             </a>

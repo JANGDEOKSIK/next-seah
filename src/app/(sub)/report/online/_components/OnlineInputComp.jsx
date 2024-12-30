@@ -27,7 +27,7 @@ export default function OnlineInputComp({
         )}
         {isEssential && <span className="f-exBold essential">*</span>}
       </div>
-      {description && <p className="desc">{description}</p>}
+      {description && <p className="f-bold desc">{description}</p>}
       <div className="input-box">
         <input
           type={type}
@@ -39,7 +39,7 @@ export default function OnlineInputComp({
         {button && (
           <a
             href="#"
-            className="safe-num"
+            className="f-bold safe-num"
           >
             <span>안심번호 사용</span>
           </a>
