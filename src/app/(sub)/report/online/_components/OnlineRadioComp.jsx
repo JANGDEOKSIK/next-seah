@@ -9,6 +9,7 @@ export default function OnlineRadioComp({
   options = [],
   description,
   descriptionNotice,
+  validation,
 }) {
   const {
     register,
@@ -38,15 +39,15 @@ export default function OnlineRadioComp({
                 type="radio"
                 id={`${groupId}-${index}`}
                 value={option.value}
-                {...register(groupId)}
+                {...register(groupId, validation)}
               />
               {option.label}
             </label>
           </div>
         ))}
       </div>
-      {errors[inputId] && (
-        <p className="error-msg">{errors[inputId]?.message}</p>
+      {errors[groupId] && (
+        <p className="error-msg">{errors[groupId]?.message}</p>
       )}
     </div>
   );

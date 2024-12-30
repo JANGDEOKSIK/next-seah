@@ -372,6 +372,57 @@
         }
       }
 
+      .file-tit {
+        margin: 48px 0 16px;
+        font-size: 18px;
+
+        & + .box {
+          display: flex;
+          flex-direction: row-reverse;
+
+          label {
+            display: block;
+            width: 198px;
+            margin-left: 8px;
+            padding: 19px 0;
+            background-color: $brdGray;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            color: $white;
+            text-align: center;
+            cursor: pointer;
+
+            span {
+              padding-left: 28px;
+              background: url("../../public/images/ico-upload.svg") no-repeat
+                center left / 16px;
+            }
+          }
+
+          .input-box {
+            width: 100%;
+
+            input {
+              width: 100%;
+              height: 64px;
+              padding: 0 0 0 20px;
+              font-family: inherit;
+              font-size: 16px;
+              line-height: 64px;
+
+              &::file-selector-button {
+                display: none;
+              }
+
+              &::placeholder {
+                color: $gray40;
+              }
+            }
+          }
+        }
+      }
+
       .btn-wrap {
         display: flex;
         column-gap: 8px;

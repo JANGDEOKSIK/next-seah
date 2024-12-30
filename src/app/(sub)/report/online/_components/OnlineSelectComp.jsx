@@ -31,14 +31,7 @@ export default function OnlineSelectComp({
               required
               {...register(select.id, select.validation)}
             >
-              <option
-                value=""
-                disabled="true"
-                hidden="true"
-                selected="true"
-              >
-                {select.placeholder || "선택하세요"}
-              </option>
+              <option value="">{select.placeholder || "선택하세요"}</option>
               {select.options.map((option) => (
                 <option
                   key={option.value}

@@ -20,7 +20,11 @@ export default function OnlineInputComp({
   return (
     <div className="box">
       <div className="f-exBold label-wrap">
-        {isLabel && <label htmlFor={inputId}>{label}</label>}
+        {isLabel && (
+          <label htmlFor={inputId}>
+            <span>{label}</span>
+          </label>
+        )}
         {isEssential && <span className="f-exBold essential">*</span>}
       </div>
       {description && <p className="desc">{description}</p>}

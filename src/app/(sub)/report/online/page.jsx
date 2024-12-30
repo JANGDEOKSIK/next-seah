@@ -27,8 +27,8 @@ export default function Online() {
       name: "company1",
       placeholder: "대상회사를 선택해 주세요.",
       options: [
-        { value: "company1", label: "세아홀딩스 계열" },
-        { value: "company2", label: "세아홀딩스 계열" },
+        { value: "company1-1", label: "세아홀딩스 계열" },
+        { value: "company1-2", label: "세아홀딩스 계열" },
       ],
       validation: { required: "대상회사를 선택해 주세요." },
     },
@@ -37,8 +37,8 @@ export default function Online() {
       name: "company2",
       placeholder: "대상회사를 선택해 주세요.",
       options: [
-        { value: "company1", label: "세아제강지주 계열" },
-        { value: "company2", label: "세아제강지주 계열" },
+        { value: "company2-1", label: "세아제강지주 계열" },
+        { value: "company2-2", label: "세아제강지주 계열" },
       ],
       validation: { required: "대상회사를 선택해 주세요." },
     },
@@ -243,9 +243,10 @@ export default function Online() {
                       "예시. xx팀 xxx 과장에게 확인 문의, 00년 0월 0일 xx팀 법인카드 내역 확인 등"
                     }
                   />
+                  <p className="f-exBold file-tit">파일 업로드</p>
                   <OnlineInputComp
                     inputId="uploadFile"
-                    label="파일 업로드"
+                    label="파일첨부"
                     type="file"
                     inputName="uploadFile"
                     isEssential={false}
@@ -253,6 +254,9 @@ export default function Online() {
                   <img
                     src="/images/img-online1.png"
                     alt=""
+                    style={{
+                      marginTop: "16px",
+                    }}
                   />
                 </div>
               </div>
@@ -365,7 +369,10 @@ export default function Online() {
                     groupId="useAgree"
                     isEssential={true}
                     label="개인정보 수집 및 이용 동의"
-                    options={[{ label: "동의하지 않음" }, { label: "동의" }]}
+                    options={[
+                      { label: "동의하지 않음", value: "disagree" },
+                      { label: "동의", value: "agree" },
+                    ]}
                     description={
                       <>
                         수집하는 개인정보 항목 <br />
@@ -397,13 +404,17 @@ export default function Online() {
                     descriptionNotice={
                       "개인정보처리 방침에 따라 개인정보 수집ㆍ활용에 동의합니다."
                     }
+                    validation={{ required: "선택해 주세요." }}
                   />
                   <OnlineRadioComp
                     inputId="provAgree-0"
                     groupId="provAgree"
                     isEssential={true}
                     label="개인정보 제3자 제공동의"
-                    options={[{ label: "동의하지 않음" }, { label: "동의" }]}
+                    options={[
+                      { label: "동의하지 않음", value: "disagree" },
+                      { label: "동의", value: "agree" },
+                    ]}
                     description={
                       <>
                         회사는 고객의 개인정보를 원칙적으로 외부에 제공하지
@@ -426,6 +437,7 @@ export default function Online() {
                       </>
                     }
                     descriptionNotice={"개인정보 제3자 제공에 동의합니다."}
+                    validation={{ required: "선택해 주세요." }}
                   />
                   <img
                     src="/images/img-online4.png"
