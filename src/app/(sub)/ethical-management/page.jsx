@@ -19,7 +19,6 @@ export default function ethicalManagementPage() {
         pin: true,
         onUpdate: (self) => {
           let percentage = (self.progress * 100).toFixed(2);
-
           if (percentage >= 50) {
             $kvTitle.classList.add("hidden");
             $kvDesc.classList.add("active");
@@ -31,14 +30,15 @@ export default function ethicalManagementPage() {
       },
     });
 
-    gsap.to(".tip-off-wrap .left", {
-      scrollTrigger: {
-        trigger: ".tip-off-wrap .left",
-        start: "top top",
-        end: "bottom 41%",
-        pin: true,
-      },
-    });
+    // gsap.to(".tip-off-wrap .left", {
+    //   scrollTrigger: {
+    //     trigger: ".tip-off-wrap .left",
+    //     start: "top top",
+    //     end: "bottom 41%",
+    //     endTrigger: ".tip-off-wrap",
+    //     pin: true,
+    //   },
+    // });
   });
 
   return (
