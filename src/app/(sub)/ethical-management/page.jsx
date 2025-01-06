@@ -10,23 +10,43 @@ export default function ethicalManagementPage() {
   useGSAP(() => {
     const $kvTitle = document.querySelector(".visual-area.ethical h2");
     const $kvDesc = document.querySelector(".visual-area.ethical .desc");
+    const $protectionWrap = document.querySelector(".protection-wrap")
 
     gsap.to(".visual-area.ethical", {
       scrollTrigger: {
         trigger: ".visual-area.ethical",
         start: "top top",
-        end: "+=200%",
+        end: "bottom top",
+        endTrigger: "footer",
         pin: true,
         onUpdate: (self) => {
           let percentage = (self.progress * 100).toFixed(2);
-          if (percentage >= 50) {
-            $kvTitle.classList.add("hidden");
-            $kvDesc.classList.add("active");
-          } else {
+
+          if (percentage > 0 && percentage <= 30) {
             $kvTitle.classList.remove("hidden");
             $kvDesc.classList.remove("active");
+
+            $protectionWrap.classList.remove("active");
+          } else if (percentage > 30 && percentage <= 60) {
+            $kvTitle.classList.add("hidden");
+            $kvDesc.classList.add("active");
+
+            $protectionWrap.classList.remove("active");
+          } else if (percentage > 60) {
+            $protectionWrap.classList.add("active");
           }
-        },
+        }
+      },
+    });
+
+    gsap.to(".contents-area.ethical .tip-off-wrap .left", {
+      scrollTrigger: {
+        trigger: ".contents-area.ethical .tip-off-wrap .left",
+        start: "-130px top",
+        end: "bottom 290px",
+        endTrigger: ".contents-area.ethical .tip-off-wrap .right",
+        pin: true,
+        pinSpacing: false
       },
     });
   });
@@ -43,7 +63,31 @@ export default function ethicalManagementPage() {
         </p>
       </div>
       <div className="contents-area ethical">
-        <div className="protection-wrap"></div>
+        <div className="protection-wrap">
+          <div className="txt-box">
+            <p className="f-exBold">제보자 보호</p>
+            <div className="txt-list">
+              <div className="txt-item">
+                <p className="tit f-exBold">Anonymous</p>
+                <p className="desc f-bold">제안은 익명으로도 가능합니다</p>
+              </div>
+              <div className="txt-item">
+                <p className="tit f-exBold">Secret</p>
+                <p className="desc f-bold">제안자의 비밀은 절대적으로 보호됩니다.</p>
+              </div>
+              <div className="txt-item">
+                <p className="tit f-exBold">Security</p>
+                <p className="desc f-bold">제안 내용은 세아홀딩스 감사실만이 열람가능합니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-box active">
+            <img src="/images/img-annoymous-bg.jpg" alt="" />
+            <img src="/images/img-secret-bg.jpg" alt="" />
+            <img src="/images/img-security-bg.jpg" alt="" />
+          </div>
+        </div>
         <div className="tip-off-wrap">
           <div className="left">
             <img
