@@ -10,7 +10,6 @@ export default function ethicalManagementPage() {
   useGSAP(() => {
     const $kvTitle = document.querySelector(".visual-area.ethical h2");
     const $kvDesc = document.querySelector(".visual-area.ethical .desc");
-    const $protectionWrap = document.querySelector(".protection-wrap")
 
     gsap.to(".visual-area.ethical", {
       scrollTrigger: {
@@ -25,15 +24,9 @@ export default function ethicalManagementPage() {
           if (percentage > 0 && percentage <= 30) {
             $kvTitle.classList.remove("hidden");
             $kvDesc.classList.remove("active");
-
-            $protectionWrap.classList.remove("active");
           } else if (percentage > 30 && percentage <= 60) {
             $kvTitle.classList.add("hidden");
             $kvDesc.classList.add("active");
-
-            $protectionWrap.classList.remove("active");
-          } else if (percentage > 60) {
-            $protectionWrap.classList.add("active");
           }
         }
       },
@@ -63,7 +56,7 @@ export default function ethicalManagementPage() {
         </p>
       </div>
       <div className="contents-area ethical">
-        <div className="protection-wrap">
+        {/* <div className="protection-wrap">
           <div className="txt-box">
             <p className="f-exBold">제보자 보호</p>
             <div className="txt-list">
@@ -87,7 +80,7 @@ export default function ethicalManagementPage() {
             <img src="/images/img-secret-bg.jpg" alt="" />
             <img src="/images/img-security-bg.jpg" alt="" />
           </div>
-        </div>
+        </div> */}
         <div className="tip-off-wrap">
           <div className="left">
             <img
