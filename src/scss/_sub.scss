@@ -34,11 +34,17 @@
   }
 
   .protection-wrap {
-    position: relative;
+    position: absolute;
+    top: 50px;
+    left: 0;
     width: 100%;
     height: 100vh;
+    background-color: $white;
     color: $white;
+    transition: 0.7s;
     overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
 
     .txt-box {
       position: relative;
@@ -72,6 +78,7 @@
       width: 100%;
       height: 100%;
       transform: translate(-50%, -50%);
+      overflow: hidden;
 
       img {
         position: absolute;
@@ -81,7 +88,18 @@
         height: 100%;
         transform: translate(-50%, -50%);
         object-fit: cover;
+        opacity: 0;
+
+        &.active {
+          opacity: 1;
+        }
       }
+    }
+
+    &.active {
+      top: 0;
+      visibility: visible;
+      opacity: 1;
     }
   }
 

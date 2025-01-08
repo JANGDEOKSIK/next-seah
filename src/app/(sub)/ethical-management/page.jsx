@@ -10,6 +10,7 @@ export default function ethicalManagementPage() {
   useGSAP(() => {
     const $kvTitle = document.querySelector(".top-wrap h2");
     const $kvDesc = document.querySelector(".top-wrap .desc");
+    const $protectionWrap = document.querySelector(".protection-wrap");
 
     setTimeout(() => {
       gsap.fromTo(
@@ -19,22 +20,26 @@ export default function ethicalManagementPage() {
       );
     }, 500);
 
-    gsap.to(".top-wrap", {
+    gsap.to(".fixed-wrap", {
       scrollTrigger: {
-        trigger: ".top-wrap",
+        trigger: ".fixed-wrap",
         start: "top top",
-        end: "bottom top",
-        endTrigger: "footer",
+        end: "+=500% top",
         pin: true,
+        markers: true,
         onUpdate: (self) => {
           let percentage = (self.progress * 100).toFixed(2);
 
-          if (percentage > 0 && percentage <= 30) {
+          if (percentage > 0 && percentage <= 20) {
             gsap.to($kvTitle, { y: 0, opacity: 1, duration: 0.7 });
             gsap.to($kvDesc, { y: 0, opacity: 0, duration: 0.7 });
-          } else if (percentage > 30 && percentage <= 60) {
+          } else if (percentage > 20 && percentage <= 40) {
             gsap.to($kvTitle, { y: -150, opacity: 0, duration: 0.7 });
             gsap.to($kvDesc, { y: "-50%", opacity: 1, duration: 0.7 });
+          } else if (percentage > 40 && percentage <= 60) {
+            $protectionWrap.classList.remove("active");
+          } else if (percentage > 60 && percentage <= 70) {
+            $protectionWrap.classList.add("active");
           }
         },
       },
@@ -90,10 +95,11 @@ export default function ethicalManagementPage() {
               </div>
             </div>
 
-            <div className="bg-box active">
+            <div className="bg-box">
               <img
                 src="/images/img-annoymous-bg.jpg"
                 alt=""
+                className="active"
               />
               <img
                 src="/images/img-secret-bg.jpg"
