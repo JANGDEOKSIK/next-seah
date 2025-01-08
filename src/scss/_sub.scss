@@ -1,36 +1,15 @@
 // 윤리경영 제안센터 소개
 .visual-area.ethical {
-  h2 {
-    // transform: translate(-50%, 0);
-    transition: 0.7s;
-    // opacity: 0;
-    // visibility: hidden;
-
-    &.hidden {
-      transform: translate(-50%, -150%);
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-
   .desc {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, 0);
-    transition: 0.7s;
     font-size: 36px;
     text-align: center;
     color: $white;
     opacity: 0;
-    visibility: hidden;
-
-    &.active {
-      transform: translate(-50%, -50%);
-      opacity: 1;
-      visibility: visible;
-    }
   }
 }
 

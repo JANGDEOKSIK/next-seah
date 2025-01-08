@@ -11,6 +11,12 @@ export default function ethicalManagementPage() {
     const $kvTitle = document.querySelector(".visual-area.ethical h2");
     const $kvDesc = document.querySelector(".visual-area.ethical .desc");
 
+    gsap.fromTo(
+      $kvTitle,
+      { y: 70, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7 }
+    );
+
     gsap.to(".visual-area.ethical", {
       scrollTrigger: {
         trigger: ".visual-area.ethical",
@@ -22,13 +28,13 @@ export default function ethicalManagementPage() {
           let percentage = (self.progress * 100).toFixed(2);
 
           if (percentage > 0 && percentage <= 30) {
-            $kvTitle.classList.remove("hidden");
-            $kvDesc.classList.remove("active");
+            gsap.to($kvTitle, { y: 0, opacity: 1, duration: 0.7 });
+            gsap.to($kvDesc, { y: 0, opacity: 0, duration: 0.7 });
           } else if (percentage > 30 && percentage <= 60) {
-            $kvTitle.classList.add("hidden");
-            $kvDesc.classList.add("active");
+            gsap.to($kvTitle, { y: -150, opacity: 0, duration: 0.7 });
+            gsap.to($kvDesc, { y: "-50%", opacity: 1, duration: 0.7 });
           }
-        }
+        },
       },
     });
 
@@ -39,7 +45,7 @@ export default function ethicalManagementPage() {
         end: "bottom 290px",
         endTrigger: ".contents-area.ethical .tip-off-wrap .right",
         pin: true,
-        pinSpacing: false
+        pinSpacing: false,
       },
     });
   });
