@@ -1,20 +1,36 @@
 // 윤리경영 제안센터 소개
-.visual-area.ethical {
-  .desc {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, 0);
-    font-size: 36px;
-    text-align: center;
-    color: $white;
-    opacity: 0;
-  }
-}
-
 .contents-area.ethical {
   padding: 0;
+
+  .top-wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("/images/img-ethical-manage-kv.jpg") no-repeat center center /
+      cover;
+
+    h2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 56px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .desc {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%, 0);
+      font-size: 36px;
+      text-align: center;
+      color: $white;
+      opacity: 0;
+    }
+  }
 
   // .protection-wrap {
   //   position: fixed;

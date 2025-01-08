@@ -8,8 +8,8 @@ export default function ethicalManagementPage() {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 
   useGSAP(() => {
-    const $kvTitle = document.querySelector(".visual-area.ethical h2");
-    const $kvDesc = document.querySelector(".visual-area.ethical .desc");
+    const $kvTitle = document.querySelector(".top-wrap h2");
+    const $kvDesc = document.querySelector(".top-wrap .desc");
 
     gsap.fromTo(
       $kvTitle,
@@ -17,9 +17,9 @@ export default function ethicalManagementPage() {
       { y: 0, opacity: 1, duration: 0.7 }
     );
 
-    gsap.to(".visual-area.ethical", {
+    gsap.to(".top-wrap", {
       scrollTrigger: {
-        trigger: ".visual-area.ethical",
+        trigger: ".top-wrap",
         start: "top top",
         end: "bottom top",
         endTrigger: "footer",
@@ -52,17 +52,19 @@ export default function ethicalManagementPage() {
 
   return (
     <>
-      <div className="visual-area ethical">
-        <h2 className="f-exBold">윤리경영제안센터 소개</h2>
-        <p className="f-exBold desc">
-          세아는 기본과 원칙을 지키는 윤리경영을 통해 <br />
-          기업의 사회적 책임을 다하고, 풍부한 가치를 창조함으로써 고객, 임직원,
-          <br />
-          협력회사, 주주가 함께 성장, 발전하는데 최선을 다하고 있습니다.
-        </p>
-      </div>
       <div className="contents-area ethical">
-        {/* <div className="protection-wrap">
+        <div className="top-wrap">
+          <h2 className="f-exBold">윤리경영제안센터 소개</h2>
+          <p className="f-exBold desc">
+            세아는 기본과 원칙을 지키는 윤리경영을 통해 <br />
+            기업의 사회적 책임을 다하고, 풍부한 가치를 창조함으로써 고객,
+            임직원,
+            <br />
+            협력회사, 주주가 함께 성장, 발전하는데 최선을 다하고 있습니다.
+          </p>
+        </div>
+
+        <div className="protection-wrap">
           <div className="txt-box">
             <p className="f-exBold">제보자 보호</p>
             <div className="txt-list">
@@ -72,21 +74,35 @@ export default function ethicalManagementPage() {
               </div>
               <div className="txt-item">
                 <p className="tit f-exBold">Secret</p>
-                <p className="desc f-bold">제안자의 비밀은 절대적으로 보호됩니다.</p>
+                <p className="desc f-bold">
+                  제안자의 비밀은 절대적으로 보호됩니다.
+                </p>
               </div>
               <div className="txt-item">
                 <p className="tit f-exBold">Security</p>
-                <p className="desc f-bold">제안 내용은 세아홀딩스 감사실만이 열람가능합니다.</p>
+                <p className="desc f-bold">
+                  제안 내용은 세아홀딩스 감사실만이 열람가능합니다.
+                </p>
               </div>
             </div>
           </div>
 
           <div className="bg-box active">
-            <img src="/images/img-annoymous-bg.jpg" alt="" />
-            <img src="/images/img-secret-bg.jpg" alt="" />
-            <img src="/images/img-security-bg.jpg" alt="" />
+            <img
+              src="/images/img-annoymous-bg.jpg"
+              alt=""
+            />
+            <img
+              src="/images/img-secret-bg.jpg"
+              alt=""
+            />
+            <img
+              src="/images/img-security-bg.jpg"
+              alt=""
+            />
           </div>
-        </div> */}
+        </div>
+
         <div className="tip-off-wrap">
           <div className="left">
             <img
@@ -101,6 +117,7 @@ export default function ethicalManagementPage() {
             />
           </div>
         </div>
+
         <div className="inquiry-contact-list">
           <img
             src="/images/img-ethical-manage4.jpg"
