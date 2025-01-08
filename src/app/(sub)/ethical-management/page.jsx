@@ -13,6 +13,9 @@ export default function ethicalManagementPage() {
     const $protectionWrap = document.querySelector(".protection-wrap");
     const $protectionTxt = document.querySelector(".protection-wrap .txt-box");
     const $protectionBg = document.querySelector(".protection-wrap .bg-box");
+    const $protectionBgImg = document.querySelectorAll(
+      ".protection-wrap .bg-box img"
+    );
     let isActive = false;
 
     setTimeout(() => {
@@ -33,6 +36,7 @@ export default function ethicalManagementPage() {
         onUpdate: (self) => {
           let percentage = (self.progress * 100).toFixed(2);
 
+          // top-wrap
           if (percentage > 0 && percentage <= 20) {
             gsap.to($kvTitle, { y: 0, opacity: 1, duration: 0.7 });
             gsap.to($kvDesc, { y: 0, opacity: 0, duration: 0.7 });
@@ -41,6 +45,7 @@ export default function ethicalManagementPage() {
             gsap.to($kvDesc, { y: "-50%", opacity: 1, duration: 0.7 });
           }
 
+          // protection-wrap 배경
           if (percentage >= 50 && !isActive) {
             isActive = true;
 
@@ -57,6 +62,16 @@ export default function ethicalManagementPage() {
             setTimeout(() => {
               $protectionWrap.classList.remove("active");
             }, 700);
+          }
+
+          // protection-wrap 내용 좌우 스크롤
+          if (percentage >= 55 && percentage < 70) {
+            $protectionBgImg[1].classList.remove("active");
+          } else if (percentage >= 70 && percentage < 85) {
+            $protectionBgImg[2].classList.remove("active");
+            $protectionBgImg[1].classList.add("active");
+          } else if (percentage > 85) {
+            $protectionBgImg[2].classList.add("active");
           }
         },
       },
