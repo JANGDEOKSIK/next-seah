@@ -11,6 +11,9 @@ export default function ethicalManagementPage() {
     const $kvTitle = document.querySelector(".top-wrap h2");
     const $kvDesc = document.querySelector(".top-wrap .desc");
     const $protectionWrap = document.querySelector(".protection-wrap");
+    const $protectionTxt = document.querySelector(".protection-wrap .txt-box");
+    const $protectionBg = document.querySelector(".protection-wrap .bg-box");
+    let isActive = false;
 
     setTimeout(() => {
       gsap.fromTo(
@@ -36,10 +39,24 @@ export default function ethicalManagementPage() {
           } else if (percentage > 20 && percentage <= 40) {
             gsap.to($kvTitle, { y: -150, opacity: 0, duration: 0.7 });
             gsap.to($kvDesc, { y: "-50%", opacity: 1, duration: 0.7 });
-          } else if (percentage > 40 && percentage <= 60) {
-            $protectionWrap.classList.remove("active");
-          } else if (percentage > 60 && percentage <= 70) {
+          }
+
+          if (percentage >= 50 && !isActive) {
+            isActive = true;
+
             $protectionWrap.classList.add("active");
+            setTimeout(() => {
+              $protectionTxt.classList.add("active");
+              $protectionBg.classList.add("active");
+            }, 700);
+          } else if (percentage < 50 && isActive) {
+            isActive = false;
+
+            $protectionTxt.classList.remove("active");
+            $protectionBg.classList.remove("active");
+            setTimeout(() => {
+              $protectionWrap.classList.remove("active");
+            }, 700);
           }
         },
       },
