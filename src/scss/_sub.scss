@@ -50,7 +50,8 @@
       position: relative;
       top: 37%;
       z-index: 1;
-      width: 100%;
+      width: 1640px;
+      margin: 0 auto;
       transition-duration: 0.7s;
       text-align: center;
       color: $white;
@@ -63,13 +64,40 @@
       }
 
       .txt-list {
-        display: flex;
-        width: 100%;
+        position: relative;
+        width: 880px;
+        height: 193px;
+        margin: 0 auto;
 
-        .tit {
-          width: 100vw;
-          margin-bottom: 24px;
-          font-size: 100px;
+        .txt-item {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 580px;
+          padding: 0 150px;
+
+          .tit {
+            margin-bottom: 24px;
+            font-size: 100px;
+            -webkit-text-stroke: 1px $white;
+            color: transparent;
+            transition-duration: 0.7s;
+          }
+
+          &:nth-child(2) {
+            left: 880px;
+          }
+
+          &:nth-child(3) {
+            left: 1760px;
+          }
+
+          &.active {
+            .tit {
+              -webkit-text-stroke: unset;
+              color: $white;
+            }
+          }
         }
       }
 

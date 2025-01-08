@@ -12,6 +12,9 @@ export default function ethicalManagementPage() {
     const $kvDesc = document.querySelector(".top-wrap .desc");
     const $protectionWrap = document.querySelector(".protection-wrap");
     const $protectionTxt = document.querySelector(".protection-wrap .txt-box");
+    const $protectionItem = document.querySelectorAll(
+      ".protection-wrap .txt-box .txt-list .txt-item"
+    );
     const $protectionBg = document.querySelector(".protection-wrap .bg-box");
     const $protectionBgImg = document.querySelectorAll(
       ".protection-wrap .bg-box img"
@@ -32,7 +35,6 @@ export default function ethicalManagementPage() {
         start: "top top",
         end: "+=500% top",
         pin: true,
-        markers: true,
         onUpdate: (self) => {
           let percentage = (self.progress * 100).toFixed(2);
 
@@ -64,14 +66,66 @@ export default function ethicalManagementPage() {
             }, 700);
           }
 
-          // protection-wrap 내용 좌우 스크롤
+          // protection-wrap 내용
           if (percentage >= 55 && percentage < 70) {
             $protectionBgImg[1].classList.remove("active");
+
+            gsap.to($protectionItem[0], 0.7, {
+              left: "0",
+              onStart: () => {
+                $protectionItem[0].classList.add("active");
+              },
+            });
+            gsap.to($protectionItem[1], 0.7, {
+              left: "880px",
+              onStart: () => {
+                $protectionItem[1].classList.remove("active");
+              },
+            });
+            gsap.to($protectionItem[2], 0.7, {
+              left: "1760px",
+              onStart: () => {
+                $protectionItem[2].classList.remove("active");
+              },
+            });
           } else if (percentage >= 70 && percentage < 85) {
             $protectionBgImg[2].classList.remove("active");
             $protectionBgImg[1].classList.add("active");
+
+            gsap.to($protectionItem[0], 0.7, {
+              left: "-880px",
+              onStart: () => {
+                $protectionItem[0].classList.remove("active");
+              },
+            });
+            gsap.to($protectionItem[1], 0.7, {
+              left: "0",
+              onStart: () => {
+                $protectionItem[1].classList.add("active");
+              },
+            });
+            gsap.to($protectionItem[2], 0.7, {
+              left: "880px",
+              onStart: () => {
+                $protectionItem[2].classList.remove("active");
+              },
+            });
           } else if (percentage > 85) {
             $protectionBgImg[2].classList.add("active");
+
+            gsap.to($protectionItem[0], 0.7, { left: "-1760px" });
+            gsap.to($protectionItem[1], 0.7, {
+              left: "-880px",
+              onStart: () => {
+                $protectionItem[1].classList.remove("active");
+              },
+            });
+            gsap.to($protectionItem[2], 0.7, {
+              left: "0",
+              onStart: () => {
+                $protectionItem[2].classList.add("active");
+              },
+            });
           }
         },
       },
@@ -108,7 +162,7 @@ export default function ethicalManagementPage() {
             <div className="txt-box">
               <p className="f-exBold">제보자 보호</p>
               <div className="txt-list">
-                <div className="txt-item">
+                <div className="txt-item active">
                   <p className="tit f-exBold">Anonymous</p>
                   <p className="desc f-bold">제안은 익명으로도 가능합니다</p>
                 </div>
