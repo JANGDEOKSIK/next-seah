@@ -17,8 +17,6 @@ export default function MainPage() {
       <h1>메인</h1>
       <h1>메인</h1>
       <h1>메인</h1>
-      <h1>메인</h1>
-      <h1>메인</h1>
     </PageTransition>
   );
 }
