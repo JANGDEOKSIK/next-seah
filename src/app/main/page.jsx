@@ -9,9 +9,9 @@ import SelectBox from "../_components/SelectBox";
 import { useForm } from "react-hook-form";
 
 export default function MainPage() {
-  const [inputTitValue, setInputTitValue] = useState("");
-  const [inputNumValue, setInputNumValue] = useState("");
-  const [textareaValue, setTextareaValue] = useState("");
+  const [inputTitValue, setInputTitValue] = useState(" ");
+  const [inputNumValue, setInputNumValue] = useState(" ");
+  const [textareaValue, setTextareaValue] = useState(" ");
   const OPTIONS0 = [
     { value: "세아홀딩스 계열", name: "세아홀딩스 계열" },
     { value: "세아홀딩스 계열1", name: "세아홀딩스 계열1" },
